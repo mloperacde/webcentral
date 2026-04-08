@@ -1,0 +1,8 @@
+{
+  "name": "Central Envasados | Co-Packing de Alta Precisión",
+  "description": "Plataforma industrial de co-packing de alta precisión con integración de IA para análisis de envases, búsqueda técnica y síntesis de voz.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
