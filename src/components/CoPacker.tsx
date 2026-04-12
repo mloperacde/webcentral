@@ -41,7 +41,7 @@ export const CoPacker = () => {
   ];
 
   return (
-    <div id="copacker" ref={containerRef} className="relative h-[280vh] bg-black">
+    <div id="copacker" ref={containerRef} className="relative h-[380vh] bg-black">
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         {/* Background is just black now */}
         <div className="absolute inset-0 z-0 bg-black" />
@@ -137,10 +137,10 @@ export const CoPacker = () => {
             </p>
           </div>
           
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center min-h-0 pointer-events-auto pb-4">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center min-h-0 pointer-events-auto pb-4">
             <motion.div 
               style={{ opacity: contentOpacity, y: contentY }}
-              className="relative h-full lg:h-[85vh] max-h-[900px] rounded-[2rem] overflow-hidden border border-white/10 backdrop-blur-md"
+              className="relative h-[96vh] lg:h-[94vh] rounded-[3rem] overflow-hidden border border-white/10 backdrop-blur-md shadow-2xl"
             >
               {/* Background Image inside the card */}
               <div className="absolute inset-0 z-0">
@@ -150,16 +150,16 @@ export const CoPacker = () => {
                   className="w-full h-full object-cover opacity-80"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
               </div>
 
-              <div className="relative z-20 h-full flex items-center py-6 px-4 sm:px-8 lg:px-12 overflow-y-auto">
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center py-4">
+              <div className="relative z-20 h-full flex items-center py-4 px-8 sm:px-16 lg:px-24 overflow-y-auto">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center py-4">
                   {/* Left Column: 1, 2, 3 */}
-                  <div className="flex flex-col gap-6 lg:gap-8">
+                  <div className="flex flex-col gap-4 lg:gap-6">
                     {[features[0], features[1], features[2]].map((feature) => (
-                      <div key={feature.key} className="flex flex-col gap-2 lg:gap-3">
-                        <div className="flex items-center gap-3 px-5 py-3 rounded-full border bg-accent/20 border-accent/40 backdrop-blur-xl shadow-[0_0_20px_rgba(var(--accent-rgb),0.15)] w-fit">
+                      <div key={feature.key} className="flex flex-col gap-2">
+                        <div className="flex items-center gap-4 px-6 py-2 rounded-full border bg-accent/20 border-accent/40 backdrop-blur-xl shadow-[0_0_20px_rgba(var(--accent-rgb),0.15)] w-fit">
                           <div className="w-5 h-5 rounded-full flex items-center justify-center bg-white text-accent">
                             <Plus className="w-3 h-3 rotate-45" />
                           </div>
@@ -167,7 +167,7 @@ export const CoPacker = () => {
                             {t(feature.key)}
                           </span>
                         </div>
-                        <p className="px-5 text-white/70 text-sm lg:text-[15px] font-light leading-relaxed max-w-lg border-l border-accent/20 ml-6">
+                        <p className="px-5 text-white/50 text-[12px] lg:text-[14px] font-light leading-relaxed max-w-sm border-l border-accent/20 ml-6">
                           {t(feature.desc)}
                         </p>
                       </div>
@@ -175,10 +175,10 @@ export const CoPacker = () => {
                   </div>
  
                   {/* Right Column: 4, 5, 6 */}
-                  <div className="flex flex-col gap-6 lg:gap-8">
+                  <div className="flex flex-col gap-4 lg:gap-6">
                     {[features[3], features[4], features[5]].map((feature) => (
-                      <div key={feature.key} className="flex flex-col gap-2 lg:gap-3">
-                        <div className="flex items-center gap-3 px-5 py-3 rounded-full border bg-accent/20 border-accent/40 backdrop-blur-xl shadow-[0_0_20px_rgba(var(--accent-rgb),0.15)] w-fit">
+                      <div key={feature.key} className="flex flex-col gap-2">
+                        <div className="flex items-center gap-4 px-6 py-2 rounded-full border bg-accent/20 border-accent/40 backdrop-blur-xl shadow-[0_0_20px_rgba(var(--accent-rgb),0.15)] w-fit">
                           <div className="w-5 h-5 rounded-full flex items-center justify-center bg-white text-accent">
                             <Plus className="w-3 h-3 rotate-45" />
                           </div>
@@ -186,7 +186,7 @@ export const CoPacker = () => {
                             {t(feature.key)}
                           </span>
                         </div>
-                        <p className="px-5 text-white/70 text-sm lg:text-[15px] font-light leading-relaxed max-w-lg border-l border-accent/20 ml-6">
+                        <p className="px-5 text-white/50 text-[12px] lg:text-[14px] font-light leading-relaxed max-w-sm border-l border-accent/20 ml-6">
                           {t(feature.desc)}
                         </p>
                       </div>
