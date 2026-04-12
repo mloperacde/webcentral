@@ -42,14 +42,14 @@ export const Productos = () => {
       title: 'productos.items.jars.title', 
       description: 'productos.items.jars.description',
       capacity: 'productos.items.jars.capacity',
-      image: 'https://images.unsplash.com/photo-1594465919760-441fe5908ab0?auto=format&fit=crop&q=80&w=1200'
+      image: '/tarros.webp'
     },
     { 
       id: 'vials', 
       title: 'productos.items.vials.title', 
       description: 'productos.items.vials.description',
       capacity: 'productos.items.vials.capacity',
-      image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?auto=format&fit=crop&q=80&w=1200'
+      image: '/viales.webp'
     },
   ];
 
@@ -131,7 +131,8 @@ export const Productos = () => {
                     ease: [0.21, 0.47, 0.32, 0.98] 
                   }}
                   whileHover={{ y: -5, scale: 1.02 }}
-                  className="group relative p-8 backdrop-blur-3xl border transition-all duration-500 rounded-3xl flex flex-col justify-between min-h-[260px] bg-white/[0.03] border-white/10 hover:bg-white/10 hover:border-white/20"
+                  onClick={() => setSelectedProduct(product)}
+                  className="group relative p-8 backdrop-blur-3xl border transition-all duration-500 rounded-3xl flex flex-col justify-between min-h-[260px] bg-white/[0.03] border-white/10 hover:bg-white/10 hover:border-white/20 cursor-pointer"
                 >
                   <div>
                     <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-accent transition-colors uppercase">
