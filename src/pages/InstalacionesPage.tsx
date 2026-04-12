@@ -25,31 +25,31 @@ export const InstalacionesPage = () => {
 
   const stats = [
     { value: '30', label: 'Líneas de Producción' },
-    { value: '7', label: 'Salas Blancas Certificadas' },
+    { value: '6', label: 'Salas Blancas Certificadas' },
     { value: '700', label: 'L/h Agua Purificada (Ph. Eur.)' },
-    { value: '5000', label: 'm² Logística Avanzada' },
+    { value: '+5000', label: 'm² Capacidad Total' },
   ];
 
   const mainfacilities = [
     {
       id: 'manufacturing',
       icon: Factory,
-      title: 'Fabricación Grado Superior',
-      description: 'Más de 30 salas independientes de fabricación que permiten procesos en paralelo sin riesgo de contaminación cruzada.',
+      title: 'Fabricación de Grado Superior',
+      description: 'Fabricación de fórmulas críticas bajo protocolos asépticos y control digital total.',
       image: '/production.png'
     },
     {
       id: 'cleanrooms',
       icon: ShieldCheck,
-      title: '7 Salas Blancas ISO 7/8',
-      description: 'Entornos de aire altamente filtrado bajo control de partículas y presión positiva, ideales para productos sanitarios.',
+      title: '6 Salas Blancas Certificadas',
+      description: 'Instalaciones cualificadas para productos sanitarios con control continuo de partículas y carga microbiológica.',
       image: '/sala_envasado_esteril.png'
     },
     {
       id: 'water',
       icon: Droplets,
-      title: 'Planta de Agua Purificada',
-      description: 'Generación in-house bajo estándares de Farmacopea Europea, con red de suministro directo a las salas de fabricación.',
+      title: 'Planta de Agua Purificada (700 L/h)',
+      description: 'Garantía de calidad desde el origen. Suministro autónomo para fabricación y limpieza crítica.',
       image: '/process_san.png'
     }
   ];
@@ -109,7 +109,7 @@ export const InstalacionesPage = () => {
       {/* Intro Engineering Section */}
       <section className="py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-[1fr_1.3fr] gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -126,8 +126,8 @@ export const InstalacionesPage = () => {
                 <div className="flex gap-4 items-start">
                   <Zap className="w-5 h-5 text-accent shrink-0 mt-1" />
                   <div>
-                    <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Energía Redundante</h4>
-                    <p className="text-white/40 text-xs font-light">Sistemas de respaldo para producción ininterrumpida.</p>
+                    <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Monitoreo Ambiental</h4>
+                    <p className="text-white/40 text-xs font-light">Control digital en tiempo real de temperatura y humedad.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
@@ -141,15 +141,19 @@ export const InstalacionesPage = () => {
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative p-4 border border-white/10 rounded-[60px]"
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.8 }}
+              className="relative overflow-hidden group shadow-2xl border border-white/5 rounded-2xl"
             >
-              <img src="/staff_meeting.png" alt="Ingeniería Industrial" className="rounded-[50px] w-full" />
-              <div className="absolute -bottom-10 -right-10 p-10 bg-accent rounded-[40px] shadow-2xl hidden md:block">
-                <p className="text-black font-black text-xs uppercase tracking-[0.3em]">Auditorías<br />Permanentes</p>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 opacity-30 group-hover:opacity-10 transition-opacity duration-700" />
+              <img 
+                src="/instalaciones.webp" 
+                alt="Ingeniería Industrial" 
+                className="w-full object-cover aspect-video transition-transform duration-1000 group-hover:scale-105" 
+              />
             </motion.div>
           </div>
         </div>
@@ -193,21 +197,106 @@ export const InstalacionesPage = () => {
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <h2 className="text-4xl font-light text-white italic uppercase tracking-tighter">Áreas <span className="text-accent">Especializadas</span></h2>
             <div className="h-px bg-white/20 flex-grow mx-8 hidden md:block" />
-            <p className="text-white/40 text-right text-xs uppercase tracking-[0.3em] font-bold">Capacidad Total 5.000m²</p>
+            <p className="text-white/40 text-right text-xs uppercase tracking-[0.3em] font-bold">Capacidad Total +5.000m²</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { icon: Beaker, title: 'Envasado Estéril (Pharma)', desc: 'Área específica bajo condiciones de asepsia extrema para productos farmacéuticos no inyectables.' },
-              { icon: Thermometer, title: '6 Food Rooms Climatizadas', desc: 'Control de humedad y temperatura constante para preservar nutracéuticos y aceites premium.' },
-              { icon: Warehouse, title: 'Almacén de Gestión Inteligente', value: '5000m²', desc: 'Logística integrada con trazabilidad batch 100% digital desde recepción hasta expedición.' }
-            ].map((item, idx) => (
-              <div key={idx} className="p-12 border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all rounded-[40px] group">
-                <item.icon className="w-8 h-8 text-white/30 mb-8 group-hover:text-accent transition-colors" />
-                <h4 className="text-white font-medium mb-4 text-xl tracking-tight leading-snug italic uppercase">{item.title}</h4>
-                <p className="text-white/40 text-sm font-light leading-relaxed">{item.desc}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Sector Alimentación */}
+            <div className="p-10 border border-white/5 bg-white/[0.02] rounded-[40px] flex flex-col h-full">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-accent" />
+                </div>
+                <h4 className="text-white font-medium text-xl italic uppercase tracking-tight">Alimentación</h4>
               </div>
-            ))}
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
+                  <span className="text-white/40 font-light">Food Rooms Especializadas</span>
+                  <span className="text-accent font-bold">6</span>
+                </li>
+                <li className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
+                  <span className="text-white/40 font-light">Líneas de Sachets / Monodosis</span>
+                  <span className="text-accent font-bold">4</span>
+                </li>
+                <li className="flex justify-between items-center text-sm">
+                  <span className="text-white/40 font-light">Líneas de Frascos / Botes</span>
+                  <span className="text-accent font-bold">2</span>
+                </li>
+              </ul>
+              <p className="text-[11px] text-white/30 uppercase tracking-widest font-bold">Climatización con control de humedad activo</p>
+            </div>
+
+            {/* Sector Cosmética y Perfumería */}
+            <div className="p-10 border border-white/5 bg-white/[0.02] rounded-[40px] flex flex-col h-full">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Settings2 className="w-5 h-5 text-accent" />
+                </div>
+                <h4 className="text-white font-medium text-xl italic uppercase tracking-tight">Cosmética</h4>
+              </div>
+              <ul className="space-y-4 mb-8 flex-grow">
+                <li className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
+                  <span className="text-white/40 font-light">Salas de Envasado Dedicadas</span>
+                  <span className="text-accent font-bold">17</span>
+                </li>
+                <li className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
+                  <span className="text-white/40 font-light">Líneas de Frascos</span>
+                  <span className="text-accent font-bold">14</span>
+                </li>
+                <li className="flex justify-between items-center text-sm">
+                  <span className="text-white/40 font-light">Líneas de Sachets / Sampling</span>
+                  <span className="text-accent font-bold">3</span>
+                </li>
+              </ul>
+              <p className="text-[11px] text-white/30 uppercase tracking-widest font-bold">Manipulación de texturas y fragancias de lujo</p>
+            </div>
+
+            {/* Sector Sanitario / Pharma */}
+            <div className="p-10 border border-accent/20 bg-accent/5 rounded-[40px] flex flex-col h-full ring-1 ring-accent/10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                  <ShieldCheck className="w-5 h-5 text-accent" />
+                </div>
+                <h4 className="text-white font-medium text-xl italic uppercase tracking-tight">Sanitario</h4>
+              </div>
+              <ul className="space-y-4 mb-8 flex-grow text-[13px]">
+                <li className="flex justify-between items-center text-sm border-b border-white/10 pb-2">
+                  <span className="text-white/60 font-light">Salas Blancas Certificadas</span>
+                  <span className="text-accent font-bold">6</span>
+                </li>
+                <li className="flex justify-between items-center text-sm border-b border-white/10 pb-2">
+                  <span className="text-white/60 font-light">Sala Envasado Estéril (Pharma)</span>
+                  <span className="text-accent font-bold">1</span>
+                </li>
+                <li className="flex justify-between items-center text-sm border-b border-white/10 pb-2">
+                  <span className="text-white/60 font-light">Línea Frascos Estéril</span>
+                  <span className="text-accent font-bold">1</span>
+                </li>
+                <li className="flex justify-between items-center text-sm">
+                  <span className="text-white/60 font-light">Salas Blancas para Sachets</span>
+                  <span className="text-accent font-bold">4</span>
+                </li>
+              </ul>
+              <p className="text-[11px] text-accent/60 uppercase tracking-widest font-bold">Almacén de componentes exclusivo</p>
+            </div>
+          </div>
+
+          {/* Logistics & Support Footer Area */}
+          <div className="grid md:grid-cols-2 gap-6 mt-6">
+            <div className="p-10 border border-white/5 bg-white/[0.01] rounded-[40px] flex items-center justify-between">
+              <div>
+                <h5 className="text-white font-medium uppercase tracking-widest text-xs mb-2 italic">Capacidad Logística</h5>
+                <p className="text-white/40 text-sm font-light">3 muelles de carga y descarga con flujo continuo.</p>
+              </div>
+              <Warehouse className="w-8 h-8 text-white/20" />
+            </div>
+            <div className="p-10 border border-white/5 bg-white/[0.01] rounded-[40px] flex items-center justify-between">
+              <div>
+                <h5 className="text-white font-medium uppercase tracking-widest text-xs mb-2 italic">Infraestructura Total</h5>
+                <p className="text-white/40 text-sm font-light">30 líneas de envasado operativas simultáneamente.</p>
+              </div>
+              <Factory className="w-8 h-8 text-white/20" />
+            </div>
           </div>
         </div>
       </section>

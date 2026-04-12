@@ -36,7 +36,7 @@ export const Hero = () => {
   const stats = [
     { value: '35+', label: 'hero.stats.experience' },
     { value: '30', label: 'hero.stats.lines' },
-    { value: '7', label: 'hero.stats.cleanrooms' },
+    { value: '250+', label: 'hero.stats.talent' },
     { value: '+100M', label: 'hero.stats.capacity' },
   ];
 

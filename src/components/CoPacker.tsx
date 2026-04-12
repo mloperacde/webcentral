@@ -18,18 +18,18 @@ export const CoPacker = () => {
     restDelta: 0.001
   });
 
-  // Animation values - Shortened ranges for faster scroll response
-  const maskScale = useTransform(smoothProgress, [0.05, 0.3, 0.5], [1, 8, 35]);
-  const maskOpacity = useTransform(smoothProgress, [0, 0.5, 0.6], [1, 1, 0]);
+  // Animation values - Adjusted ranges for smoother flow in 280vh
+  const maskScale = useTransform(smoothProgress, [0.05, 0.4, 0.7], [1, 8, 35]);
+  const maskOpacity = useTransform(smoothProgress, [0, 0.7, 0.8], [1, 1, 0]);
   
   // Title is visible from the start
-  const titleOpacity = useTransform(smoothProgress, [0, 0.5, 0.61], [1, 1, 0]);
+  const titleOpacity = useTransform(smoothProgress, [0, 0.7, 0.81], [1, 1, 0]);
   const titleY = useTransform(smoothProgress, [0, 0.1], [0, 0]);
   
   // Card content appears as the bottle opens
-  const contentOpacity = useTransform(smoothProgress, [0.2, 0.45], [0, 1]);
-  const contentY = useTransform(smoothProgress, [0.2, 0.45], [30, 0]);
-  const bgOpacity = useTransform(smoothProgress, [0.2, 0.4], [0, 0.6]);
+  const contentOpacity = useTransform(smoothProgress, [0.2, 0.6], [0, 1]);
+  const contentY = useTransform(smoothProgress, [0.2, 0.6], [30, 0]);
+  const bgOpacity = useTransform(smoothProgress, [0.2, 0.55], [0, 0.6]);
 
   const features = [
     { key: 'copacker.feature1', desc: 'copacker.feature1.desc' },
@@ -41,7 +41,7 @@ export const CoPacker = () => {
   ];
 
   return (
-    <div id="copacker" ref={containerRef} className="relative h-[350vh] bg-black">
+    <div id="copacker" ref={containerRef} className="relative h-[280vh] bg-black">
       <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         {/* Background is just black now */}
         <div className="absolute inset-0 z-0 bg-black" />

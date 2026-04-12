@@ -154,7 +154,7 @@ export const SectoresPage = () => {
       id: 'sanitary',
       icon: Shield,
       title: 'Grado Farmacéutico & Envasado Estéril',
-      description: 'Simplificamos la entrada al mercado de productos sanitarios bajo un entorno de seguridad absoluta. Integramos 7 Salas Blancas, Sala de Envasado Estéril y suministro propio de Agua Purificada (700 L/h).',
+      description: 'Simplificamos la entrada al mercado de productos sanitarios bajo un entorno de seguridad absoluta. Integramos 6 Salas Blancas, Sala de Envasado Estéril y suministro propio de Agua Purificada (700 L/h).',
       features: ['Envasado Estéril', 'Trazabilidad 100%', 'Zona de fabricación'],
       image: '/productosanitario.webp',
       processImage: '/sectors-isolated2.png',

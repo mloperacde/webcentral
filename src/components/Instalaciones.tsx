@@ -17,9 +17,9 @@ export const Instalaciones = () => {
 
   const stats = [
     { value: '30', label: 'instalaciones.stats.lines' },
-    { value: '7', label: 'instalaciones.stats.cleanrooms' },
+    { value: '6', label: 'instalaciones.stats.cleanrooms' },
     { value: '700', label: 'instalaciones.stats.water' },
-    { value: '5000', label: 'instalaciones.stats.storage' },
+    { value: '3000', label: 'instalaciones.stats.storage' },
   ];
 
   return (
