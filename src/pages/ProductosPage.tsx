@@ -1,0 +1,477 @@
+import React, { useEffect } from 'react';
+import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { 
+  ArrowLeft, 
+  Layers, 
+  Container, 
+  Cylinder, 
+  FlaskConical,
+  CheckCircle2,
+  Settings2,
+  Sparkles,
+  ShieldCheck,
+  ChevronRight,
+  Stethoscope,
+  Droplets,
+  ShieldAlert
+} from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { Footer } from '../components/Footer';
+import { Navigation } from '../components/Navigation';
+
+const ProductSection = ({ id, icon: Icon, title, subtitle, description, image, specs, theme = 'accent', finalConfig }: any) => {
+  const isCyan = theme === 'cyan';
+  const colorText = isCyan ? 'text-sky-400' : 'text-accent';
+  const colorBg = isCyan ? 'bg-sky-400/5' : 'bg-accent/5';
+  const colorBorder = isCyan ? 'border-sky-400/30' : 'border-accent/30';
+  const colorIcon = isCyan ? 'text-sky-400/60' : 'text-accent/60';
+
+  const { scale = 1.1, x = 0, y = 0, size = 700 } = finalConfig || {};
+
+  return (
+    <div id={id} className="min-h-screen pt-32 pb-20 border-b border-white/5 relative overflow-hidden flex items-center">
+      <div className="absolute inset-0 z-0 opacity-10">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className={`p-4 w-fit border ${colorBorder} ${colorBg} rounded-2xl mb-8`}>
+              <Icon className={`w-8 h-8 ${colorText}`} />
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light text-white mb-6 tracking-tighter uppercase italic">
+              {title}
+            </h2>
+            <h3 className={`text-lg font-medium ${colorText} mb-8 tracking-[0.2em] uppercase`}>
+              {subtitle}
+            </h3>
+            <p className="text-xl text-white/50 font-light leading-relaxed mb-12 max-w-xl">
+              {description}
+            </p>
+
+            <div className="grid sm:grid-cols-2 gap-6">
+              {specs.map((spec: any, idx: number) => (
+                <div key={idx} className="flex items-start gap-4 p-6 border border-white/5 bg-sky-500/\[0.03\] backdrop-blur-md rounded-2xl group hover:bg-white/[0.05] transition-all">
+                  <spec.icon className={`w-5 h-5 ${colorIcon} shrink-0 mt-1`} />
+                  <div>
+                    <h4 className="text-white font-medium mb-1 tracking-tight text-sm uppercase">{spec.label}</h4>
+                    <p className="text-white/40 text-[13px] font-light leading-relaxed">{spec.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            className="flex items-center justify-center p-0"
+          >
+            <div className="relative w-full aspect-square" style={{ maxWidth: `${size}px` }}>
+              <div className={`absolute inset-0 ${colorBg} blur-[120px] rounded-full opacity-25`} />
+              <img 
+                src={image} 
+                alt={title} 
+                className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.1)] transition-transform duration-300"
+                style={{ 
+                  transform: `scale(${scale}) translate(${x}px, ${y}px)` 
+                }}
+              />
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const ProductosPage = () => {
+  const { t } = useLanguage();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const productConfigs = {
+    sachets: { scale: 1.4, x: 60, y: 75, size: 1000 },
+    bottles: { scale: 1.4, x: 60, y: 75, size: 1000 },
+    jars: { scale: 1.4, x: 60, y: 75, size: 1000 },
+    vials: { scale: 1.5, x: 85, y: 115, size: 1000 },
+    sanitary: { scale: 1.1, x: 0, y: 0, size: 700 },
+    aemps: { scale: 0.65, x: 200, y: -10, size: 300 }
+  };
+
+  const productTypes = [
+    {
+      id: 'sachets',
+      icon: Layers,
+      title: 'Sachets',
+      subtitle: 'Monodosis Inteligente',
+      description: 'El formato más versátil para el consumo On-the-Go. Tecnología multicapa que garantiza máxima barrera y conservación.',
+      image: '/sachets2.webp',
+      theme: 'accent',
+      specs: [
+        { icon: Settings2, label: 'Flexibilidad', value: 'Formatos planos, con toallita o doypack. Codificación por presión, tinta o laser.' },
+        { icon: Sparkles, label: 'Acabados', value: 'Mate, brillo o acabados técnicos. Acondicionamiento secundario, estuches de grupo o estuches expositores.' },
+        { icon: CheckCircle2, label: 'Dosificación', value: 'De 1ml a 100ml con precisión total. Liquidos, viscosos, polvo y solidos.' },
+        { icon: ShieldCheck, label: 'Protección', value: 'Materiales barrera específicos (O2, luz).' }
+      ]
+    },
+    {
+      id: 'bottles',
+      icon: Cylinder,
+      title: 'Frascos',
+      subtitle: 'Precisión y Estilo',
+      description: 'Especialistas en el llenado de frascos para las industrias cosmética, perfumería y alimentaria. Soluciones para texturas densas o fluidas.',
+      image: '/frascos.webp',
+      theme: 'cyan',
+      specs: [
+        { icon: Settings2, label: 'Formatos', value: 'Vidrio, Plástico, PCR o Aluminio. Soluciones para cualquier tipo de etiquetado.' },
+        { icon: Sparkles, label: 'Cierres', value: 'Bombas, cuentagotas o tapones de rosca. Estuchado y celofanado.' },
+        { icon: CheckCircle2, label: 'Capacidades', value: 'Desde viales pequeños hasta gran formato.' },
+        { icon: ShieldCheck, label: 'Seguridad', value: 'Sello de inducción y precintos. Codificación de envases y estuches tinta o laser.' }
+      ]
+    },
+    {
+      id: 'jars',
+      icon: Container,
+      title: 'Tarros',
+      subtitle: 'El Tacto de la Calidad',
+      description: 'Envasado de alta precisión para cremas, bálsamos y productos densos. Cuidado extremo en la manipulación para evitar burbujas y contaminación.',
+      image: '/tarros.webp',
+      theme: 'accent',
+      specs: [
+        { icon: Settings2, label: 'Llenado', value: 'Tecnología sin contacto para máxima pureza.' },
+        { icon: Sparkles, label: 'Presentación', value: 'Nivelado perfecto y limpieza de bordes.' },
+        { icon: CheckCircle2, label: 'Materiales', value: 'PET, PP, Cristal y acabados lujo.' },
+        { icon: ShieldCheck, label: 'Control', value: 'Inspección visual del 100% de tarrinas.' }
+      ]
+    },
+    {
+      id: 'vials',
+      icon: FlaskConical,
+      title: 'Viales',
+      subtitle: 'Precisión Milimétrica, Presentación Inmaculada',
+      description: 'El formato por excelencia para la cosmética de alto valor y las fragancias de nicho. Desde el 1 ml para muestras exclusivas hasta el 30 ml para formatos travel premium, los viales de cristal neutro combinan la transparencia absoluta del vidrio con la versatilidad funcional que exige el mercado del lujo.',
+      image: '/viales.webp',
+      theme: 'cyan',
+      specs: [
+        { icon: Settings2, label: 'Precisión', value: 'Tolerancias mínimas en productos críticos.' },
+        { icon: Sparkles, label: 'Formatos', value: 'Adaptamos el sistema de dosificación al comportamiento del producto: pulverizadores para perfume, stoppers para aceites o bombas airless.' },
+        { icon: CheckCircle2, label: 'Versatilidad', value: 'Tapón rosca cromado, stopper siliconado, bomba dosificadora, pulverizador micro-spray, roll-on.' },
+        { icon: ShieldCheck, label: 'Presentación', value: 'Cartelas para muestras, miniaturas, estuchado individual o de colecciones premium.' }
+      ]
+    },
+    {
+      id: 'sanitary',
+      icon: Stethoscope,
+      isSpecial: true,
+      title: 'Gama Sanitaria',
+      subtitle: 'Certificación sanitaria AEMPS para productos de cuidado especializado (no medicamentos)',
+      heroTitle: 'Producto Sanitario. Soluciones de Higiene Avanzada',
+      heroSubtitle: 'Rigor Sanitario aplicado al Cuidado Personal Especializado',
+      description: 'Fabricación bajo autorización de la Agencia Española de Medicamentos para Productos Sanitarios de Higiene, excluyendo expresamente medicamentos. Especializados en cuidado ocular de mantenimiento y soluciones de higiene para zonas sensibles, combinando el rigor de la normativa sanitaria con la usabilidad del consumidor final.',
+      image: '/productosanitario.webp',
+      theme: 'cyan',
+      pillars: [
+        {
+          id: '01',
+          title: 'Pureza Farmacéutica',
+          description: 'Generación in-house de Agua Purificada Ph. Eur. (Farmacopea Europea) con caudal continuo de 700 L/h, garantizando la máxima seguridad en el excipiente acuoso.'
+        },
+        {
+          id: '02',
+          title: 'Seguridad Ocular',
+          description: 'Especialización en formulaciones de mantenimiento ocular en formato monodosis y multidosis con sistemas de dosificación técnica diseñados para el confort.'
+        },
+        {
+          id: '03',
+          title: 'Sin Prescripción',
+          description: 'Productos de autocuidado avanzados certificados bajo normativa sanitaria, optimizados para su distribución en canales especializados sin requisitos de receta.'
+        }
+      ],
+      table: [
+        {
+          format: 'Frascos Oftálmicos',
+          specs: '10 ml / 15 ml · Tapón rosca-clip tipo Aptar · Dosificación gota a gota',
+          apps: 'Higiene ocular, lubricantes oculares de confort (no terapéuticos)'
+        },
+        {
+          format: 'Sachets Monodosis',
+          specs: '1 a 10 ml · Toallitas en solución oftalmológica',
+          apps: 'Limpieza palpebral, higiene de mantenimiento, wipes especializados'
+        }
+      ],
+      reach: [
+        'Soluciones de higiene mucosa (nasal, auricular)',
+        'Sueros fisiológicos de autocuidado para higiene diaria',
+        'Cuidado personal avanzado de base acuosa purificada'
+      ],
+      disclaimer: 'Central de Envasados cuenta con autorización AEMPS para fabricación de Productos Sanitarios (categoría: higiene médica y cuidado personal avanzado). No estamos autorizados para medicamentos de prescripción ni venta libre (OTC). Toda la producción se realiza bajo normativa de Productos Sanitarios.'
+    }
+  ];
+
+  return (
+    <div className="bg-black min-h-screen text-white">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#080808]">
+        <div className="absolute inset-0 z-0 flex items-center justify-center">
+          <img 
+            src="/cabecera_productos.webp" 
+            alt="Productos Central de Envasados" 
+            className="w-full h-full object-contain opacity-70 brightness-90 transform translate-y-8" 
+          />
+          {/* Enhanced Dark Veil - 80% intensity feel */}
+          <div className="absolute inset-0 bg-black/50 z-10" />
+          
+          {/* Minimal Bottom Fade - Only to transition to background */}
+          <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#080808] to-transparent z-20" />
+          
+          {/* Top Fade for navigation */}
+          <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black/80 to-transparent z-20" />
+        </div>
+        
+        <div className="relative z-30 text-center px-4 max-w-5xl mt-auto pb-44">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
+            <Link to="/" className="inline-flex items-center gap-3 text-white/80 text-[10px] font-bold uppercase tracking-[0.4em] mb-12 hover:text-white transition-all border border-white/20 px-8 py-4 bg-black/60 backdrop-blur-md">
+              <ArrowLeft className="w-3 h-3" />
+              Regresar al Inicio
+            </Link>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tighter leading-tight uppercase italic drop-shadow-2xl">
+              Formatos de <span className="text-accent underline decoration-accent/30 underline-offset-8">Innovación</span>
+            </h1>
+            <p className="max-w-2xl mx-auto text-white/60 text-base lg:text-lg font-light leading-relaxed mb-12 px-4 py-2">
+              Cada producto exige un entorno y una tecnología específicos. 
+              Descubre nuestra gama de soluciones de envasado a medida.
+            </p>
+            
+            <div className="flex flex-wrap justify-center gap-3">
+              {productTypes.map(p => (
+                <a 
+                  key={p.id} 
+                  href={`#${p.id}`}
+                  className="px-8 py-4 border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all text-[9px] font-bold uppercase tracking-[0.3em] flex items-center gap-3 group"
+                >
+                  <p.icon className="w-4 h-4 text-accent/60 group-hover:text-accent group-hover:scale-110 transition-all" />
+                  {p.title}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator - Moved lower and higher z-index */}
+        <motion.div 
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-40 opacity-40"
+        >
+          <span className="text-[9px] text-white uppercase tracking-[0.4em] [writing-mode:vertical-lr]">Explorar</span>
+          <div className="w-px h-10 bg-white" />
+        </motion.div>
+      </section>
+
+      {/* Product Category Sections */}
+      {productTypes.map((p) => (
+        p.isSpecial ? (
+          <div key={p.id} id={p.id} className="relative overflow-hidden pt-48">
+            {/* Internal Hero for Sanitary */}
+            <div className="relative h-[60vh] flex items-center mb-32">
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src={p.image} 
+                  alt={p.title} 
+                  className="w-full h-full object-cover opacity-40 brightness-75 transition-all duration-700 hover:scale-105" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+              </div>
+
+              <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div className="max-w-3xl">
+                  <div className="flex items-center gap-4 text-sky-400 mb-8">
+                    <Stethoscope className="w-6 h-6 shrink-0" />
+                    <span className="text-xs font-bold tracking-[0.5em] uppercase">{p.subtitle}</span>
+                  </div>
+                  <h2 className="text-3xl sm:text-5xl font-light text-white mb-8 tracking-tighter leading-tight italic uppercase">
+                    {p.heroTitle}
+                  </h2>
+                  <p className="text-sky-400 text-sm font-bold tracking-widest uppercase mb-12 border-l-2 border-sky-400 pl-6 bg-sky-400/5 py-4 inline-block pr-12 rounded-r-2xl">
+                    {p.heroSubtitle}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Introduction Text with AEMPS Logo - 65/35 Split */}
+              <div className="mb-24 flex flex-col lg:grid lg:grid-cols-[1.8fr_1fr] items-stretch gap-16">
+                <div className="flex flex-col justify-center">
+                  <p className="text-white/50 text-xl leading-relaxed font-light">
+                    {p.description}
+                  </p>
+                </div>
+                <div className="flex justify-center items-center">
+                  <div 
+                    className="bg-white p-12 rounded-3xl shadow-2xl flex flex-col justify-center items-center transition-all duration-300 overflow-hidden"
+                    style={{ 
+                      width: '100%',
+                      maxWidth: `${productConfigs.aemps.size}px`,
+                      transform: `scale(${productConfigs.aemps.scale}) translate(${productConfigs.aemps.x}px, ${productConfigs.aemps.y}px)`
+                    }}
+                  >
+                    <img 
+                      src="/logo_aemps_ministerio.jpg" 
+                      alt="Logo AEMPS Ministerio" 
+                      className="w-full h-auto object-contain"
+                    />
+                    <div className="mt-8 text-[10px] text-zinc-900 uppercase text-center font-bold tracking-[0.3em] leading-normal border-t border-zinc-100 pt-6 w-full">
+                      Fabricación Autorizada por la AEMPS
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pillars */}
+              <div className="grid md:grid-cols-3 gap-8 mb-32">
+                {p.pillars.map((pillar: any, idx: number) => (
+                  <div key={idx} className="p-10 border border-white/5 bg-sky-500/\[0.03\] backdrop-blur-md rounded-3xl hover:bg-sky-400/5 hover:border-sky-400/20 transition-all group">
+                    <span className="text-sky-400 text-4xl font-black mb-6 block transition-colors italic">{pillar.id}</span>
+                    <h4 className="text-white font-medium mb-4 text-lg uppercase tracking-tight italic">{pillar.title}</h4>
+                    <p className="text-white/40 text-[13px] leading-relaxed font-light">{pillar.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Comparison Section with Table */}
+              <div className="mb-32">
+                <h3 className="text-white/90 text-xl font-light mb-12 flex items-center gap-4 italic uppercase tracking-widest">
+                  <span className="h-px w-12 bg-sky-400/30"></span>
+                  Capacidades Productivas Actuales
+                </h3>
+                <div className="overflow-x-auto rounded-3xl border border-white/5">
+                  <table className="w-full text-left border-collapse bg-sky-500/\[0.02\]">
+                    <thead>
+                      <tr className="border-b border-white/10 text-white/30 text-[10px] uppercase font-bold tracking-[0.2em] bg-sky-500/\[0.03\]">
+                        <th className="py-8 px-10">Formato</th>
+                        <th className="py-8 px-10">Especificación Técnica</th>
+                        <th className="py-8 px-10">Aplicaciones</th>
+                      </tr>
+                    </thead>
+                    <tbody className="text-white/80">
+                      {p.table.map((row: any, idx: number) => (
+                        <tr key={idx} className="border-b border-white/5 last:border-0 hover:bg-sky-500/\[0.03\] transition-colors">
+                          <td className="py-8 px-10 font-medium text-sky-400 italic uppercase text-sm tracking-widest">{row.format}</td>
+                          <td className="py-8 px-10 text-[13px] font-light leading-relaxed">{row.specs}</td>
+                          <td className="py-8 px-10 text-[13px] font-light text-white/40">{row.apps}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                {/* Reference Images for Sanitary Formats */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-24 mb-16">
+                  <div className="group">
+                    <div className="rounded-[40px] overflow-hidden border border-white/10 bg-white/[0.03] aspect-[4/3] relative mb-6 p-8 flex items-center justify-center">
+                      <img 
+                        src="/colirios.webp" 
+                        alt="Soluciones de Mantenimiento Ocular" 
+                        className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <h4 className="text-white font-medium text-lg uppercase tracking-tight italic ml-4">Frascos de Confort Ocular</h4>
+                  </div>
+                  <div className="group">
+                    <div className="rounded-[40px] overflow-hidden border border-white/10 bg-white/[0.03] aspect-[4/3] relative mb-6 p-8 flex items-center justify-center">
+                      <img 
+                        src="/monodosis_sanitario.webp" 
+                        alt="Monodosis de Higiene Avanzada" 
+                        className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <h4 className="text-white font-medium text-lg uppercase tracking-tight italic ml-4">Monodosis de Precisión</h4>
+                  </div>
+                </div>
+
+                <p className="mt-8 text-[11px] text-white/30 font-medium uppercase tracking-widest flex items-center gap-3 italic">
+                  <ShieldCheck className="w-3 h-3 text-sky-400" />
+                  Nota regulatoria: Los productos fabricados se clasifican como Productos Sanitarios (MDR 2017/745) o Higiene Avanzada, no como Medicamentos.
+                </p>
+              </div>
+
+              {/* Alcance Section */}
+              <div className="grid lg:grid-cols-2 gap-20 items-center border-t border-white/5 pt-32">
+                <div>
+                  <h3 className="text-3xl font-light text-white mb-10 tracking-tight italic uppercase">Alcance de <span className="text-sky-400">Desarrollo</span></h3>
+                  <div className="grid gap-6">
+                    {p.reach.map((item: string, idx: number) => (
+                      <div key={idx} className="flex items-center gap-4 group">
+                        <div className="w-8 h-px bg-sky-400/30 group-hover:w-12 transition-all group-hover:bg-sky-400" />
+                        <span className="text-white/50 text-[15px] font-light group-hover:text-white transition-colors">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bg-sky-400/5 border border-sky-400/10 p-12 rounded-[40px] text-center backdrop-blur-md">
+                  <h4 className="text-xl font-medium text-white mb-6 uppercase tracking-tight italic">¿Tiene una formulación de Producto Sanitario en desarrollo?</h4>
+                  <p className="text-white/40 mb-10 text-sm font-light leading-relaxed">Gestionamos el escalado desde lote piloto hasta producción industrial manteniendo la clasificación regulatoria sanitaria (no farmacéutica).</p>
+                  <Link 
+                    to="/#contacto" 
+                    className="inline-flex items-center gap-4 px-10 py-5 bg-sky-400 hover:bg-sky-500 text-black uppercase text-[10px] font-black tracking-[0.3em] transition-all"
+                  >
+                    Consultar Viabilidad
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+
+              {/* Legal Disclaimer Footer */}
+              <div className="mt-32 pt-12 border-t border-white/5 opacity-30 text-[10px] leading-relaxed max-w-4xl tracking-tight">
+                <p className="uppercase font-bold mb-2">Disclaimer Legal (AEMPS Compliance)</p>
+                <p>{p.disclaimer}</p>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <ProductSection key={p.id} {...p} finalConfig={productConfigs[p.id as keyof typeof productConfigs]} />
+        )
+      ))}
+
+      {/* Call to Action (Global) */}
+      <section className="py-40 relative overflow-hidden text-center bg-zinc-950/20">
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <h2 className="text-3xl sm:text-5xl font-light text-white mb-10 tracking-tight leading-tight">
+            ¿Tiene un proyecto con un <br /><span className="text-accent italic">formato especial?</span>
+          </h2>
+          <p className="text-white/40 text-lg mb-12 max-w-xl mx-auto font-light">
+            Nuestro equipo de I+D y ingeniería puede adaptar nuestras líneas para formatos a medida 
+            o desarrollos exclusivos.
+          </p>
+          <Link 
+            to="/#contacto" 
+            className="inline-flex items-center gap-4 px-12 py-5 bg-accent hover:bg-accent/80 text-white uppercase text-[10px] font-bold tracking-[0.3em] transition-all"
+          >
+            Consultar con un especialista
+            <ChevronRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};

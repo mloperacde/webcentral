@@ -10,7 +10,7 @@ export const Calidad = () => {
       id: 'iso9001', 
       title: 'Sistema de Gestión de la Calidad', 
       description: 'en base a la norma ISO9001',
-      image: '/png-clipart-iso-9000-organization-logo-certification-akademický-certifikat-sgs-logo-iso-9001-text-trademark.png'
+      image: '/png-clipart-iso-9000-organization.png'
     },
     { 
       id: 'iso22716', 
@@ -48,14 +48,14 @@ export const Calidad = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold mb-4 block">CERTIFICACIONES</span>
+          <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold mb-4 block">{t('calidad.subtitle')}</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white/90 tracking-tight mb-8">{t('calidad.title')}</h2>
           <div className="space-y-4 max-w-none">
-            <p className="text-base lg:text-lg text-white/80 font-light leading-relaxed whitespace-nowrap overflow-hidden text-ellipsis">
-              Trabajamos mano a mano con nuestros clientes para ofrecerles soluciones enteramente personalizadas.
+            <p className="text-base lg:text-lg text-white/80 font-light leading-relaxed">
+              Nuestros procedimientos y buenas prácticas de trabajo están acreditadas por los organismos internacionales más exigentes.
             </p>
-            <p className="text-sm lg:text-base text-white/50 font-light leading-relaxed whitespace-nowrap overflow-hidden text-ellipsis">
-              Nuestros procedimientos y buenas prácticas de trabajo están acreditadas por organismos reconocidos.
+            <p className="text-sm lg:text-base text-white/50 font-light leading-relaxed">
+              Mantenemos un ecosistema de certificaciones que actúa como un escudo de seguridad y confianza para marcas líderes a nivel mundial.
             </p>
           </div>
         </motion.div>

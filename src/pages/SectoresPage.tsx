@@ -10,13 +10,21 @@ import {
   Settings2, 
   Microscope,
   CheckCircle2,
-  ChevronRight
+  ChevronRight,
+  Droplets
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { Footer } from '../components/Footer';
 import { Navigation } from '../components/Navigation';
 
-const SectorDetail = ({ id, icon: Icon, title, description, features, image, content, details, processImage, position }: any) => {
+const SectorDetail = ({ id, icon: Icon, title, description, features, image, content, details, processImage, position, theme = 'accent' }: any) => {
+  const isCyan = theme === 'cyan';
+  const colorText = isCyan ? 'text-cyan-400' : 'text-accent';
+  const colorBg = isCyan ? 'bg-cyan-400/5' : 'bg-accent/5';
+  const colorBorder = isCyan ? 'border-cyan-400/30' : 'border-accent/30';
+  const colorHoverText = isCyan ? 'group-hover/card:text-cyan-400' : 'group-hover/card:text-accent';
+  const colorIconStart = isCyan ? 'text-cyan-400/60' : 'text-accent/60';
+
   return (
     <div id={id} className="min-h-screen pt-32 pb-20 border-b border-white/5 relative overflow-hidden group">
       {/* Background with parallax-like effect */}
@@ -24,80 +32,87 @@ const SectorDetail = ({ id, icon: Icon, title, description, features, image, con
         <img 
           src={image} 
           alt={title} 
-          className="w-full h-full object-cover opacity-30 grayscale-[0.3]" 
+          className="hidden w-full h-full object-cover opacity-30 grayscale-[0.3]" 
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <div className="p-3 w-fit border border-accent/30 bg-accent/5 rounded-2xl mb-8">
-              <Icon className="w-8 h-8 text-accent" />
-            </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light text-white mb-8 tracking-tighter">
-              {title}
-            </h2>
-            <p className="text-xl text-white/60 font-light leading-relaxed mb-10">
-              {description}
-            </p>
-            
-            <div className="flex flex-wrap gap-3 mb-12">
-              {features.map((feature: string, idx: number) => (
-                <span key={idx} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white/30 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em]">
-                  {feature}
-                </span>
-              ))}
-            </div>
+        <div className="grid lg:grid-cols-2 gap-x-16 gap-y-12">
+          {/* LEFT COLUMN: Content + Details */}
+          <div className="flex flex-col gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <div className={`p-3 w-fit border ${colorBorder} ${colorBg} rounded-2xl mb-8`}>
+                <Icon className={`w-8 h-8 ${colorText}`} />
+              </div>
+              <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light text-white mb-8 tracking-tighter">
+                {title}
+              </h2>
+              <p className="text-xl text-white/60 font-light leading-relaxed mb-10">
+                {description}
+              </p>
+              
+              <div className="flex flex-wrap gap-3">
+                {features.map((feature: string, idx: number) => (
+                  <span key={idx} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white/30 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em]">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
 
-            <div className="grid sm:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="grid sm:grid-cols-2 gap-8"
+            >
               {details.map((detail: any, idx: number) => (
                 <div key={idx} className="p-8 border border-white/5 bg-white/3 backdrop-blur-md hover:bg-white/10 transition-all duration-500 rounded-[2rem] group/card">
-                  <detail.icon className="w-6 h-6 text-accent/60 group-hover/card:text-accent mb-4 transition-colors" />
+                  <detail.icon className={`w-6 h-6 ${colorIconStart} ${colorHoverText} mb-4 transition-colors`} />
                   <h4 className="text-white font-medium mb-2 tracking-tight">{detail.label}</h4>
                   <p className="text-white/40 text-sm font-light leading-relaxed">{detail.value}</p>
                 </div>
               ))}
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            className="hidden lg:block relative aspect-[4/5]"
-          >
-            {/* The scene of action: isolated technical asset with CSS isolation */}
-            <div className="relative w-full h-full overflow-hidden rounded-[4rem] border border-white/5 bg-black/40 backdrop-blur-sm shadow-2xl">
-              <div 
-                className="absolute inset-0 w-full h-full opacity-90 transition-opacity duration-700 hover:opacity-100"
-                style={{
-                  backgroundImage: `url(${processImage}?v=5)`,
-                  backgroundSize: '300% 100%',
-                  backgroundPosition: position === 'left' ? '0% 0%' : position === 'center' ? '50% 0%' : '100% 0%',
-                  backgroundRepeat: 'no-repeat',
-                  mixBlendMode: 'screen' as any
-                }}
+          {/* RIGHT COLUMN: Image + Content Card (Bottom Aligned) */}
+          <div className="hidden lg:flex flex-col justify-end h-full">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="flex items-center justify-center relative w-full mb-12"
+            >
+              <img 
+                src={processImage}
+                alt={title}
+                className="w-auto h-auto max-h-[400px] lg:max-h-[500px] max-w-full mx-auto object-contain"
               />
-              
-              {/* Subtle technical glow surrounding the scene */}
-              <div className="absolute inset-0 bg-accent/5 rounded-full blur-[150px] pointer-events-none -z-10" />
-            </div>
+            </motion.div>
 
-            {/* The glass text window in front - elegant static position */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[85%] p-10 border border-white/10 bg-black/50 backdrop-blur-3xl rounded-[3rem] shadow-xl overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-              <p className="relative z-10 text-white/95 font-light italic text-lg leading-relaxed text-center">
-                "{content}"
-              </p>
-            </div>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <div className="relative w-full p-8 border border-white/10 bg-black/50 backdrop-blur-3xl rounded-[2rem] shadow-xl overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+                <p className="relative z-10 text-white/95 font-light italic text-base leading-relaxed text-center">
+                  "{content}"
+                </p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
@@ -107,8 +122,13 @@ const SectorDetail = ({ id, icon: Icon, title, description, features, image, con
 export const SectoresPage = () => {
   const { t } = useLanguage();
 
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5;
+    }
   }, []);
 
   const sectorData = [
@@ -117,14 +137,15 @@ export const SectoresPage = () => {
       icon: Sparkles,
       title: 'Cosmética y Perfumería',
       description: 'Lideramos la fabricación y envasado de productos cosméticos de alta gama. Nuestra tecnología nos permite manejar texturas delicadas, fragancias exclusivas y envases innovadores.',
-      features: ['Sachets', 'Frascos', 'EASY SNAP', 'Viales'],
+      features: ['Sachets', 'Frascos', 'Tarros', 'Viales'],
       image: '/cosmetica.webp',
-      processImage: '/process_black.png',
+      processImage: '/sectors-isolated1.png',
       position: 'left',
       content: 'Precisión absoluta en el manejo de principios activos y fragancias de lujo.',
+      theme: 'accent',
       details: [
         { icon: Microscope, label: 'Control Microbológico', value: 'Análisis exhaustivo en laboratorio interno propio.' },
-        { icon: Settings2, label: 'Dosificación Láser', value: 'Desde 1ml hasta 500ml con precisión nanométrica.' },
+        { icon: Settings2, label: 'Dosificación de Alta Precisión', value: 'Llenado exacto desde 1ml hasta 500ml con tolerancia mínima.' },
         { icon: Leaf, label: 'Clean Room ISO 22716', value: 'Ambientes controlados bajo estrictos protocolos de pureza.' },
         { icon: CheckCircle2, label: 'Luxury Finishing', value: 'Acabados de lujo y personalización premium para marcas exclusivas.' },
       ]
@@ -132,18 +153,19 @@ export const SectoresPage = () => {
     {
       id: 'sanitary',
       icon: Shield,
-      title: 'Producto Sanitario',
-      description: 'Garantizamos los más altos estándares de higiene y seguridad para el sector farmacéutico y sanitario. Cumplimos rigurosamente con la normativa europea ISO 13485.',
-      features: ['Geles', 'Soluciones de Limpieza', 'Viales Sanitarios'],
+      title: 'Grado Farmacéutico & Envasado Estéril',
+      description: 'Simplificamos la entrada al mercado de productos sanitarios bajo un entorno de seguridad absoluta. Integramos 7 Salas Blancas, Sala de Envasado Estéril y suministro propio de Agua Purificada (700 L/h).',
+      features: ['Envasado Estéril', 'Trazabilidad 100%', 'Zona de fabricación'],
       image: '/productosanitario.webp',
-      processImage: '/process_black.png',
+      processImage: '/sectors-isolated2.png',
       position: 'center',
-      content: 'Compromiso inquebrantable con la trazabilidad y la seguridad del paciente.',
+      content: 'Compromiso inquebrantable con la pureza, certificación ISO 13485 y registro AEMPS.',
+      theme: 'cyan',
       details: [
-        { icon: Shield, label: 'Acreditación ISO 13485', value: 'Gestión de calidad integral para productos sanitarios.' },
-        { icon: CheckCircle2, label: 'Registro AEMPS', value: 'Control riguroso y seguimiento de cada unidad fabricada.' },
-        { icon: Settings2, label: 'Trazabilidad Digital', value: 'Sistemas avanzados para el seguimiento total del lote.' },
-        { icon: Microscope, label: 'Validación Clínica', value: 'Pruebas constantes de estabilidad y hermeticidad.' },
+        { icon: Shield, label: 'Acreditación ISO 13485', value: 'Operamos bajo la norma ISO 13485 y autorización AEMPS.' },
+        { icon: Droplets, label: 'Agua Purificada (700 L/h)', value: 'Garantía de calidad aséptica pura desde el origen.' },
+        { icon: Settings2, label: 'Trazabilidad Digital 100%', value: 'Sistemas avanzados para seguimiento clínico del lote.' },
+        { icon: Microscope, label: 'Envasado Estéril', value: 'Condiciones asépticas estrictas y pureza total.' },
       ]
     },
     {
@@ -151,13 +173,13 @@ export const SectoresPage = () => {
       icon: Beaker,
       title: 'Alimentación',
       description: 'Soluciones de envasado innovadoras para el sector alimentario, desde suplementos nutricionales hasta aceites de oliva de alta gama. Especialistas en formatos monodosis.',
-      features: ['Aceite de Oliva', 'Salsas Gourmet', 'Suplementos Líquidos'],
+      features: ['Aceite de Oliva', 'Complementos alimenticios', 'Nutricosmética'],
       image: '/alimentacion.webp',
-      processImage: '/process_black.png',
+      processImage: '/sectors-isolated3.png',
       position: 'right',
       content: 'Innovación en conservación activa para preservar la frescura y pureza original.',
       details: [
-        { icon: Leaf, label: 'Higiene de Grado Alimentario', value: 'Protocolos APPCC integrados en cada fase del proceso.' },
+        { icon: Leaf, label: 'Higiene de Grado Alimentario', value: 'Protocolos IFS integrados en cada fase del proceso.' },
         { icon: Settings2, label: 'Especialistas Monodosis', value: 'Formatos inteligentes optimizados para el consumo On-the-Go.' },
         { icon: CheckCircle2, label: 'Protección contra Oxidación', value: 'Materiales barrera que triplican la vida útil del producto.' },
         { icon: Sparkles, label: 'Diseño Estructural', value: 'Envases ergonómicos que potencian la experiencia del consumidor.' },
@@ -167,11 +189,20 @@ export const SectoresPage = () => {
 
   return (
     <div className="bg-black min-h-screen text-white">
-      {/* Wide Hero Subpage */}
+      {/* Wide Hero Subpage with Video Background */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/laboratorio.webp" alt="Sectores" className="w-full h-full object-cover opacity-50 brightness-50" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black" />
+          <video 
+            ref={videoRef}
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            className="w-full h-full object-cover opacity-60 brightness-90"
+          >
+            <source src="/Video_Generado_Con_Tres_Imágenes.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-5xl">
@@ -210,7 +241,7 @@ export const SectoresPage = () => {
         <motion.div 
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+          className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
         >
           <span className="text-[9px] text-white/20 uppercase tracking-[0.4em] [writing-mode:vertical-lr]">Scroll</span>
           <div className="w-px h-16 bg-gradient-to-b from-white/20 to-transparent" />
@@ -227,13 +258,13 @@ export const SectoresPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-block p-[0.5px] bg-gradient-to-r from-transparent via-white/20 to-transparent mb-12 w-full max-w-sm" />
           <h2 className="text-3xl sm:text-5xl font-light text-white mb-10 tracking-tight max-w-3xl mx-auto leading-tight">
-            Elevamos su marca al siguiente nivel de <span className="text-accent italic">precisión táctil</span>.
+            Del Concepto al Mercado: Excelencia en <span className="text-accent italic">Proyectos 360º</span>.
           </h2>
           <Link 
             to="/#contacto" 
             className="px-12 py-5 bg-white/10 hover:bg-white/20 border border-white/10 text-white uppercase text-[10px] font-bold tracking-[0.3em] transition-all"
           >
-            Iniciar una Consulta Técnica
+            Solicitar Dossier Técnico
           </Link>
         </div>
       </section>

@@ -11,6 +11,7 @@ export const Instalaciones = () => {
     { id: 'cleanrooms', icon: ShieldCheck, title: 'instalaciones.cleanrooms.title', description: 'instalaciones.cleanrooms.description' },
     { id: 'sterile', icon: Beaker, title: 'instalaciones.sterile.title', description: 'instalaciones.sterile.description' },
     { id: 'water', icon: Droplets, title: 'instalaciones.water.title', description: 'instalaciones.water.description' },
+    { id: 'food', icon: Factory, title: 'instalaciones.food.title', description: 'instalaciones.food.description' },
     { id: 'warehouse', icon: Warehouse, title: 'instalaciones.warehouse.title', description: 'instalaciones.warehouse.description' },
   ];
 
@@ -22,8 +23,19 @@ export const Instalaciones = () => {
   ];
 
   return (
-    <section id="instalaciones" className="section-padding bg-black relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="instalaciones" className="section-padding bg-black relative overflow-hidden min-h-screen flex items-center">
+      {/* Background Image Container */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/sala_envasado_esteril.png" 
+          alt="Instalaciones Central de Envasados" 
+          className="w-full h-full object-cover opacity-38" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/12 to-black" />
+        <div className="absolute inset-0 bg-black/30" />
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -31,8 +43,8 @@ export const Instalaciones = () => {
           transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="mb-20"
         >
-          <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold mb-4 block">{t('instalaciones.subtitle')}</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white/90 tracking-tight">{t('instalaciones.title')}</h2>
+          <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold mb-4 block">Capacidad Industrial Certificada</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white/90 tracking-tight">Instalaciones: Arquitectura de Grado Farmacéutico</h2>
         </motion.div>
 
         <motion.div 

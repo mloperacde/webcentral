@@ -23,10 +23,11 @@ export const Navigation = () => {
 
   const navLinks = [
     { key: 'nav.inicio', href: isHome ? '#hero' : '/#hero', type: 'anchor' },
+    { key: 'nav.nosotros', href: '/nosotros', type: 'link' },
     { key: 'nav.sectores', href: '/sectores', type: 'link' },
-    { key: 'nav.productos', href: isHome ? '#productos' : '/#productos', type: 'anchor' },
-    { key: 'nav.instalaciones', href: isHome ? '#instalaciones' : '/#instalaciones', type: 'anchor' },
-    { key: 'nav.calidad', href: isHome ? '#calidad' : '/#calidad', type: 'anchor' },
+    { key: 'nav.productos', href: '/productos', type: 'link' },
+    { key: 'nav.calidad', href: '/calidad', type: 'link' },
+    { key: 'nav.instalaciones', href: '/instalaciones', type: 'link' },
     { key: 'nav.contacto', href: isHome ? '#contacto' : '/#contacto', type: 'anchor' },
   ];
 

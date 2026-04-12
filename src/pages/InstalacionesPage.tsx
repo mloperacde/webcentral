@@ -1,0 +1,238 @@
+import React, { useEffect } from 'react';
+import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { 
+  ArrowLeft, 
+  Factory, 
+  ShieldCheck, 
+  Beaker, 
+  Droplets, 
+  Warehouse, 
+  Thermometer, 
+  Settings2,
+  ChevronRight,
+  Sparkles,
+  Zap,
+  Box
+} from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import { Footer } from '../components/Footer';
+
+export const InstalacionesPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const stats = [
+    { value: '30', label: 'Líneas de Producción' },
+    { value: '7', label: 'Salas Blancas Certificadas' },
+    { value: '700', label: 'L/h Agua Purificada (Ph. Eur.)' },
+    { value: '5000', label: 'm² Logística Avanzada' },
+  ];
+
+  const mainfacilities = [
+    {
+      id: 'manufacturing',
+      icon: Factory,
+      title: 'Fabricación Grado Superior',
+      description: 'Más de 30 salas independientes de fabricación que permiten procesos en paralelo sin riesgo de contaminación cruzada.',
+      image: '/production.png'
+    },
+    {
+      id: 'cleanrooms',
+      icon: ShieldCheck,
+      title: '7 Salas Blancas ISO 7/8',
+      description: 'Entornos de aire altamente filtrado bajo control de partículas y presión positiva, ideales para productos sanitarios.',
+      image: '/sala_envasado_esteril.png'
+    },
+    {
+      id: 'water',
+      icon: Droplets,
+      title: 'Planta de Agua Purificada',
+      description: 'Generación in-house bajo estándares de Farmacopea Europea, con red de suministro directo a las salas de fabricación.',
+      image: '/process_san.png'
+    }
+  ];
+
+  return (
+    <div className="bg-black min-h-screen text-white">
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="/factory.png" 
+            alt="Central de Envasados Exterior" 
+            className="w-full h-full object-cover" 
+          />
+          {/* Overlay to preserve text visibility */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-black z-10" />
+        </div>
+        
+        <div className="relative z-20 text-center px-4 max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+          >
+            <Link to="/" className="inline-flex items-center gap-3 text-white/80 text-[10px] font-bold uppercase tracking-[0.4em] mb-12 hover:text-white transition-all border border-white/20 px-8 py-4 bg-black/60 backdrop-blur-md">
+              <ArrowLeft className="w-3 h-3" />
+              Regresar al Inicio
+            </Link>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tighter leading-tight uppercase italic">
+              Arquitectura de <span className="text-accent underline decoration-accent/30 underline-offset-8">Grado Farmacéutico</span>
+            </h1>
+            <p className="max-w-2xl mx-auto text-white/60 text-lg lg:text-xl font-light leading-relaxed mb-16 px-4">
+              Una infraestructura única en Europa diseñada para superar los estándares de las industrias cosmética, sanitaria y alimentaria.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Floating Stats over Hero */}
+        <div className="absolute bottom-12 left-0 right-0 z-30 px-4">
+          <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+            {stats.map((stat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 + (idx * 0.1) }}
+                className="bg-black/60 backdrop-blur-xl border border-white/10 p-8 text-center"
+              >
+                <div className="text-3xl font-light text-accent mb-2">{stat.value}</div>
+                <div className="text-[9px] text-white/40 uppercase tracking-[0.2em] font-bold">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Intro Engineering Section */}
+      <section className="py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl sm:text-5xl font-light text-white mb-10 tracking-tight italic uppercase">
+                Ingeniería de <span className="text-accent">Vanguardia</span>
+              </h2>
+              <p className="text-white/50 text-xl font-light leading-relaxed mb-10">
+                Nuestras instalaciones no solo son espacio físico, son herramientas de precisión. Cada sala ha sido proyectada para garantizar la estanqueidad, el flujo laminar en puntos críticos y la monitorización digital de temperatura y humedad en tiempo real.
+              </p>
+              <div className="grid grid-cols-2 gap-8">
+                <div className="flex gap-4 items-start">
+                  <Zap className="w-5 h-5 text-accent shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Energía Redundante</h4>
+                    <p className="text-white/40 text-xs font-light">Sistemas de respaldo para producción ininterrumpida.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4 items-start">
+                  <Box className="w-5 h-5 text-accent shrink-0 mt-1" />
+                  <div>
+                    <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Flujo Unidireccional</h4>
+                    <p className="text-white/40 text-xs font-light">Diseño anti-error para evitar contaminación cruzada.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="relative p-4 border border-white/10 rounded-[60px]"
+            >
+              <img src="/staff_meeting.png" alt="Ingeniería Industrial" className="rounded-[50px] w-full" />
+              <div className="absolute -bottom-10 -right-10 p-10 bg-accent rounded-[40px] shadow-2xl hidden md:block">
+                <p className="text-black font-black text-xs uppercase tracking-[0.3em]">Auditorías<br />Permanentes</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Facilities Grid */}
+      <section className="py-20 bg-zinc-950/40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {mainfacilities.map((fac, idx) => (
+              <motion.div
+                key={fac.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="group relative h-[500px] overflow-hidden rounded-[40px] border border-white/5"
+              >
+                <img 
+                  src={fac.image} 
+                  alt={fac.title} 
+                  className="w-full h-full object-cover opacity-50 transition-all duration-700 group-hover:scale-105 group-hover:opacity-70"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
+                <div className="absolute bottom-10 left-10 right-10 z-20">
+                  <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center mb-6">
+                    <fac.icon className="w-5 h-5 text-accent" />
+                  </div>
+                  <h3 className="text-2xl font-light text-white mb-4 italic uppercase">{fac.title}</h3>
+                  <p className="text-white/40 text-sm font-light leading-relaxed">{fac.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Areas Secondary Grid */}
+      <section className="py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <h2 className="text-4xl font-light text-white italic uppercase tracking-tighter">Áreas <span className="text-accent">Especializadas</span></h2>
+            <div className="h-px bg-white/20 flex-grow mx-8 hidden md:block" />
+            <p className="text-white/40 text-right text-xs uppercase tracking-[0.3em] font-bold">Capacidad Total 5.000m²</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { icon: Beaker, title: 'Envasado Estéril (Pharma)', desc: 'Área específica bajo condiciones de asepsia extrema para productos farmacéuticos no inyectables.' },
+              { icon: Thermometer, title: '6 Food Rooms Climatizadas', desc: 'Control de humedad y temperatura constante para preservar nutracéuticos y aceites premium.' },
+              { icon: Warehouse, title: 'Almacén de Gestión Inteligente', value: '5000m²', desc: 'Logística integrada con trazabilidad batch 100% digital desde recepción hasta expedición.' }
+            ].map((item, idx) => (
+              <div key={idx} className="p-12 border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all rounded-[40px] group">
+                <item.icon className="w-8 h-8 text-white/30 mb-8 group-hover:text-accent transition-colors" />
+                <h4 className="text-white font-medium mb-4 text-xl tracking-tight leading-snug italic uppercase">{item.title}</h4>
+                <p className="text-white/40 text-sm font-light leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing Call to Action */}
+      <section className="py-40 bg-zinc-950/20 relative overflow-hidden text-center">
+        <div className="flex justify-center mb-12">
+          <div className="px-8 py-2 border border-accent/30 bg-accent/5 rounded-full">
+            <span className="text-[10px] text-accent font-bold uppercase tracking-[0.4em]">Visita Presencial o Virtual</span>
+          </div>
+        </div>
+        <h2 className="text-3xl sm:text-5xl font-light text-white mb-10 tracking-tight leading-tight uppercase italic">¿Desea conocer nuestra <br />capacidad tecnológica en <span className="text-accent underline decoration-white/10 underline-offset-8">detalle?</span></h2>
+        <p className="text-white/40 text-lg mb-16 max-w-xl mx-auto font-light">
+          Ofrecemos auditorías presenciales y tours virtuales guiados para que su equipo de calidad conozca cada rincón de nuestra operativa.
+        </p>
+        <Link 
+          to="/#contacto" 
+          className="inline-flex items-center gap-6 px-14 py-6 bg-accent hover:bg-accent/80 text-white uppercase text-xs font-black tracking-[0.4em] transition-all shadow-2xl"
+        >
+          Agendar Auditoría
+          <ChevronRight className="w-5 h-5 text-black" />
+        </Link>
+      </section>
+
+      <Footer />
+    </div>
+  );
+};

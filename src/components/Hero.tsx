@@ -9,10 +9,29 @@ export const Hero = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.addEventListener('loadeddata', () => setVideoLoaded(true));
+    const video = videoRef.current;
+    if (video) {
+      video.addEventListener('loadeddata', () => setVideoLoaded(true));
+      
+      // Force play especially on navigation/browser wake
+      const playVideo = () => {
+        video.play().catch(error => {
+          console.log("Auto-play was prevented. Waiting for interaction.", error);
+        });
+      };
+
+      playVideo();
+      
+      // Fallback if video stays black after some time
+      const timeout = setTimeout(() => {
+        if (!videoLoaded) setVideoLoaded(true);
+      }, 3000);
+
+      return () => {
+        clearTimeout(timeout);
+      };
     }
-  }, []);
+  }, [videoLoaded]);
 
   const stats = [
     { value: '35+', label: 'hero.stats.experience' },

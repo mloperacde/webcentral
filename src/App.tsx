@@ -10,13 +10,19 @@ import { Instalaciones } from './components/Instalaciones';
 import { Calidad } from './components/Calidad';
 import { Contacto } from './components/Contacto';
 import { Footer } from './components/Footer';
+import { Nosotros } from './components/Nosotros';
 import { SectoresPage } from './pages/SectoresPage';
+import { NosotrosPage } from './pages/NosotrosPage';
+import { ProductosPage } from './pages/ProductosPage';
+import { CalidadPage } from './pages/CalidadPage';
+import { InstalacionesPage } from './pages/InstalacionesPage';
 import ScrollToTop from './components/ScrollToTop';
 
 const Home = () => {
   return (
     <main>
       <Hero />
+      <Nosotros />
       <Sectores />
       <CoPacker />
       <div className="h-48 lg:h-64" />
@@ -36,6 +42,10 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sectores" element={<SectoresPage />} />
+        <Route path="/nosotros" element={<NosotrosPage />} />
+        <Route path="/productos" element={<ProductosPage />} />
+        <Route path="/calidad" element={<CalidadPage />} />
+        <Route path="/instalaciones" element={<InstalacionesPage />} />
       </Routes>
       <Footer />
     </div>
