@@ -440,7 +440,7 @@ export const ProductosPage = () => {
               </div>
 
               {/* Legal Disclaimer Footer */}
-              <div className="mt-32 pt-12 border-t border-white/5 opacity-30 text-[10px] leading-relaxed max-w-4xl tracking-tight">
+              <div className="mt-32 pt-12 mb-24 border-t border-white/5 opacity-30 text-[10px] leading-relaxed max-w-4xl tracking-tight">
                 <p className="uppercase font-bold mb-2">Disclaimer Legal (AEMPS Compliance)</p>
                 <p>{p.disclaimer}</p>
               </div>
