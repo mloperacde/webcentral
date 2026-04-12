@@ -288,7 +288,7 @@ export const ProductosPage = () => {
       {productTypes.map((p) => (
         p.isSpecial ? (
           <div key={p.id} id={p.id} className="relative overflow-hidden pt-48">
-            {/* Internal Hero for Sanitary */}
+            {/* ... (Gama Sanitaria header and content) */}
             <div className="relative h-[60vh] flex items-center mb-32">
               <div className="absolute inset-0 z-0">
                 <img 
@@ -447,29 +447,33 @@ export const ProductosPage = () => {
             </div>
           </div>
         ) : (
-          <ProductSection key={p.id} {...p} finalConfig={productConfigs[p.id as keyof typeof productConfigs]} />
+          <React.Fragment key={p.id}>
+            <ProductSection {...p} finalConfig={productConfigs[p.id as keyof typeof productConfigs]} />
+            
+            {/* Global CTA - Inserted right after Vials (the last standard product) */}
+            {p.id === 'vials' && (
+              <section className="py-40 relative overflow-hidden text-center bg-zinc-950/20 border-y border-white/5">
+                <div className="max-w-4xl mx-auto px-4 relative z-10">
+                  <h2 className="text-3xl sm:text-5xl font-light text-white mb-10 tracking-tight leading-tight uppercase italic">
+                    ¿Tiene un proyecto con un <br /><span className="text-accent underline decoration-accent/30 underline-offset-8">formato especial?</span>
+                  </h2>
+                  <p className="text-white/40 text-lg mb-12 max-w-xl mx-auto font-light">
+                    Nuestro equipo de I+D e ingeniería puede adaptar nuestras líneas para formatos a medida 
+                    o desarrollos exclusivos.
+                  </p>
+                  <Link 
+                    to="/#contacto" 
+                    className="inline-flex items-center gap-4 px-12 py-5 bg-accent hover:bg-accent/80 text-white uppercase text-[10px] font-bold tracking-[0.3em] transition-all"
+                  >
+                    Consultar con un especialista
+                    <ChevronRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </section>
+            )}
+          </React.Fragment>
         )
       ))}
-
-      {/* Call to Action (Global) */}
-      <section className="py-40 relative overflow-hidden text-center bg-zinc-950/20">
-        <div className="max-w-4xl mx-auto px-4 relative z-10">
-          <h2 className="text-3xl sm:text-5xl font-light text-white mb-10 tracking-tight leading-tight">
-            ¿Tiene un proyecto con un <br /><span className="text-accent italic">formato especial?</span>
-          </h2>
-          <p className="text-white/40 text-lg mb-12 max-w-xl mx-auto font-light">
-            Nuestro equipo de I+D y ingeniería puede adaptar nuestras líneas para formatos a medida 
-            o desarrollos exclusivos.
-          </p>
-          <Link 
-            to="/#contacto" 
-            className="inline-flex items-center gap-4 px-12 py-5 bg-accent hover:bg-accent/80 text-white uppercase text-[10px] font-bold tracking-[0.3em] transition-all"
-          >
-            Consultar con un especialista
-            <ChevronRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
 
       <Footer />
     </div>

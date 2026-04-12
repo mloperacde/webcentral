@@ -17,6 +17,7 @@ import { ProductosPage } from './pages/ProductosPage';
 import { CalidadPage } from './pages/CalidadPage';
 import { InstalacionesPage } from './pages/InstalacionesPage';
 import ScrollToTop from './components/ScrollToTop';
+import { SmoothScroll } from './components/SmoothScroll';
 
 const Home = () => {
   return (
@@ -37,6 +38,7 @@ const Home = () => {
 const AppContent = () => {
   return (
     <div className="min-h-screen bg-black text-white selection:bg-accent/30">
+      <SmoothScroll />
       <ScrollToTop />
       <Navigation />
       <Routes>
