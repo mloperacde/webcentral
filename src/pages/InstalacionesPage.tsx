@@ -110,50 +110,57 @@ export const InstalacionesPage = () => {
       {/* Intro Engineering Section - Contained Background Style */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl bg-zinc-900 min-h-[75vh] flex items-center p-12 sm:p-24 shadow-2xl">
-            <div className="absolute inset-0 z-0">
-              <img 
-                src="/sala_envasado_esteril.png" 
-                alt="Envasado Estéril" 
-                className="w-full h-full object-cover" 
-              />
-              <div className="absolute inset-0 bg-black/60 z-10" />
-              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/30 to-transparent z-10" />
-            </div>
-            
-            <div className="relative z-20 w-full">
-                <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="max-w-3xl"
-                >
-                  <h2 className="text-4xl sm:text-6xl font-light text-white mb-8 tracking-tight italic uppercase leading-tight">
-                    Instalaciones de <br /><span className="text-accent">Vanguardia</span>
-                  </h2>
-                  <p className="text-white/70 text-xl font-light leading-relaxed mb-12 max-w-2xl">
-                    Nuestras instalaciones no solo son espacio físico, son herramientas de precisión industrial. Cada m² ha sido proyectado para garantizar la estanqueidad absoluta y el control digital total en tiempo real.
-                  </p>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div className="flex gap-5 items-start p-8 bg-black/50 backdrop-blur-xl border border-white/10 rounded-2xl">
-                      <Zap className="w-6 h-6 text-accent shrink-0 mt-1" />
-                      <div>
-                        <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Monitoreo Ambiental</h4>
-                        <p className="text-white/40 text-[13px] font-light leading-relaxed">Control digital continuo en tiempo real de temperatura y humedad.</p>
-                      </div>
-                    </div>
+          <div className="relative overflow-hidden rounded-2xl bg-zinc-900 min-h-[75vh] shadow-2xl">
+            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/30 to-transparent" />
 
-                    <div className="flex gap-5 items-start p-8 bg-black/50 backdrop-blur-xl border border-white/10 rounded-2xl">
-                      <Box className="w-6 h-6 text-accent shrink-0 mt-1" />
-                      <div>
-                        <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Flujo Unidireccional</h4>
-                        <p className="text-white/40 text-[13px] font-light leading-relaxed">Diseño de procesos anti-error para la prevención de contaminación.</p>
-                      </div>
+            <div className="relative z-10 grid gap-12 lg:grid-cols-2 items-center p-8 sm:p-12 lg:p-16">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="max-w-2xl"
+              >
+                <h2 className="text-4xl sm:text-6xl font-light text-white mb-8 tracking-tight italic uppercase leading-tight">
+                  Instalaciones de <br /><span className="text-accent">Vanguardia</span>
+                </h2>
+                <p className="text-white/70 text-xl font-light leading-relaxed mb-12 max-w-2xl">
+                  Nuestras instalaciones no solo son espacio físico, son herramientas de precisión industrial. Cada m² ha sido proyectado para garantizar la estanqueidad absoluta y el control digital total en tiempo real.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div className="flex gap-5 items-start p-6 bg-black/50 backdrop-blur-xl border border-white/10 rounded-2xl">
+                    <Zap className="w-6 h-6 text-accent shrink-0 mt-1" />
+                    <div>
+                      <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Monitoreo Ambiental</h4>
+                      <p className="text-white/40 text-[13px] font-light leading-relaxed">Control digital continuo en tiempo real de temperatura y humedad.</p>
                     </div>
                   </div>
-                </motion.div>
+
+                  <div className="flex gap-5 items-start p-6 bg-black/50 backdrop-blur-xl border border-white/10 rounded-2xl">
+                    <Box className="w-6 h-6 text-accent shrink-0 mt-1" />
+                    <div>
+                      <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Flujo Unidireccional</h4>
+                      <p className="text-white/40 text-[13px] font-light leading-relaxed">Diseño de procesos anti-error para la prevención de contaminación.</p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative overflow-hidden rounded-[28px] border border-white/10 bg-black/10 shadow-xl"
+              >
+                <img
+                  src="/instalaciones.webp"
+                  alt="Instalaciones de Vanguardia"
+                  className="w-full h-full min-h-[420px] object-cover"
+                />
+              </motion.div>
             </div>
           </div>
         </div>
