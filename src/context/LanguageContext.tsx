@@ -20,7 +20,7 @@ const translations: Record<Language, Record<string, any>> = {
     "nav.contacto": "Contacto",
     "hero.badge": "Líder Europeo en Co-Packing",
     "hero.title": "Más de 35 años de experiencia",
-    "hero.titleHighlight": "como Co-Packer de marcas líderes a nivel mundial",
+    "hero.titleHighlight": "como Co‑Packer de marcas líderes a nivel mundial",
     "hero.subtitle": "Infraestructura única en España con capacidad de fabricación y envasado bajo las más estrictas normativas sanitarias, cosméticas y alimentarias.",
     "hero.ctaPrimary": "Descubre nuestras instalaciones",
     "hero.ctaSecondary": "Contactar",

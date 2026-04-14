@@ -34,13 +34,12 @@ export const Nosotros = () => {
                 {t('nosotros.title')}
               </h2>
               
-              <h3 className="text-[15px] text-accent/90 font-light italic mb-8 leading-relaxed max-w-2xl">
+              <h3 className="text-[16px] text-accent/90 font-light italic mb-8 leading-relaxed max-w-2xl">
                 {t('nosotros.subtitle')}
               </h3>
               
-              <div className="space-y-4 text-white/50 text-[16px] font-light leading-relaxed mb-10 max-w-2xl">
+              <div className="space-y-4 text-white/50 text-[17px] font-light leading-relaxed mb-10 max-w-2xl">
                 <p>{t('nosotros.p1')}</p>
-                <p>{t('nosotros.p2')}</p>
                 <div className="border-l border-accent/20 pl-6 italic text-white/70 py-1">
                   {t('nosotros.p3')}
                 </div>
@@ -58,12 +57,12 @@ export const Nosotros = () => {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-3 max-w-sm">
+                <div className="grid grid-cols-3 gap-4 w-full max-w-4xl">
                   {details.map((detail, idx) => (
-                    <div key={idx} className="p-4 rounded-lg border border-white/5 bg-white/[0.01]">
-                      <detail.icon className="w-3.5 h-3.5 text-accent/60 mb-3" />
-                      <div className="text-lg text-white font-light mb-1 leading-none">{detail.value}</div>
-                      <div className="text-[8px] text-white/30 uppercase tracking-widest font-bold leading-tight">{t(detail.label)}</div>
+                    <div key={idx} className="p-5 rounded-lg border border-white/5 bg-white/[0.015] flex-1 flex flex-col items-start gap-3">
+                      <detail.icon className="w-4 h-4 text-accent/70 mb-2" />
+                      <div className="text-xl sm:text-2xl text-white font-light mb-1 leading-none">{detail.value}</div>
+                      <div className="text-[9px] sm:text-[10px] text-white/30 uppercase tracking-widest font-bold leading-tight">{t(detail.label)}</div>
                     </div>
                   ))}
                 </div>

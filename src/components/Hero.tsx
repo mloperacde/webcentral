@@ -67,14 +67,14 @@ export const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded border border-white/10 mb-8 bg-black/10 backdrop-blur-sm"
           >
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_10px_rgba(56,189,248,0.5)]" />
-            <span className="text-[10px] text-white/80 tracking-[0.3em] uppercase font-bold">{t('hero.badge')}</span>
+            <span className="text-[11px] text-white/80 tracking-[0.3em] uppercase font-bold">{t('hero.badge')}</span>
           </motion.div>
 
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-6 tracking-tight leading-[1.2]"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-6 tracking-tight leading-[1.2] max-w-5xl mx-auto text-center"
           >
             <span className="text-white/90">{t('hero.title')}</span>
             <br />
@@ -85,7 +85,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-base sm:text-lg text-white/60 max-w-2xl mb-10 leading-relaxed font-light mx-auto"
+            className="text-xl sm:text-2xl text-white/60 max-w-4xl mb-10 leading-relaxed font-light mx-auto text-center"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -98,7 +98,7 @@ export const Hero = () => {
           >
             <button 
               onClick={() => document.querySelector('#instalaciones')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-[10px] tracking-[0.2em] uppercase transition-all duration-300 border border-white/10"
+              className="group flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 text-white text-[11px] tracking-[0.2em] uppercase transition-all duration-300 border border-white/10"
               aria-label="Ir a Instalaciones"
             >
               {t('hero.ctaPrimary')}
@@ -106,7 +106,7 @@ export const Hero = () => {
             </button>
             <button 
               onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 border border-white/20 text-white/80 hover:border-white/50 hover:text-white text-[10px] tracking-[0.2em] uppercase transition-all duration-300"
+              className="px-8 py-4 border border-white/20 text-white/80 hover:border-white/50 hover:text-white text-[11px] tracking-[0.2em] uppercase transition-all duration-300"
               aria-label="Ir a Contacto"
             >
               {t('hero.ctaSecondary')}

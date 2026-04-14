@@ -53,12 +53,12 @@ export const Navigation = () => {
             <img 
               src="/logo.webp" 
               alt="Central de Envasados" 
-              className="h-30 lg:h-36 w-auto mix-blend-screen" 
+              className="h-36 lg:h-44 w-auto mix-blend-screen" 
               onError={() => setLogoError(true)}
               referrerPolicy="no-referrer"
             />
           ) : (
-            <span className="text-white font-light tracking-[0.4em] text-xl lg:text-2xl uppercase">Central de Envasados</span>
+            <span className="text-white font-light tracking-[0.4em] text-2xl lg:text-3xl uppercase">Central de Envasados</span>
           )}
         </a>
       </motion.div>
@@ -89,12 +89,12 @@ export const Navigation = () => {
                 <img 
                   src="/logo.webp" 
                   alt="Central de Envasados" 
-                  className="h-24 w-auto transition-all duration-500 mix-blend-screen" 
+                  className="h-28 w-auto transition-all duration-500 mix-blend-screen" 
                   onError={() => setLogoError(true)}
                   referrerPolicy="no-referrer"
                 />
               ) : (
-                <span className="text-white font-light tracking-[0.4em] text-sm uppercase">Central de Envasados</span>
+                <span className="text-white font-light tracking-[0.4em] text-base uppercase">Central de Envasados</span>
               )}
             </motion.a>
 
@@ -109,7 +109,7 @@ export const Navigation = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 + 0.3 }}
-                    className="text-[10px] text-white/70 hover:text-white tracking-[0.2em] uppercase transition-colors duration-300 font-medium"
+                    className="text-[13px] text-white/70 hover:text-white tracking-[0.2em] uppercase transition-colors duration-300 font-medium"
                   >
                     {t(link.key)}
                   </motion.a>
@@ -122,7 +122,7 @@ export const Navigation = () => {
                   >
                     <Link
                       to={link.href}
-                      className="text-[10px] text-white/70 hover:text-white tracking-[0.2em] uppercase transition-colors duration-300 font-medium"
+                      className="text-[13px] text-white/70 hover:text-white tracking-[0.2em] uppercase transition-colors duration-300 font-medium"
                     >
                       {t(link.key)}
                     </Link>
@@ -133,7 +133,7 @@ export const Navigation = () => {
 
             {/* Language & Mobile Menu Toggle */}
             <div className="flex items-center gap-4">
-              <motion.button 
+                <motion.button 
                 onClick={toggleLanguage}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -141,7 +141,7 @@ export const Navigation = () => {
                 aria-label="Cambiar Idioma"
               >
                 <Globe className="w-4 h-4" />
-                <span className="text-[10px] tracking-widest uppercase font-bold">{language}</span>
+                <span className="text-[13px] tracking-widest uppercase font-bold">{language}</span>
               </motion.button>
 
               <button 
