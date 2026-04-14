@@ -31,11 +31,11 @@ export const Nosotros = () => {
                 {t('nav.nosotros')}
               </span>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-8 tracking-tight leading-[1.1] max-w-4xl">
-                Nuestra Historia: El Compromiso con nuestros Clientes
+                {t('nosotros.title')}
               </h2>
               
               <h3 className="text-[15px] text-accent/90 font-light italic mb-8 leading-relaxed max-w-2xl">
-                 Más de 35 años evolucionando con la calidad como objetivo
+                {t('nosotros.subtitle')}
               </h3>
               
               <div className="space-y-4 text-white/50 text-[16px] font-light leading-relaxed mb-10 max-w-2xl">
@@ -52,7 +52,7 @@ export const Nosotros = () => {
                     to="/nosotros"
                     className="group inline-flex items-center gap-4 px-8 py-4 bg-white/[0.03] hover:bg-white/[0.08] text-white transition-all duration-300 rounded-full border border-white/10 text-[9px] uppercase font-bold tracking-[0.2em]"
                   >
-                    Conoce a nuestro equipo
+                    {t('nosotros.cta')}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
