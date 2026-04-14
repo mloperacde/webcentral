@@ -57,12 +57,12 @@ export const Nosotros = () => {
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-4 w-full max-w-4xl">
+                <div className="grid grid-cols-3 gap-3 w-full max-w-xl">
                   {details.map((detail, idx) => (
-                    <div key={idx} className="p-5 rounded-lg border border-white/5 bg-white/[0.015] flex-1 flex flex-col items-start gap-3">
-                      <detail.icon className="w-4 h-4 text-accent/70 mb-2" />
-                      <div className="text-xl sm:text-2xl text-white font-light mb-1 leading-none">{detail.value}</div>
-                      <div className="text-[9px] sm:text-[10px] text-white/30 uppercase tracking-widest font-bold leading-tight">{t(detail.label)}</div>
+                    <div key={idx} className="p-4 rounded-lg border border-white/5 bg-white/[0.015] flex-1 flex flex-col items-start gap-2">
+                      <detail.icon className="w-3.5 h-3.5 text-accent/70 mb-1" />
+                      <div className="text-lg sm:text-xl text-white font-light mb-1 leading-none">{detail.value}</div>
+                      <div className="text-[8px] sm:text-[9px] text-white/30 uppercase tracking-widest font-bold leading-tight">{t(detail.label)}</div>
                     </div>
                   ))}
                 </div>

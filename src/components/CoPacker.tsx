@@ -1,35 +1,10 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'motion/react';
+import React from 'react';
+import { motion } from 'motion/react';
 import { Plus } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const CoPacker = () => {
   const { t } = useLanguage();
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"]
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 50,
-    damping: 40,
-    restDelta: 0.001
-  });
-
-  // Animation values - Adjusted ranges for smoother flow in 280vh
-  const maskScale = useTransform(smoothProgress, [0.05, 0.4, 0.7], [1, 8, 35]);
-  const maskOpacity = useTransform(smoothProgress, [0, 0.7, 0.8], [1, 1, 0]);
-  
-  // Title is visible from the start
-  const titleOpacity = useTransform(smoothProgress, [0, 0.7, 0.81], [1, 1, 0]);
-  const titleY = useTransform(smoothProgress, [0, 0.1], [0, 0]);
-  
-  // Card content appears as the bottle opens
-  const contentOpacity = useTransform(smoothProgress, [0.2, 0.6], [0, 1]);
-  const contentY = useTransform(smoothProgress, [0.2, 0.6], [30, 0]);
-  const bgOpacity = useTransform(smoothProgress, [0.2, 0.55], [0, 0.6]);
 
   const features = [
     { key: 'copacker.feature1', desc: 'copacker.feature1.desc' },
@@ -41,9 +16,15 @@ export const CoPacker = () => {
   ];
 
   return (
-    <div id="copacker" ref={containerRef} className="relative h-[430vh] bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
-        <motion.div style={{ opacity: titleOpacity, y: titleY }}>
+    <section id="copacker" className="relative bg-black py-20 lg:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
           <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold mb-4 block">
             {t('copacker.subtitle')}
           </span>
@@ -54,113 +35,66 @@ export const CoPacker = () => {
             {t('copacker.description')}
           </p>
         </motion.div>
-      </div>
 
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-black" />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="relative w-full rounded-[2rem] overflow-hidden border border-white/10 backdrop-blur-md shadow-2xl"
+        >
+          <div className="absolute inset-0 z-0">
+            <img
+              loading="lazy"
+              src="/co-packing.webp"
+              alt="Co-packing background"
+              className="w-full h-full object-cover object-center"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/60" />
+          </div>
 
-        <div className="absolute inset-0 z-20 flex items-center justify-center px-4 sm:px-6 lg:px-8">
-          <motion.div
-            style={{ opacity: contentOpacity, y: contentY }}
-            className="relative min-h-[92vh] lg:min-h-[96vh] w-full max-w-[1440px] rounded-[3rem] overflow-hidden border border-white/10 backdrop-blur-md shadow-2xl"
-          >
-            {/* Background Image inside the card */}
-            <div className="absolute inset-0 z-0">
-              <img loading="lazy" 
-                src="/co-packing.webp" 
-                alt="Co-packing background"
-                className="w-full h-full object-cover opacity-80"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
-            </div>
-
-            <div className="relative z-20 w-full flex items-center py-[10px] px-6 sm:px-12 lg:px-20 overflow-visible">
-              <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-start py-4">
-                {/* Left Column: 1, 2, 3 */}
-                <div className="flex flex-col gap-6 lg:gap-8">
-                  {[features[0], features[1], features[2]].map((feature) => (
-                    <div key={feature.key} className="flex flex-col gap-3">
-                      <div className="flex items-center gap-4 px-6 py-3 rounded-full border bg-accent/20 border-accent/40 backdrop-blur-xl shadow-[0_0_20px_rgba(var(--accent-rgb),0.15)] w-fit">
-                        <div className="w-6 h-6 rounded-full flex items-center justify-center bg-white text-accent">
-                          <Plus className="w-3 h-3 rotate-45" />
-                        </div>
-                        <span className="text-xs lg:text-sm font-bold tracking-widest text-white uppercase">
-                          {t(feature.key)}
-                        </span>
+          <div className="relative z-20 w-full py-12 px-6 sm:px-10 lg:px-16">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+              <div className="flex flex-col gap-6 lg:gap-8">
+                {[features[0], features[1], features[2]].map((feature) => (
+                  <div key={feature.key} className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3 px-5 py-2.5 rounded-full border bg-accent/20 border-accent/40 backdrop-blur-xl shadow-[0_0_20px_rgba(var(--accent-rgb),0.15)] w-fit">
+                      <div className="w-5 h-5 rounded-full flex items-center justify-center bg-white text-accent">
+                        <Plus className="w-2.5 h-2.5 rotate-45" />
                       </div>
-                      <p className="px-5 text-white/60 text-xs lg:text-sm font-light leading-6 max-w-sm border-l border-accent/20 ml-6">
-                        {t(feature.desc)}
-                      </p>
+                      <span className="text-[10px] lg:text-xs font-bold tracking-widest text-white uppercase">
+                        {t(feature.key)}
+                      </span>
                     </div>
-                  ))}
-                </div>
- 
-                {/* Right Column: 4, 5, 6 */}
-                <div className="flex flex-col gap-6 lg:gap-8">
-                  {[features[3], features[4], features[5]].map((feature) => (
-                    <div key={feature.key} className="flex flex-col gap-3">
-                      <div className="flex items-center gap-4 px-6 py-3 rounded-full border bg-accent/20 border-accent/40 backdrop-blur-xl shadow-[0_0_20px_rgba(var(--accent-rgb),0.15)] w-fit">
-                        <div className="w-6 h-6 rounded-full flex items-center justify-center bg-white text-accent">
-                          <Plus className="w-3 h-3 rotate-45" />
-                        </div>
-                        <span className="text-xs lg:text-sm font-bold tracking-widest text-white uppercase">
-                          {t(feature.key)}
-                        </span>
+                    <p className="px-4 text-white/60 text-[11px] lg:text-sm font-light leading-5 max-w-sm border-l border-accent/20 ml-5">
+                      {t(feature.desc)}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-6 lg:gap-8">
+                {[features[3], features[4], features[5]].map((feature) => (
+                  <div key={feature.key} className="flex flex-col gap-2">
+                    <div className="flex items-center gap-3 px-5 py-2.5 rounded-full border bg-accent/20 border-accent/40 backdrop-blur-xl shadow-[0_0_20px_rgba(var(--accent-rgb),0.15)] w-fit">
+                      <div className="w-5 h-5 rounded-full flex items-center justify-center bg-white text-accent">
+                        <Plus className="w-2.5 h-2.5 rotate-45" />
                       </div>
-                      <p className="px-5 text-white/60 text-xs lg:text-sm font-light leading-6 max-w-sm border-l border-accent/20 ml-6">
-                        {t(feature.desc)}
-                      </p>
+                      <span className="text-[10px] lg:text-xs font-bold tracking-widest text-white uppercase">
+                        {t(feature.key)}
+                      </span>
                     </div>
-                  ))}
-                </div>
+                    <p className="px-4 text-white/60 text-[11px] lg:text-sm font-light leading-5 max-w-sm border-l border-accent/20 ml-5">
+                      {t(feature.desc)}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
-          </motion.div>
-        </div>
-
-        <motion.div 
-          style={{ opacity: maskOpacity }}
-          className="absolute inset-0 z-30 pointer-events-none flex items-center justify-center"
-        >
-          <motion.div
-            style={{ scale: maskScale }}
-            className="relative w-[420px] h-[420px] flex items-center justify-center"
-          >
-            {/* This SVG creates multiple "holes" in a black screen using a mask */}
-            <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible">
-              <defs>
-                <mask id="bottleMask">
-                  <rect x="-1000" y="-1000" width="2500" height="2500" fill="white" />
-                  <g fill="black">
-                    <path d="M20,2 L40,2 C42,2 43,3 43,5 L43,35 C43,35 65,40 65,75 L65,195 C65,198 62,200 58,200 L12,200 C8,200 5,198 5,195 L5,75 C5,40 27,35 27,35 L27,5 C27,3 28,2 20,2 Z" transform="translate(10, 0) scale(0.6)" />
-                    <path d="M10,60 L90,60 C95,60 98,63 98,68 L98,152 C98,157 95,160 90,160 L10,160 C5,160 2,157 2,152 L2,68 C2,63 5,60 10,60 Z M20,40 L80,40 C85,40 85,45 85,50 L85,58 L15,58 L15,50 C15,45 15,40 20,40 Z" transform="translate(60, 20) scale(0.6)" />
-                    <g transform="translate(110, 5) scale(0.6)">
-                      <path d="M20,10 L80,10 L80,25 C80,25 85,150 55,195 L45,195 C15,150 20,25 20,25 Z" />
-                      <line x1="20" y1="28" x2="80" y2="28" />
-                      <line x1="20" y1="36" x2="80" y2="36" />
-                    </g>
-                    <path d="M35,5 L65,5 L65,20 C65,20 75,25 75,40 L75,185 C75,195 70,200 65,200 L35,200 C30,200 25,195 25,185 L25,40 C25,25 35,20 35,20 Z" transform="translate(155, 0) scale(0.6)" />
-                  </g>
-                </mask>
-              </defs>
-              <rect x="-1000" y="-1000" width="2500" height="2500" fill="black" mask="url(#bottleMask)" />
-              <motion.g fill="none" stroke="white" strokeWidth="0.8" style={{ opacity: useTransform(smoothProgress, [0.1, 0.4], [0.6, 0]) }}>
-                <path d="M20,2 L40,2 C42,2 43,3 43,5 L43,35 C43,35 65,40 65,75 L65,195 C65,198 62,200 58,200 L12,200 C8,200 5,198 5,195 L5,75 C5,40 27,35 27,35 L27,5 C27,3 28,2 20,2 Z" transform="translate(10, 0) scale(0.6)" />
-                <path d="M10,60 L90,60 C95,60 98,63 98,68 L98,152 C98,157 95,160 90,160 L10,160 C5,160 2,157 2,152 L2,68 C2,63 5,60 10,60 Z M20,40 L80,40 C85,40 85,45 85,50 L85,58 L15,58 L15,50 C15,45 15,40 20,40 Z" transform="translate(60, 20) scale(0.6)" />
-                <g transform="translate(110, 5) scale(0.6)">
-                  <path d="M20,10 L80,10 L80,25 C80,25 85,150 55,195 L45,195 C15,150 20,25 20,25 Z" />
-                  <line x1="20" y1="28" x2="80" y2="28" />
-                  <line x1="20" y1="36" x2="80" y2="36" />
-                </g>
-                <path d="M35,5 L65,5 L65,20 C65,20 75,25 75,40 L75,185 C75,195 70,200 65,200 L35,200 C30,200 25,195 25,185 L25,40 C25,25 35,20 35,20 Z" transform="translate(155, 0) scale(0.6)" />
-              </motion.g>
-            </svg>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
-
-      <div className="h-[220vh]" />
-    </div>
+    </section>
   );
 };

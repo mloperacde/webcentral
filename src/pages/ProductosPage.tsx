@@ -152,7 +152,7 @@ export const ProductosPage = () => {
       specs: [
         { icon: Settings2, label: 'Llenado', value: 'Tecnología sin contacto para máxima pureza.' },
         { icon: Sparkles, label: 'Presentación', value: 'Nivelado perfecto y limpieza de bordes.' },
-        { icon: CheckCircle2, label: 'Materiales', value: 'PET, PP, Cristal y acabados lujo.' },
+        { icon: CheckCircle2, label: 'Materiales', value: 'PET, PP, Vidrio y acabados lujo.' },
         { icon: ShieldCheck, label: 'Control', value: 'Inspección visual del 100% de tarrinas.' }
       ]
     },
@@ -185,7 +185,7 @@ export const ProductosPage = () => {
       pillars: [
         {
           id: '01',
-          title: 'Pureza Farmacéutica',
+          title: 'Pureza Garantizada',
           description: 'Generación in-house de Agua Purificada Ph. Eur. (Farmacopea Europea) con caudal continuo de 700 L/h, garantizando la máxima seguridad en el excipiente acuoso.'
         },
         {
@@ -458,7 +458,7 @@ export const ProductosPage = () => {
                     ¿Tiene un proyecto con un <br /><span className="text-accent underline decoration-accent/30 underline-offset-8">formato especial?</span>
                   </h2>
                   <p className="text-white/40 text-lg mb-12 max-w-xl mx-auto font-light">
-                    Nuestro equipo de I+D e ingeniería puede adaptar nuestras líneas para formatos a medida 
+                    Nuestro equipo puede adaptar nuestras líneas para formatos a medida 
                     o desarrollos exclusivos.
                   </p>
                   <Link 

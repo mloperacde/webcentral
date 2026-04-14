@@ -35,9 +35,9 @@ export const InstalacionesPage = () => {
     {
       id: 'manufacturing',
       icon: Factory,
-      title: 'Fabricación de Grado Superior',
+      title: 'Fabricación de Grado Sanitario',
       description: 'Fabricación de fórmulas críticas bajo protocolos asépticos y control digital total.',
-      image: '/fabrication_room.webp'
+      image: '/Fabrication_room.webp'
     },
     {
       id: 'cleanrooms',
@@ -80,7 +80,7 @@ export const InstalacionesPage = () => {
               Regresar al Inicio
             </Link>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tighter leading-tight uppercase italic">
-              Arquitectura de <span className="text-accent underline decoration-accent/30 underline-offset-8">Grado Farmacéutico</span>
+              Arquitectura de <span className="text-accent underline decoration-accent/30 underline-offset-8">Grado Sanitario</span>
             </h1>
             <p className="max-w-2xl mx-auto text-white/60 text-lg lg:text-xl font-light leading-relaxed mb-16 px-4">
               Una infraestructura única en Europa diseñada para superar los estándares de las industrias cosmética, sanitaria y alimentaria.

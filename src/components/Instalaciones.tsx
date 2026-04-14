@@ -44,7 +44,7 @@ export const Instalaciones = () => {
           className="mb-20"
         >
           <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold mb-4 block">Capacidad Industrial Certificada</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white/90 tracking-tight">Instalaciones: Arquitectura de Grado Farmacéutico</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white/90 tracking-tight">Instalaciones de Vanguardia</h2>
         </motion.div>
 
         <motion.div 
