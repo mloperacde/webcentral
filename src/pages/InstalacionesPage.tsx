@@ -37,21 +37,21 @@ export const InstalacionesPage = () => {
       icon: Factory,
       title: 'Fabricación de Grado Superior',
       description: 'Fabricación de fórmulas críticas bajo protocolos asépticos y control digital total.',
-      image: '/Fabrication_room.webp'
+      image: '/fabrication_room.webp'
     },
     {
       id: 'cleanrooms',
       icon: ShieldCheck,
       title: '6 Salas Blancas Certificadas',
       description: 'Instalaciones cualificadas para productos sanitarios con control continuo de partículas y carga microbiológica.',
-      image: '/instalaciones.webp'
+      image: '/hero-sectores.jpg'
     },
     {
       id: 'water',
       icon: Droplets,
       title: 'Planta de Agua Purificada (700 L/h)',
       description: 'Garantía de calidad desde el origen. Suministro autónomo para fabricación y limpieza crítica.',
-      image: '/process_san.png'
+      image: '/pwplant.webp'
     }
   ];
 
@@ -108,58 +108,52 @@ export const InstalacionesPage = () => {
       </section>
 
       {/* Intro Engineering Section - Contained Background Style */}
-      <section className="py-24">
+      <section className="py-36">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl bg-zinc-900 min-h-[75vh] shadow-2xl">
-            <div className="absolute inset-0 bg-black/60" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/30 to-transparent" />
+          <div className="relative overflow-hidden rounded-2xl min-h-[680px] shadow-2xl">
+            <img
+              src="/instalaciones.webp"
+              alt="Instalaciones de Vanguardia"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/5 via-transparent to-white/10 mix-blend-screen pointer-events-none" />
 
-            <div className="relative z-10 grid gap-12 lg:grid-cols-2 items-center p-8 sm:p-12 lg:p-16">
+            <div className="relative z-10 flex h-full items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="max-w-2xl"
+                className="w-full px-4 py-20 sm:px-6 lg:px-12"
               >
-                <h2 className="text-4xl sm:text-6xl font-light text-white mb-8 tracking-tight italic uppercase leading-tight">
-                  Instalaciones de <br /><span className="text-accent">Vanguardia</span>
-                </h2>
-                <p className="text-white/70 text-xl font-light leading-relaxed mb-12 max-w-2xl">
-                  Nuestras instalaciones no solo son espacio físico, son herramientas de precisión industrial. Cada m² ha sido proyectado para garantizar la estanqueidad absoluta y el control digital total en tiempo real.
-                </p>
+                <div className="max-w-2xl p-8">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white mb-10 tracking-tight italic uppercase leading-tight">
+                    Instalaciones de <br /><span className="text-accent">Vanguardia</span>
+                  </h2>
+                  <p className="text-white/70 text-base sm:text-lg font-light leading-relaxed mb-14">
+                    Nuestras instalaciones no solo son espacio físico, son herramientas de precisión industrial. Cada m² ha sido proyectado para garantizar la estanqueidad absoluta y la calidad y seguridad en todos los procesos.
+                  </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="flex gap-5 items-start p-6 bg-black/50 backdrop-blur-xl border border-white/10 rounded-2xl">
-                    <Zap className="w-6 h-6 text-accent shrink-0 mt-1" />
-                    <div>
-                      <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Monitoreo Ambiental</h4>
-                      <p className="text-white/40 text-[13px] font-light leading-relaxed">Control digital continuo en tiempo real de temperatura y humedad.</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-11">
+                    <div className="flex gap-5 items-start p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+                      <Zap className="w-6 h-6 text-accent shrink-0 mt-1" />
+                      <div>
+                        <h4 className="text-white font-bold text-[10px] uppercase tracking-widest mb-2">Monitoreo Ambiental</h4>
+                        <p className="text-white/40 text-[13px] font-light leading-relaxed">Control digital continuo en tiempo real de temperatura y humedad.</p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="flex gap-5 items-start p-6 bg-black/50 backdrop-blur-xl border border-white/10 rounded-2xl">
-                    <Box className="w-6 h-6 text-accent shrink-0 mt-1" />
-                    <div>
-                      <h4 className="text-white font-bold text-xs uppercase tracking-widest mb-2">Flujo Unidireccional</h4>
-                      <p className="text-white/40 text-[13px] font-light leading-relaxed">Diseño de procesos anti-error para la prevención de contaminación.</p>
+                    <div className="flex gap-5 items-start p-6 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
+                      <Box className="w-6 h-6 text-accent shrink-0 mt-1" />
+                      <div>
+                        <h4 className="text-white font-bold text-[10px] uppercase tracking-widest mb-2">Flujo Unidireccional</h4>
+                        <p className="text-white/40 text-[13px] font-light leading-relaxed">Diseño de procesos anti-error para la prevención de contaminación.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative overflow-hidden rounded-[28px] border border-white/10 bg-black/10 shadow-xl"
-              >
-                <img
-                  src="/instalaciones.webp"
-                  alt="Instalaciones de Vanguardia"
-                  className="w-full h-full min-h-[420px] object-cover"
-                />
               </motion.div>
             </div>
           </div>
@@ -201,10 +195,13 @@ export const InstalacionesPage = () => {
       {/* Specialized Areas Grid with idosi background */}
       <section className="py-32 relative overflow-hidden bg-black">
         <div className="absolute inset-0 z-0 border-y border-white/5">
-          <img 
-            src="/idosi.webp" 
-            alt="Fondo Áreas Especializadas" 
-            className="w-full h-full object-cover opacity-40 transition-opacity duration-1000" 
+          <video
+            src="/llenado.MOV"
+            className="w-full h-full object-cover opacity-40 transition-opacity duration-1000"
+            autoPlay
+            muted
+            loop
+            playsInline
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-black" />
         </div>
