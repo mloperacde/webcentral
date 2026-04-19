@@ -141,7 +141,7 @@ export const Navigation = () => {
                 aria-label="Cambiar Idioma"
               >
                 <Globe className="w-4 h-4" />
-                <span className="text-[11px] sm:text-[13px] tracking-widest uppercase font-bold">{language}</span>
+                <span className="text-[11px] sm:text-[13px] tracking-widest uppercase font-bold">{language === 'es' ? 'en' : 'es'}</span>
               </motion.button>
 
               <button

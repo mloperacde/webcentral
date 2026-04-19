@@ -90,14 +90,19 @@ export const PoliticaSistemaInformacionPage = () => {{
             Volver al Canal Ético
           </Link>
           <div className="flex items-center gap-4">
-            <button onClick={{handlePrint}} className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-white transition-colors bg-white/5 px-4 py-2 rounded-lg border border-white/10">
+            <a 
+              href="/politica-sistema-informacion.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-white transition-colors bg-white/5 px-4 py-2 rounded-lg border border-white/10"
+            >
               <Printer className="w-4 h-4" />
               Imprimir
-            </button>
-            <button onClick={{handlePrint}} className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-black bg-accent hover:bg-white transition-colors px-4 py-2 rounded-lg">
+            </a>
+            <a href="/politica-sistema-informacion.pdf" download="politica-sistema-informacion.pdf" className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-black bg-accent hover:bg-white transition-colors px-4 py-2 rounded-lg">
               <Download className="w-4 h-4" />
               Descargar PDF
-            </button>
+            </a>
           </div>
         </div>
         
@@ -108,7 +113,7 @@ export const PoliticaSistemaInformacionPage = () => {{
           className="print:block"
         >
           {{/* Header del Documento */}}
-          <div className="mb-16 border-b border-white/10 print:border-black/50 pb-10 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="mb-12 border-b border-white/10 print:border-black/50 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="order-2 md:order-1">
               <h1 className="text-3xl lg:text-5xl font-light text-white print:text-black mb-6 uppercase tracking-tight italic">
                 Política del <span className="text-accent print:text-[#666] underline decoration-accent/30 print:decoration-transparent underline-offset-8">Sistema de Información</span>
@@ -120,6 +125,37 @@ export const PoliticaSistemaInformacionPage = () => {{
             {{/* Logo visible únicamente al imprimir */}}
             <div className="hidden print:block w-48 mb-4 order-1 md:order-2">
                <img src="/logo.webp" alt="Central de Envasados" className="w-full h-auto grayscale" />
+            </div>
+          </div>
+
+          {{/* Control de Documentos - Estilo Premium para Impresión */}}
+          <div className="mb-12 overflow-hidden rounded-lg border border-white/10 print:border-black/20 text-[10px] uppercase tracking-wider font-bold">
+            <div className="grid grid-cols-2 border-b border-white/10 print:border-black/20 bg-white/5 print:bg-gray-50">
+              <div className="p-4 border-r border-white/10 print:border-black/20">
+                <span className="text-white/30 print:text-black/40 block mb-1 text-[8px]">CÓDIGO</span>
+                <span className="text-accent print:text-black">PSII</span>
+              </div>
+              <div className="p-4">
+                <span className="text-white/30 print:text-black/40 block mb-1 text-[8px]">VERSIÓN</span>
+                <span className="text-white print:text-black">V. 03</span>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 bg-white/[0.02] print:bg-white text-[9px]">
+              <div className="p-4 border-b md:border-b-0 md:border-r border-white/10 print:border-black/20">
+                <span className="text-white/30 print:text-black/40 block mb-1 text-[8px]">ELABORADO POR</span>
+                <div className="text-white/80 print:text-black/80">
+                  <div>Grupo Adaptalia</div>
+                  <div className="text-[8px] font-normal lowercase italic text-white/40 print:text-black/40">Consultor y asesor externo</div>
+                </div>
+              </div>
+              <div className="p-4 border-b md:border-b-0 md:border-r border-white/10 print:border-black/20">
+                <span className="text-white/30 print:text-black/40 block mb-1 text-[8px]">REVISADO POR (06/2024)</span>
+                <div className="text-white/80 print:text-black/80 font-medium">Responsable Dirección</div>
+              </div>
+              <div className="p-4">
+                <span className="text-white/30 print:text-black/40 block mb-1 text-[8px]">APROBADO POR (06/2024)</span>
+                <div className="text-white/80 print:text-black/80 font-medium">Órgano Administración</div>
+              </div>
             </div>
           </div>
           
