@@ -1,4 +1,4 @@
-// Updated Information System Policy Route
+// Source of Truth sync: .antigravity/webcentral
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
