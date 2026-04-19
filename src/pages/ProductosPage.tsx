@@ -474,8 +474,6 @@ export const ProductosPage = () => {
           </React.Fragment>
         )
       ))}
-
-      <Footer />
     </div>
   );
 };

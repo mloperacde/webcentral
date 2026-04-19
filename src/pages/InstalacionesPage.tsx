@@ -334,8 +334,6 @@ export const InstalacionesPage = () => {
           <ChevronRight className="w-5 h-5 text-black" />
         </Link>
       </section>
-
-      <Footer />
     </div>
   );
 };

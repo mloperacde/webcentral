@@ -343,8 +343,6 @@ export const CalidadPage = () => {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
