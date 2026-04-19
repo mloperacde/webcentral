@@ -1,3 +1,4 @@
+// Updated Information System Policy Route
 import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
