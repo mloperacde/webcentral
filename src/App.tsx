@@ -23,6 +23,7 @@ import { CanalEticoPage } from './pages/CanalEticoPage';
 import { PoliticaPrivacidadPage } from './pages/PoliticaPrivacidadPage';
 import { PoliticaGestionPage } from './pages/PoliticaGestionPage';
 import { PoliticaSistemaInformacionPage } from './pages/PoliticaSistemaInformacionPage';
+import { CookieBanner } from './components/CookieBanner';
 import ScrollToTop from './components/ScrollToTop';
 import { SmoothScroll } from './components/SmoothScroll';
 
@@ -64,6 +65,7 @@ const AppContent = () => {
         <Route path="/politica-sistema-informacion" element={<PoliticaSistemaInformacionPage />} />
       </Routes>
       <Footer />
+      <CookieBanner />
     </div>
   );
 };
