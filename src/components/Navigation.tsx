@@ -41,27 +41,29 @@ export const Navigation = () => {
 
   return (
     <>
-      {/* Floating Logo (Initial State) */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -20 : 0, pointerEvents: scrolled ? 'none' : 'auto' }}
-        transition={{ duration: 0.4 }}
-        className="fixed top-4 left-4 sm:top-6 sm:left-8 lg:left-20 z-50 print:hidden"
-      >
-        <a href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }} className="block">
-          {!logoError ? (
-            <img
-              src="/logo.webp"
-              alt="Central de Envasados"
-              className="h-24 sm:h-28 md:h-32 lg:h-44 w-auto mix-blend-screen"
-              onError={() => setLogoError(true)}
-              referrerPolicy="no-referrer"
-            />
-          ) : (
-            <span className="text-white font-light tracking-[0.4em] text-xl sm:text-2xl lg:text-3xl uppercase">Central de Envasados</span>
-          )}
-        </a>
-      </motion.div>
+      {/* Floating Logo (Home only, before scroll) */}
+      {isHome && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -20 : 0, pointerEvents: scrolled ? 'none' : 'auto' }}
+          transition={{ duration: 0.4 }}
+          className="fixed top-4 left-4 sm:top-6 sm:left-8 lg:left-20 z-50 print:hidden"
+        >
+          <a href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }} className="block">
+            {!logoError ? (
+              <img
+                src="/logo.webp"
+                alt="Central de Envasados"
+                className="h-24 sm:h-28 md:h-32 lg:h-44 w-auto mix-blend-screen"
+                onError={() => setLogoError(true)}
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <span className="text-white font-light tracking-[0.4em] text-xl sm:text-2xl lg:text-3xl uppercase">Central de Envasados</span>
+            )}
+          </a>
+        </motion.div>
+      )}
 
       {/* Main Header */}
       <motion.header
@@ -70,88 +72,95 @@ export const Navigation = () => {
         transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
         className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-700 ease-in-out print:hidden ${
           scrolled
-            ? 'bg-black/60 backdrop-blur-xl border-b border-white/5 py-0'
-            : 'bg-transparent border-b border-transparent py-4'
+            ? 'bg-black/40 backdrop-blur-xl border-b border-white/5 py-0'
+            : 'bg-transparent border-b border-transparent py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex items-center justify-between h-20 sm:h-24 transition-all duration-700">
-            {/* Logo in Navbar (Visible on scroll) */}
-            <motion.a
-              href="#hero"
-              onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }}
-              className="flex-shrink-0"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: scrolled ? 1 : 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {!logoError ? (
-                <img
-                  src="/logo.webp"
-                  alt="Central de Envasados"
-                  className="h-20 sm:h-24 md:h-28 w-auto transition-all duration-500 mix-blend-screen"
-                  onError={() => setLogoError(true)}
-                  referrerPolicy="no-referrer"
-                />
-              ) : (
-                <span className="text-white font-light tracking-[0.4em] text-sm sm:text-base uppercase">Central de Envasados</span>
-              )}
-            </motion.a>
-
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-              {navLinks.map((link, index) => (
-                link.type === 'anchor' && isHome ? (
-                  <motion.a
-                    key={link.key}
-                    href={link.href}
-                    onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 + 0.3 }}
-                    className="text-[13px] text-white/70 hover:text-white tracking-[0.2em] uppercase transition-colors duration-300 font-medium"
-                  >
-                    {t(link.key)}
-                  </motion.a>
+            {/* Logo Left */}
+            <div className="w-48 sm:w-64 flex-shrink-0">
+              <Link
+                to="/"
+                onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }}
+                className={`group inline-block transition-opacity duration-500 ${!scrolled && isHome ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+              >
+                {!logoError ? (
+                  <div className="flex flex-col items-center">
+                    <img
+                      src="/logo.webp"
+                      alt="Central de Envasados"
+                      className="h-12 sm:h-14 md:h-16 w-auto transition-all duration-500 mix-blend-screen group-hover:scale-105"
+                      onError={() => setLogoError(true)}
+                      referrerPolicy="no-referrer"
+                    />
+                  </div>
                 ) : (
-                  <motion.div
-                    key={link.key}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 + 0.3 }}
-                  >
-                    <Link
-                      to={link.href}
-                      className="text-[13px] text-white/70 hover:text-white tracking-[0.2em] uppercase transition-colors duration-300 font-medium"
+                  <span className="text-white font-light tracking-widest uppercase text-sm sm:text-base group-hover:text-accent transition-colors">Central de Envasados</span>
+                )}
+              </Link>
+            </div>
+
+            {/* Desktop Navigation (Centered) */}
+            <nav className="hidden xl:flex items-center justify-center flex-1 gap-1 px-4">
+              {navLinks.map((link) => (
+                <div key={link.key} className="relative group px-1">
+                  {link.type === 'anchor' && isHome ? (
+                    <a
+                      href={link.href}
+                      onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }}
+                      className="px-3 py-2 text-[11px] font-bold text-white/60 hover:text-white tracking-[0.2em] uppercase transition-all duration-300 relative whitespace-nowrap"
                     >
                       {t(link.key)}
+                      <span className="absolute bottom-0 left-3 right-3 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.href}
+                      className="px-3 py-2 text-[11px] font-bold text-white/60 hover:text-white tracking-[0.2em] uppercase transition-all duration-300 relative whitespace-nowrap"
+                    >
+                      {t(link.key)}
+                      <span className="absolute bottom-0 left-3 right-3 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                     </Link>
-                  </motion.div>
-                )
+                  )}
+                </div>
               ))}
             </nav>
 
-            {/* Language & Mobile Menu Toggle */}
-            <div className="flex items-center gap-2 sm:gap-4">
-                <motion.button
-                onClick={toggleLanguage}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-1 sm:gap-2 text-white/70 hover:text-white transition-colors duration-300"
-                aria-label="Cambiar Idioma"
-              >
-                <Globe className="w-4 h-4" />
-                <span className="text-[11px] sm:text-[13px] tracking-widest uppercase font-bold">{language === 'es' ? 'en' : 'es'}</span>
-              </motion.button>
+            {/* Language Right */}
+            <div className="w-48 sm:w-64 flex justify-end items-center flex-shrink-0">
+              <div className="hidden xl:block">
+                <button
+                  onClick={toggleLanguage}
+                  className="flex items-center gap-2 px-3 py-1.5 text-[11px] font-bold text-white/60 hover:text-white tracking-[0.2em] uppercase transition-all duration-300 group"
+                >
+                  <Globe className="w-4 h-4 text-accent/70 group-hover:text-accent group-hover:rotate-180 transition-all duration-700" />
+                  <span>{language.toUpperCase()}</span>
+                </button>
+              </div>
 
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 text-white/70 hover:text-white transition-colors"
-                aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-                aria-expanded={mobileMenuOpen}
-              >
-                {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
-              </button>
+              {/* Language & Mobile Menu Toggle */}
+              <div className="flex xl:hidden items-center gap-2 sm:gap-4">
+                  <motion.button
+                  onClick={toggleLanguage}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-1 sm:gap-2 text-white/70 hover:text-white transition-colors duration-300"
+                  aria-label="Cambiar Idioma"
+                >
+                  <Globe className="w-5 h-5" />
+                  <span className="text-[12px] sm:text-[14px] tracking-widest uppercase font-bold">{language === 'es' ? 'en' : 'es'}</span>
+                </motion.button>
+
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="p-2 text-white/70 hover:text-white transition-colors"
+                  aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                  aria-expanded={mobileMenuOpen}
+                >
+                  {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+                </button>
+              </div>
             </div>
           </div>
         </div>

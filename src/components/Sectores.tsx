@@ -57,10 +57,10 @@ export const Sectores = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold mb-4 block">
+            <span className="text-[var(--text-fluid-xs)] text-accent tracking-widest-xl uppercase font-bold mb-4 block">
               {t('sectores.subtitle')}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-none">
+            <h2 className="text-[var(--text-fluid-xl)] sm:text-[var(--text-fluid-2xl)] font-medium text-white tracking-tight leading-none text-balance">
               {t('sectores.title')}
             </h2>
           </motion.div>
@@ -77,10 +77,15 @@ export const Sectores = () => {
             <div 
               key={sector.id}
               onClick={() => setCurrentIndex(index)}
-              className={`relative h-[500px] sm:h-[600px] lg:h-[700px] w-[65vw] flex-shrink-0 overflow-hidden rounded-[2.5rem] bg-zinc-900 border border-white/5 transition-all duration-1000 ease-[0.21, 0.47, 0.32, 0.98] cursor-pointer ${
-                currentIndex === index ? 'opacity-100 scale-100' : 'opacity-40 scale-[0.85] blur-[1px]'
+              className={`relative h-[clamp(400px,60vh,800px)] w-[65vw] flex-shrink-0 overflow-hidden rounded-[clamp(1.5rem,3vw,2.5rem)] bg-zinc-900/50 border border-white/5 transition-all duration-1000 ease-[0.21, 0.47, 0.32, 0.98] cursor-pointer group ${
+                currentIndex === index ? 'opacity-100 scale-100 shadow-[0_0_50px_rgba(56,189,248,0.15)]' : 'opacity-40 scale-[0.85] blur-[1px]'
               }`}
             >
+              {/* Glow Border Overlay */}
+              <div className={`absolute inset-0 z-10 transition-opacity duration-1000 ${currentIndex === index ? 'opacity-100' : 'opacity-0'}`}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 border border-accent/20 rounded-[clamp(1.5rem,3vw,2.5rem)] pointer-events-none" />
+              </div>
               {isVideo(sector.image) ? (
                 <VideoPlayer 
                   src={sector.image} 
@@ -151,42 +156,26 @@ export const Sectores = () => {
         </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mt-12 flex items-center justify-center gap-10">
-          <div className="flex gap-3">
-            {sectors.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-1.5 transition-all duration-700 rounded-full ${
-                  currentIndex === index ? 'w-12 bg-white' : 'w-3 bg-white/10 hover:bg-white/30'
-                }`}
+      {/* Indicators */}
+      <div className="flex justify-center gap-3 mt-12">
+        {sectors.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentIndex(index)}
+            className="relative h-1.5 transition-all duration-500"
+            style={{ width: currentIndex === index ? '2.5rem' : '0.75rem' }}
+            aria-label={`Go to sector ${index + 1}`}
+          >
+            <div className={`absolute inset-0 rounded-full transition-colors duration-500 ${currentIndex === index ? 'bg-accent' : 'bg-white/20 hover:bg-white/40'}`} />
+            {currentIndex === index && (
+              <motion.div
+                layoutId="activeIndicator"
+                className="absolute inset-0 bg-accent rounded-full shadow-[0_0_10px_rgba(56,189,248,0.5)]"
+                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
               />
-            ))}
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <button 
-              onClick={() => setIsPlaying(!isPlaying)}
-              className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-500 group relative overflow-hidden"
-              title={isPlaying ? "Pause" : "Play"}
-            >
-              {isPlaying ? (
-                <Pause className="w-6 h-6 transition-transform relative z-10" />
-              ) : (
-                <Play className="w-6 h-6 transition-transform relative z-10 translate-x-0.5" />
-              )}
-            </button>
-
-            <button 
-              onClick={next}
-              className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all duration-500 group relative overflow-hidden"
-              title="Next"
-            >
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform relative z-10" />
-            </button>
-          </div>
-        </div>
+            )}
+          </button>
+        ))}
       </div>
     </section>
   );

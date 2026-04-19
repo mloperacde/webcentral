@@ -76,8 +76,8 @@ const SectorDetail = ({ id, icon: Icon, title, description, features, image, con
               {details.map((detail: any, idx: number) => (
                 <div key={idx} className="p-8 border border-white/5 bg-white/3 backdrop-blur-md hover:bg-white/10 transition-all duration-500 rounded-[2rem] group/card">
                   <detail.icon className={`w-6 h-6 ${colorIconStart} ${colorHoverText} mb-4 transition-colors`} />
-                  <h4 className="text-white font-medium mb-2 tracking-tight">{detail.label}</h4>
-                  <p className="text-white/40 text-sm font-light leading-relaxed">{detail.value}</p>
+                  <h4 className="text-white font-medium mb-2 tracking-tight text-[15px] sm:text-base">{detail.label}</h4>
+                  <p className="text-white/40 text-[14px] sm:text-[15px] font-light leading-relaxed">{detail.value}</p>
                 </div>
               ))}
             </motion.div>
@@ -218,18 +218,18 @@ export const SectoresPage = () => {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight leading-tight">
               Sectores de <span className="text-accent italic">Excelencia</span>
             </h1>
-            <p className="max-w-2xl mx-auto text-white/50 text-lg lg:text-xl font-light leading-relaxed mb-16 px-4">
+            <p className="max-w-4xl mx-auto text-white/50 text-2xl lg:text-3xl font-light leading-relaxed mb-28 px-4 text-balance">
               Diseñamos ecosistemas de envasado a medida para las industrias más exigentes del mercado global.
             </p>
             
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-4 mt-12">
               {sectorData.map(s => (
                 <a 
                   key={s.id} 
                   href={`#${s.id}`}
-                  className="px-6 py-4 border border-white/10 bg-white/5 hover:border-white/30 transition-all text-[9px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 group"
+                  className="px-7 py-4 border border-white/10 bg-white/5 hover:border-white/30 transition-all text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 group"
                 >
-                  <s.icon className="w-4 h-4 text-accent/40 group-hover:text-accent transition-colors" />
+                  <s.icon className="w-5 h-5 text-accent/40 group-hover:text-accent transition-colors" />
                   {s.title}
                 </a>
               ))}
@@ -241,7 +241,7 @@ export const SectoresPage = () => {
         <motion.div 
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+          className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
         >
           <span className="text-[9px] text-white/20 uppercase tracking-[0.4em] [writing-mode:vertical-lr]">Scroll</span>
           <div className="w-px h-16 bg-gradient-to-b from-white/20 to-transparent" />

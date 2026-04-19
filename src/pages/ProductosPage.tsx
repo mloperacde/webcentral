@@ -30,39 +30,39 @@ const ProductSection = ({ id, icon: Icon, title, subtitle, description, image, s
   const { scale = 1.1, x = 0, y = 0, size = 700 } = finalConfig || {};
 
   return (
-    <div id={id} className="min-h-screen pt-32 pb-20 border-b border-white/5 relative overflow-hidden flex items-center">
+    <div id={id} className="min-h-screen pt-32 pb-20 border-b border-white/5 relative overflow-hidden flex items-center mesh-gradient">
       <div className="absolute inset-0 z-0 opacity-10">
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="relative z-10 page-container w-full">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
           >
-            <div className={`p-4 w-fit border ${colorBorder} ${colorBg} rounded-2xl mb-8`}>
+            <div className={`p-4 w-fit border ${colorBorder} ${colorBg} rounded-2xl mb-8 backdrop-blur-md`}>
               <Icon className={`w-8 h-8 ${colorText}`} />
             </div>
-            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-light text-white mb-6 tracking-tighter uppercase italic">
+            <h2 className="page-title text-white mb-6 text-balance uppercase italic">
               {title}
             </h2>
-            <h3 className={`text-lg font-medium ${colorText} mb-8 tracking-[0.2em] uppercase`}>
+            <h3 className={`page-subtitle ${colorText} mb-8`}>
               {subtitle}
             </h3>
-            <p className="text-xl text-white/50 font-light leading-relaxed mb-12 max-w-xl">
+            <p className="body-text mb-12 max-w-xl text-balance">
               {description}
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">
               {specs.map((spec: any, idx: number) => (
-                <div key={idx} className="flex items-start gap-4 p-6 border border-white/5 bg-sky-500/\[0.03\] backdrop-blur-md rounded-2xl group hover:bg-white/[0.05] transition-all">
-                  <spec.icon className={`w-5 h-5 ${colorIcon} shrink-0 mt-1`} />
+                <div key={idx} className="flex items-start gap-4 p-6 border border-white/5 bg-white/[0.02] backdrop-blur-md rounded-2xl group hover:bg-white/[0.05] transition-all duration-500">
+                  <spec.icon className={`w-5 h-5 ${colorIcon} shrink-0 mt-1 group-hover:scale-110 group-hover:rotate-6 transition-transform`} />
                   <div>
-                    <h4 className="text-white font-medium mb-1 tracking-tight text-sm uppercase">{spec.label}</h4>
-                    <p className="text-white/40 text-[13px] font-light leading-relaxed">{spec.value}</p>
+                    <h4 className="text-white font-medium mb-1 tracking-tight text-[12px] sm:text-[13px] uppercase">{spec.label}</h4>
+                    <p className="text-white/40 text-[13px] sm:text-[14px] font-light leading-relaxed">{spec.value}</p>
                   </div>
                 </div>
               ))}
@@ -228,16 +228,16 @@ export const ProductosPage = () => {
           <img 
             src="/cabecera_productos.webp" 
             alt="Productos Central de Envasados" 
-            className="w-full h-full object-contain opacity-70 brightness-90 transform translate-y-8" 
+            className="w-full h-full object-contain opacity-80 brightness-100 transform translate-y-8" 
           />
           {/* Enhanced Dark Veil - 80% intensity feel */}
-          <div className="absolute inset-0 bg-black/50 z-10" />
+          <div className="absolute inset-0 bg-black/35 z-10" />
           
           {/* Minimal Bottom Fade - Only to transition to background */}
           <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#080808] to-transparent z-20" />
           
           {/* Top Fade for navigation */}
-          <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black/80 to-transparent z-20" />
+          <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black/70 to-transparent z-20" />
         </div>
         
         <div className="relative z-30 text-center px-4 max-w-5xl mt-auto pb-44">
@@ -263,9 +263,9 @@ export const ProductosPage = () => {
                 <a 
                   key={p.id} 
                   href={`#${p.id}`}
-                  className="px-8 py-4 border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all text-[9px] font-bold uppercase tracking-[0.3em] flex items-center gap-3 group"
+                  className="px-8 py-4 border border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/30 transition-all text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.3em] flex items-center gap-3 group"
                 >
-                  <p.icon className="w-4 h-4 text-accent/60 group-hover:text-accent group-hover:scale-110 transition-all" />
+                  <p.icon className="w-5 h-5 text-accent/60 group-hover:text-accent group-hover:scale-110 transition-all" />
                   {p.title}
                 </a>
               ))}
@@ -350,22 +350,22 @@ export const ProductosPage = () => {
                 {p.pillars.map((pillar: any, idx: number) => (
                   <div key={idx} className="p-10 border border-white/5 bg-sky-500/\[0.03\] backdrop-blur-md rounded-3xl hover:bg-sky-400/5 hover:border-sky-400/20 transition-all group">
                     <span className="text-sky-400 text-4xl font-black mb-6 block transition-colors italic">{pillar.id}</span>
-                    <h4 className="text-white font-medium mb-4 text-lg uppercase tracking-tight italic">{pillar.title}</h4>
-                    <p className="text-white/40 text-[13px] leading-relaxed font-light">{pillar.description}</p>
+                    <h4 className="text-white font-medium mb-4 text-xl uppercase tracking-tight italic">{pillar.title}</h4>
+                    <p className="text-white/40 text-[14px] leading-relaxed font-light">{pillar.description}</p>
                   </div>
                 ))}
               </div>
 
               {/* Comparison Section with Table */}
               <div className="mb-32">
-                <h3 className="text-white/90 text-xl font-light mb-12 flex items-center gap-4 italic uppercase tracking-widest">
+                <h3 className="text-white/90 text-2xl font-light mb-12 flex items-center gap-4 italic uppercase tracking-widest">
                   <span className="h-px w-12 bg-sky-400/30"></span>
                   Capacidades Productivas Actuales
                 </h3>
                 <div className="overflow-x-auto rounded-3xl border border-white/5">
                   <table className="w-full text-left border-collapse bg-sky-500/\[0.02\]">
                     <thead>
-                      <tr className="border-b border-white/10 text-white/30 text-[10px] uppercase font-bold tracking-[0.2em] bg-sky-500/\[0.03\]">
+                        <tr className="border-b border-white/10 text-white/30 text-[11px] uppercase font-bold tracking-[0.2em] bg-sky-500/\[0.03\]">
                         <th className="py-8 px-10">Formato</th>
                         <th className="py-8 px-10">Especificación Técnica</th>
                         <th className="py-8 px-10">Aplicaciones</th>
@@ -375,8 +375,8 @@ export const ProductosPage = () => {
                       {p.table.map((row: any, idx: number) => (
                         <tr key={idx} className="border-b border-white/5 last:border-0 hover:bg-sky-500/\[0.03\] transition-colors">
                           <td className="py-8 px-10 font-medium text-sky-400 italic uppercase text-sm tracking-widest">{row.format}</td>
-                          <td className="py-8 px-10 text-[13px] font-light leading-relaxed">{row.specs}</td>
-                          <td className="py-8 px-10 text-[13px] font-light text-white/40">{row.apps}</td>
+                          <td className="py-8 px-10 text-[14px] font-light leading-relaxed">{row.specs}</td>
+                          <td className="py-8 px-10 text-[14px] font-light text-white/40">{row.apps}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -415,23 +415,23 @@ export const ProductosPage = () => {
               {/* Alcance Section */}
               <div className="grid lg:grid-cols-2 gap-20 items-center border-t border-white/5 pt-32">
                 <div>
-                  <h3 className="text-3xl font-light text-white mb-10 tracking-tight italic uppercase">Alcance de <span className="text-sky-400">Desarrollo</span></h3>
+                  <h3 className="text-4xl font-light text-white mb-10 tracking-tight italic uppercase">Alcance de <span className="text-sky-400">Desarrollo</span></h3>
                   <div className="grid gap-6">
                     {p.reach.map((item: string, idx: number) => (
                       <div key={idx} className="flex items-center gap-4 group">
                         <div className="w-8 h-px bg-sky-400/30 group-hover:w-12 transition-all group-hover:bg-sky-400" />
-                        <span className="text-white/50 text-[15px] font-light group-hover:text-white transition-colors">{item}</span>
+                        <span className="text-white/50 text-[16px] font-light group-hover:text-white transition-colors">{item}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 <div className="bg-sky-400/5 border border-sky-400/10 p-12 rounded-[40px] text-center backdrop-blur-md">
-                  <h4 className="text-xl font-medium text-white mb-6 uppercase tracking-tight italic">¿Tiene una formulación de Producto Sanitario en desarrollo?</h4>
-                  <p className="text-white/40 mb-10 text-sm font-light leading-relaxed">Gestionamos el escalado desde lote piloto hasta producción industrial manteniendo la clasificación regulatoria sanitaria (no farmacéutica).</p>
+                  <h4 className="text-2xl font-medium text-white mb-6 uppercase tracking-tight italic">¿Tiene una formulación de Producto Sanitario en desarrollo?</h4>
+                  <p className="text-white/40 mb-10 text-base font-light leading-relaxed">Gestionamos el escalado desde lote piloto hasta producción industrial manteniendo la clasificación regulatoria sanitaria (no farmacéutica).</p>
                   <Link 
                     to="/#contacto" 
-                    className="inline-flex items-center gap-4 px-10 py-5 bg-sky-400 hover:bg-sky-500 text-black uppercase text-[10px] font-black tracking-[0.3em] transition-all"
+                    className="inline-flex items-center gap-4 px-10 py-5 bg-sky-400 hover:bg-sky-500 text-black uppercase text-[11px] font-black tracking-[0.3em] transition-all"
                   >
                     Consultar Viabilidad
                     <ChevronRight className="w-4 h-4" />
@@ -440,8 +440,8 @@ export const ProductosPage = () => {
               </div>
 
               {/* Legal Disclaimer Footer */}
-              <div className="mt-32 pt-12 mb-24 border-t border-white/5 opacity-30 text-[10px] leading-relaxed max-w-4xl tracking-tight">
-                <p className="uppercase font-bold mb-2">Disclaimer Legal (AEMPS Compliance)</p>
+              <div className="mt-32 pt-12 mb-24 border-t border-white/5 opacity-30 text-[11px] leading-relaxed max-w-4xl tracking-tight">
+                <p className="uppercase font-bold mb-2 text-[12px]">Disclaimer Legal (AEMPS Compliance)</p>
                 <p>{p.disclaimer}</p>
               </div>
             </div>

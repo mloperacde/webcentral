@@ -82,7 +82,7 @@ export const CalidadPage = () => {
   ];
 
   return (
-    <div className="bg-black min-h-screen text-white">
+    <div className="bg-black min-h-screen text-white mesh-gradient">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -92,10 +92,11 @@ export const CalidadPage = () => {
             className="w-full h-full object-cover opacity-60 brightness-90 scale-100" 
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent z-10" />
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black to-transparent z-20" />
         </div>
         
-        <div className="relative z-30 text-center px-4 max-w-5xl">
+        <div className="relative z-30 text-center px-4 max-w-5xl mt-auto pb-44">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -105,14 +106,30 @@ export const CalidadPage = () => {
               <ArrowLeft className="w-3 h-3" />
               Regresar al Inicio
             </Link>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tighter leading-tight uppercase italic">
-              Garantía de <span className="text-accent underline decoration-accent/30 underline-offset-8">Confianza</span> para Marcas Líderes
+            <motion.span 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="page-subtitle mb-4 block"
+            >
+              Compromiso con la Excelencia
+            </motion.span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light text-white mb-6 tracking-tighter leading-tight uppercase italic text-balance drop-shadow-2xl">
+              Garantía de <span className="text-accent">Confianza</span> para <span className="text-white/90">Marcas Líderes</span>
             </h1>
-            <p className="max-w-2xl mx-auto text-white/60 text-lg font-light leading-relaxed mb-4 italic">
+            <p className="max-w-2xl mx-auto text-white/50 text-base lg:text-lg font-light leading-relaxed mb-4 italic">
               "No delegamos la calidad; la integramos en cada proceso."
             </p>
           </motion.div>
         </div>
+
+        <motion.div 
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-40 opacity-40"
+        >
+          <span className="text-[9px] text-white uppercase tracking-[0.4em] [writing-mode:vertical-lr]">Explorar</span>
+          <div className="w-px h-10 bg-white" />
+        </motion.div>
       </section>
 
       {/* Philosophy Section */}
@@ -203,8 +220,8 @@ export const CalidadPage = () => {
                   <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                     <node.icon className="w-8 h-8 text-accent" />
                   </div>
-                  <h4 className="text-white font-medium mb-4 text-xl tracking-tight leading-snug uppercase italic">{node.title}</h4>
-                  <p className="text-white/40 text-[13px] font-light leading-relaxed">{node.description}</p>
+                  <h4 className="text-white font-medium mb-4 text-[22px] tracking-tight leading-snug uppercase italic">{node.title}</h4>
+                  <p className="text-white/40 text-[15px] font-light leading-relaxed">{node.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -316,6 +333,7 @@ export const CalidadPage = () => {
           >
             <source src="/Operator_checks_data.mp4" type="video/mp4" />
           </video>
+          <div className="absolute inset-0 bg-black/30 z-10" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black z-10" />
         </div>
 
