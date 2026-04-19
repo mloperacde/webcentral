@@ -61,7 +61,7 @@ export const InstalacionesPage = () => {
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/factory.png" 
+            src="/factory.webp" 
             alt="Central de Envasados Exterior" 
             className="w-full h-full object-cover" 
           />
@@ -196,14 +196,15 @@ export const InstalacionesPage = () => {
       <section className="py-32 relative overflow-hidden bg-black">
         <div className="absolute inset-0 z-0 border-y border-white/5">
           <video
-            src="/llenado.MOV"
-            className="w-full h-full object-cover opacity-40 transition-opacity duration-1000"
+            src="/llenado.mp4"
+            className="w-full h-full object-cover opacity-60 brightness-110 transition-opacity duration-1000"
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-black" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

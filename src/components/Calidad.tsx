@@ -19,6 +19,12 @@ export const Calidad = () => {
       image: '/SGS_bpm.png'
     },
     { 
+      id: 'ifsfood', 
+      title: 'Norma de Calidad y Seguridad Alimentaria', 
+      description: 'Certificación IFS Food',
+      image: '/IFS_Food.png'
+    },
+    { 
       id: 'iso13485', 
       title: 'Gestión Calidad Productos Sanitarios', 
       description: 'en base a la norma ISO13485',
@@ -101,7 +107,7 @@ export const Calidad = () => {
           </motion.div>
 
           {/* Certifications Grid - Floating and overlapping the bottom edge */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6 translate-y-32 lg:translate-y-48">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6 translate-y-32 lg:translate-y-48">
             {certs.map((cert, index) => (
               <motion.div 
                 key={cert.id}

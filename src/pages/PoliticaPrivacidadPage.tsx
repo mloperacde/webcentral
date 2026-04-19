@@ -61,18 +61,41 @@ export const PoliticaPrivacidadPage = () => {
             <section>
               <h3 className="text-xl text-white font-medium mb-6 flex items-center gap-3">
                 <Database className="w-6 h-6 text-accent shrink-0" />
-                Cómo utilizamos su información
+                Base Jurídica y Finalidad
               </h3>
               <p className="mb-4">
-                Utilizaremos la información que recopilamos sobre usted para los siguientes propósitos:
+                Tratamos sus datos personales basándonos en las siguientes bases legales:
               </p>
-              <ul className="list-disc list-inside space-y-2 mb-6 ml-4">
-                <li>Marketing / Promoción</li>
-                <li>Recopilación de comentarios de los clientes</li>
-              </ul>
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
+                <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+                  <span className="text-accent text-[10px] uppercase font-bold tracking-widest block mb-2">Art. 6.1.a RGPD</span>
+                  <p className="text-sm font-medium text-white mb-1">Consentimiento</p>
+                  <p className="text-xs text-white/50">Para el envío de comunicaciones comerciales y el uso de cookies no técnicas.</p>
+                </div>
+                <div className="p-4 bg-white/5 rounded-xl border border-white/10">
+                  <span className="text-accent text-[10px] uppercase font-bold tracking-widest block mb-2">Art. 6.1.b RGPD</span>
+                  <p className="text-sm font-medium text-white mb-1">Relación Contractual</p>
+                  <p className="text-xs text-white/50">Para la gestión de solicitudes, presupuestos y prestación de servicios de co-packing.</p>
+                </div>
+              </div>
               <p className="text-sm">
                 Si queremos usar su información para cualquier otro propósito, le pediremos su consentimiento y utilizaremos su información solo después de recibirlo y solo para el propósito(s) para los cuales otorgue su consentimiento a menos que estemos obligados a hacer lo contrario por ley.
               </p>
+            </section>
+
+            <section>
+              <h3 className="text-xl text-white font-medium mb-6 flex items-center gap-3">
+                <Lock className="w-6 h-6 text-accent shrink-0" />
+                Conservación de Datos
+              </h3>
+              <p className="mb-4">
+                Conservaremos sus datos personales solo durante el tiempo necesario para cumplir con las finalidades para las que fueron recogidos:
+              </p>
+              <ul className="list-disc list-inside space-y-2 text-sm ml-4 mb-6">
+                <li><strong>Datos de contacto/consultas:</strong> Hasta la resolución de la consulta o durante 2 años tras el último contacto.</li>
+                <li><strong>Datos de clientes:</strong> Durante la vigencia de la relación contractual y, posteriormente, durante los plazos de prescripción legales aplicables (generalmente 6 años por normativa mercantil).</li>
+                <li><strong>Datos de marketing:</strong> Hasta que retire su consentimiento.</li>
+              </ul>
             </section>
 
             <section className="bg-black/50 p-8 rounded-3xl border-l-4 border-accent">

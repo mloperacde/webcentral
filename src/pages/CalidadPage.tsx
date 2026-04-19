@@ -60,6 +60,11 @@ export const CalidadPage = () => {
       value: 'Fabricación bajo inspección de la AEMPS, garantizando inocuidad y trazabilidad farmacéutica.' 
     },
     { 
+      name: 'IFS Food', 
+      scope: 'Seguridad Alimentaria', 
+      value: 'Cumplimiento de los más altos estándares globales de seguridad y calidad en el procesado de alimentos.' 
+    },
+    { 
       name: 'ISO 13485', 
       scope: 'Productos Sanitarios', 
       value: 'Habilitación para fabricar Medical Devices clase I/IIa bajo rigor clínico y normativo.' 
@@ -84,9 +89,9 @@ export const CalidadPage = () => {
           <img 
             src="/laboratorio.webp" 
             alt="Calidad Central de Envasados" 
-            className="w-full h-full object-cover opacity-40 brightness-75 scale-105" 
+            className="w-full h-full object-cover opacity-60 brightness-90 scale-100" 
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-black z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black z-10" />
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black to-transparent z-20" />
         </div>
         
@@ -271,11 +276,11 @@ export const CalidadPage = () => {
             loop 
             muted 
             playsInline 
-            className="w-full h-full object-cover opacity-70"
+            className="w-full h-full object-cover opacity-85 brightness-110"
           >
             <source src="/Operator_checks_data.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/20 to-black z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black z-10" />
         </div>
 
         <div className="max-w-4xl mx-auto px-4 text-center relative z-20">

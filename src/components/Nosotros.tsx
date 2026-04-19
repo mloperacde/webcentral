@@ -85,7 +85,7 @@ export const Nosotros = () => {
           >
             <div className="relative shadow-[0_0_80px_rgba(0,0,0,0.6)] overflow-hidden">
               <img 
-                src="/factory.png" 
+                src="/factory.webp" 
                 alt="Factory Central de Envasados" 
                 className="w-full h-auto object-cover transition-transform duration-1000 hover:scale-105"
                 style={{ 

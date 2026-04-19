@@ -89,16 +89,84 @@ export const CookiesPage = () => {
 
             <section className="space-y-6">
               <div className="flex items-center gap-3 mb-6">
+                <Shield className="w-5 h-5 text-accent/60" />
+                <h2 className="text-2xl text-white font-medium uppercase tracking-widest italic m-0">Cookies específicas que utilizamos</h2>
+              </div>
+              
+              <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02]">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-white/10 bg-white/5 uppercase text-[10px] tracking-[0.2em] font-bold text-accent">
+                      <th className="p-4">Cookie</th>
+                      <th className="p-4">Duración</th>
+                      <th className="p-4">Finalidad</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-sm text-white/60 font-light">
+                    <tr className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                      <td className="p-4 font-medium text-white">_GRECAPTCHA</td>
+                      <td className="p-4 italic">6 meses</td>
+                      <td className="p-4">Google Recaptcha: Identificación de bots para protección contra spam.</td>
+                    </tr>
+                    <tr className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                      <td className="p-4 font-medium text-white">rc::a, rc::b, rc::c</td>
+                      <td className="p-4 italic">Sesión/Nunca</td>
+                      <td className="p-4">Servicio técnico de seguridad para la validación de integridad del usuario.</td>
+                    </tr>
+                    <tr className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+                      <td className="p-4 font-medium text-white">cookie-consent</td>
+                      <td className="p-4 italic">1 año</td>
+                      <td className="p-4">Recuerda las preferencias de consentimiento del usuario para no mostrar el banner en cada visita.</td>
+                    </tr>
+                    <tr className="hover:bg-white/[0.02] transition-colors">
+                      <td className="p-4 font-medium text-white">wpEmojiSettings</td>
+                      <td className="p-4 italic">Sesión</td>
+                      <td className="p-4">Determinación técnica de la capacidad del navegador para mostrar caracteres especiales.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="space-y-6">
+              <div className="flex items-center gap-3 mb-6">
                 <Settings className="w-5 h-5 text-accent/60" />
-                <h2 className="text-2xl text-white font-medium uppercase tracking-widest italic m-0">Cómo gestionar las cookies</h2>
+                <h2 className="text-2xl text-white font-medium uppercase tracking-widest italic m-0">Gestión de preferencias</h2>
               </div>
               <p>
-                Usted puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su ordenador. Si no está seguro de cómo hacerlo, puede consultar la ayuda de su navegador:
+                Usted puede cambiar sus preferencias de cookies en cualquier momento. Esto le permitirá volver a ver el banner de consentimiento de cookies y cambiar sus preferencias o retirar su consentimiento de inmediato:
               </p>
-              <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4 list-none p-0">
-                {['Google Chrome', 'Mozilla Firefox', 'Safari', 'Microsoft Edge'].map((browser) => (
-                  <li key={browser} className="text-sm border border-white/10 rounded-lg p-3 text-center hover:bg-white/5 transition-colors cursor-default">
-                    {browser}
+              <button 
+                onClick={() => {
+                  localStorage.removeItem('cookie-consent');
+                  window.location.reload();
+                }}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-black text-[10px] font-bold uppercase tracking-widest rounded-full hover:scale-105 transition-transform"
+              >
+                Restablecer configuración de cookies
+              </button>
+              
+              <div className="h-12" />
+              
+              <p>
+                Además, puede gestionar las cookies directamente desde su navegador:
+              </p>
+              <ul className="grid grid-cols-2 lg:grid-cols-4 gap-4 list-none p-0">
+                {[
+                  { name: 'Google Chrome', url: 'https://support.google.com/accounts/answer/32050' },
+                  { name: 'Mozilla Firefox', url: 'https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias' },
+                  { name: 'Safari', url: 'https://support.apple.com/es-es/guide/safari/sfri11471/mac' },
+                  { name: 'Microsoft Edge', url: 'https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947792d2' }
+                ].map((browser) => (
+                  <li key={browser.name}>
+                    <a 
+                      href={browser.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block text-[11px] font-bold uppercase tracking-widest border border-white/10 rounded-xl p-4 text-center hover:bg-white/5 hover:border-accent/40 transition-all text-white/50 hover:text-accent"
+                    >
+                      {browser.name}
+                    </a>
                   </li>
                 ))}
               </ul>
