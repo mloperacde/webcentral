@@ -149,7 +149,7 @@ export const InstalacionesPage = () => {
                       <Box className="w-6 h-6 text-accent shrink-0 mt-1" />
                       <div>
                         <h4 className="text-white font-bold text-[10px] uppercase tracking-widest mb-2">Flujo Unidireccional</h4>
-                        <p className="text-white/40 text-[13px] font-light leading-relaxed">Diseño de procesos anti-error para la prevención de contaminación.</p>
+                        <p className="text-white/40 text-[13px] font-light leading-relaxed">Diseño de procesos anti-error para la prevención de contaminación cruzada.</p>
                       </div>
                     </div>
                   </div>

@@ -19,10 +19,12 @@ export const Footer = () => {
     { label: t('footer.legal'), href: '/aviso-legal' },
     { label: t('footer.privacy'), href: '/politica-privacidad' },
     { label: t('footer.cookies'), href: '/cookies' },
+    { label: t('footer.ethic'), href: '/canal-etico' },
+    { label: t('footer.management'), href: '/politica-gestion' },
   ];
 
   return (
-    <footer id="footer" className="bg-black text-white pt-20 pb-10 border-t border-white/5">
+    <footer id="footer" className="bg-black text-white pt-20 pb-10 border-t border-white/5 print:hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-24 mb-20">
           {/* Brand Column */}

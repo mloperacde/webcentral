@@ -46,7 +46,7 @@ export const Navigation = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -20 : 0, pointerEvents: scrolled ? 'none' : 'auto' }}
         transition={{ duration: 0.4 }}
-        className="fixed top-4 left-4 sm:top-6 sm:left-8 lg:left-20 z-50"
+        className="fixed top-4 left-4 sm:top-6 sm:left-8 lg:left-20 z-50 print:hidden"
       >
         <a href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }} className="block">
           {!logoError ? (
@@ -68,7 +68,7 @@ export const Navigation = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-        className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-700 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 z-40 w-full transition-all duration-700 ease-in-out print:hidden ${
           scrolled
             ? 'bg-black/60 backdrop-blur-xl border-b border-white/5 py-0'
             : 'bg-transparent border-b border-transparent py-4'

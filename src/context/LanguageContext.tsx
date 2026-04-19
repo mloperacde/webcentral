@@ -133,7 +133,9 @@ const translations: Record<Language, Record<string, any>> = {
     "footer.rights": "TODOS LOS DERECHOS RESERVADOS",
     "footer.legal": "Aviso Legal",
     "footer.privacy": "Política de Privacidad",
-    "footer.cookies": "Cookies"
+    "footer.cookies": "Cookies",
+    "footer.ethic": "Canal Ético",
+    "footer.management": "Política de Gestión"
   },
   en: {
     "nav.inicio": "Home",
@@ -254,7 +256,9 @@ const translations: Record<Language, Record<string, any>> = {
     "footer.rights": "All rights reserved",
     "footer.legal": "Legal Notice",
     "footer.privacy": "Privacy Policy",
-    "footer.cookies": "Cookies"
+    "footer.cookies": "Cookies",
+    "footer.ethic": "Ethics Channel",
+    "footer.management": "Management Policy"
   }
 };
 

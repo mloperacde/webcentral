@@ -16,6 +16,12 @@ import { NosotrosPage } from './pages/NosotrosPage';
 import { ProductosPage } from './pages/ProductosPage';
 import { CalidadPage } from './pages/CalidadPage';
 import { InstalacionesPage } from './pages/InstalacionesPage';
+import { CookiesPage } from './pages/CookiesPage';
+import { AvisoLegalPage } from './pages/AvisoLegalPage';
+import { CanalEticoPage } from './pages/CanalEticoPage';
+import { PoliticaPrivacidadPage } from './pages/PoliticaPrivacidadPage';
+import { PoliticaGestionPage } from './pages/PoliticaGestionPage';
+import { PoliticaSistemaInformacionPage } from './pages/PoliticaSistemaInformacionPage';
 import ScrollToTop from './components/ScrollToTop';
 import { SmoothScroll } from './components/SmoothScroll';
 
@@ -28,8 +34,9 @@ const Home = () => {
       <CoPacker />
       <div className="h-48 lg:h-64" />
       <Productos />
-      <Instalaciones />
+      <div className="h-48 lg:h-64" />
       <Calidad />
+      <Instalaciones />
       <Contacto />
     </main>
   );
@@ -48,6 +55,12 @@ const AppContent = () => {
         <Route path="/productos" element={<ProductosPage />} />
         <Route path="/calidad" element={<CalidadPage />} />
         <Route path="/instalaciones" element={<InstalacionesPage />} />
+        <Route path="/cookies" element={<CookiesPage />} />
+        <Route path="/aviso-legal" element={<AvisoLegalPage />} />
+        <Route path="/canal-etico" element={<CanalEticoPage />} />
+        <Route path="/politica-privacidad" element={<PoliticaPrivacidadPage />} />
+        <Route path="/politica-gestion" element={<PoliticaGestionPage />} />
+        <Route path="/politica-sistema-informacion" element={<PoliticaSistemaInformacionPage />} />
       </Routes>
       <Footer />
     </div>

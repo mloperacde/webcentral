@@ -28,7 +28,7 @@ export const Productos = () => {
       title: 'productos.items.sachets.title', 
       description: 'productos.items.sachets.description',
       capacity: 'productos.items.sachets.capacity',
-      image: '/sachets.webp'
+      image: '/sachets2.webp'
     },
     { 
       id: 'bottles', 
