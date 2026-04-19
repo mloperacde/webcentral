@@ -150,33 +150,69 @@ export const CalidadPage = () => {
         </div>
       </section>
 
-      {/* Quality Nodes - High Precision */}
-      <section className="py-32 bg-zinc-950/40 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-24">
-            <h2 className="text-4xl font-light text-white mb-4 italic uppercase tracking-tight">Control de Calidad de <span className="text-accent">Alta Precisión</span></h2>
-            <p className="text-white/40 text-lg font-light">Validación constante en cada nodo crítico del proceso</p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {qualityNodes.map((node, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: idx * 0.1 }}
-                className="p-10 border border-white/5 bg-white/[0.02] backdrop-blur-md rounded-[40px] hover:bg-accent/5 hover:border-accent/20 transition-all group"
-              >
-                <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                  <node.icon className="w-8 h-8 text-accent" />
-                </div>
-                <h4 className="text-white font-medium mb-4 text-xl tracking-tight leading-snug">{node.title}</h4>
-                <p className="text-white/40 text-sm font-light leading-relaxed">{node.description}</p>
-              </motion.div>
-            ))}
+      {/* Quality Nodes - High Precision (Redesigned) */}
+      <section className="py-24 bg-black relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tighter uppercase italic">
+              Control de <span className="text-accent underline decoration-white/10 underline-offset-8">Alta Precisión</span>
+            </h2>
+            <p className="max-w-2xl mx-auto text-white/40 text-lg lg:text-xl font-light leading-relaxed">
+              Validación constante en cada nodo crítico del proceso para asegurar la excelencia en cada unidad producida.
+            </p>
+          </motion.div>
+        </div>
+
+        <div className="relative w-full">
+          {/* Full Width Image Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2 }}
+            className="w-full h-[600px] lg:h-[800px] relative overflow-hidden"
+          >
+            <img 
+              src="/controlproceso_optimized.webp" 
+              alt="Control de Proceso Central de Envasados" 
+              className="w-full h-full object-cover brightness-75 scale-105"
+            />
+            {/* Subtle Gradient Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30" />
+            <div className="absolute inset-0 bg-accent/5 mix-blend-overlay" />
+          </motion.div>
+
+          {/* Overlapping Floating Cards */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative -mt-32 lg:-mt-48 z-20">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {qualityNodes.map((node, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: idx * 0.1 }}
+                  whileHover={{ y: -10, backgroundColor: 'rgba(255,255,255,0.15)', borderColor: 'rgba(56,189,248,0.4)' }}
+                  className="p-10 border border-white/10 bg-black/40 backdrop-blur-3xl rounded-[40px] shadow-2xl transition-all duration-500 group"
+                >
+                  <div className="w-16 h-16 bg-accent/20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                    <node.icon className="w-8 h-8 text-accent" />
+                  </div>
+                  <h4 className="text-white font-medium mb-4 text-xl tracking-tight leading-snug uppercase italic">{node.title}</h4>
+                  <p className="text-white/40 text-[13px] font-light leading-relaxed">{node.description}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
+
+        {/* Spacer for overflow */}
+        <div className="h-24 lg:h-32" />
       </section>
 
       {/* Certification Table */}
