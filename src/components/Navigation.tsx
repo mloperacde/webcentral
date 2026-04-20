@@ -185,7 +185,7 @@ export const Navigation = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 lg:hidden pt-20"
+            className="fixed inset-0 z-40 xl:hidden pt-20"
           >
             <div className="absolute inset-0 bg-black/95 backdrop-blur-xl" onClick={() => setMobileMenuOpen(false)} />
             <nav className="absolute top-24 left-4 right-4 sm:left-8 sm:right-8 md:left-16 md:right-16 bg-[#0f0f0f] border border-white/10 p-6 sm:p-8 max-h-[calc(100vh-6rem)] overflow-y-auto">

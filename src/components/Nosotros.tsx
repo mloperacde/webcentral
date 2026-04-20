@@ -84,21 +84,13 @@ export const Nosotros = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="relative"
-            style={{ 
-              marginTop: '171px',
-              marginLeft: '-266px',
-              zIndex: 0
-            }}
+            className="relative lg:mt-44 lg:-ml-64"
           >
             <div className="relative shadow-[0_0_80px_rgba(0,0,0,0.6)] overflow-hidden">
               <img 
                 src="/factory.webp" 
                 alt={isEn ? 'Central de Envasados factory' : 'Factory Central de Envasados'} 
-                className="w-full h-auto object-cover transition-transform duration-1000 hover:scale-105"
-                style={{ 
-                  height: '584px'
-                }}
+                className="w-full h-auto lg:h-[584px] object-cover transition-transform duration-1000 hover:scale-105"
               />
             </div>
           </motion.div>

@@ -157,7 +157,7 @@ export const AvisoLegalPage = () => {
                 </h3>
                 <div className="space-y-4">
                   <span className="block text-xs uppercase tracking-widest text-white/40 font-bold mb-1">{copy.registryLabel}</span>
-                  <div className="grid grid-cols-2 gap-4 mt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                     <div className="bg-black/50 px-4 py-3 border-l-2 border-accent">
                       <span className="block text-[10px] uppercase text-white/40 font-bold">{copy.volumeLabel}</span>
                       <span className="text-lg">336</span>

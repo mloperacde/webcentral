@@ -311,7 +311,7 @@ export const InstalacionesPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="group relative h-[500px] overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900/50"
+                className="group relative h-[400px] md:h-[500px] overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900/50"
               >
                 <img 
                   src={fac.image} 

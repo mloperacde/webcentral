@@ -525,12 +525,7 @@ export const ProductosPage = () => {
                 </div>
                 <div className="flex justify-center items-center">
                   <div 
-                    className="bg-white p-12 rounded-3xl shadow-2xl flex flex-col justify-center items-center transition-all duration-300 overflow-hidden"
-                    style={{ 
-                      width: '100%',
-                      maxWidth: `${productConfigs.aemps.size}px`,
-                      transform: `scale(${productConfigs.aemps.scale}) translate(${productConfigs.aemps.x}px, ${productConfigs.aemps.y}px)`
-                    }}
+                    className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col justify-center items-center transition-all duration-300 overflow-hidden w-full max-w-[700px] lg:scale-[0.65] lg:translate-x-[200px] lg:-translate-y-[10px]"
                   >
                     <img 
                       src="/logo_aemps_ministerio.jpg" 

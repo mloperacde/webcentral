@@ -436,17 +436,17 @@ export const CalidadPage = () => {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-white/10 text-white/30 text-[10px] uppercase font-bold tracking-[0.25em] bg-white/[0.03]">
-                  <th className="py-10 px-10">{copy.certTableHead1}</th>
-                  <th className="py-10 px-10">{copy.certTableHead2}</th>
-                  <th className="py-10 px-10">{copy.certTableHead3}</th>
+                  <th className="py-6 px-4 md:py-8 md:px-6 lg:py-10 lg:px-10">{copy.certTableHead1}</th>
+                  <th className="py-6 px-4 md:py-8 md:px-6 lg:py-10 lg:px-10">{copy.certTableHead2}</th>
+                  <th className="py-6 px-4 md:py-8 md:px-6 lg:py-10 lg:px-10">{copy.certTableHead3}</th>
                 </tr>
               </thead>
               <tbody className="text-white/80">
                 {copy.certifications.map((cert, idx) => (
                   <tr key={idx} className="border-b border-white/5 last:border-0 hover:bg-accent/5 transition-all group">
-                    <td className="py-10 px-10 text-accent font-bold italic tracking-tight text-xl">{cert.name}</td>
-                    <td className="py-10 px-10 font-medium max-w-xs">{cert.scope}</td>
-                    <td className="py-10 px-10 text-white/40 font-light text-sm italic py-8 leading-relaxed">{cert.value}</td>
+                    <td className="py-6 px-4 md:py-8 md:px-6 lg:py-10 lg:px-10 text-accent font-bold italic tracking-tight text-xl">{cert.name}</td>
+                    <td className="py-6 px-4 md:py-8 md:px-6 lg:py-10 lg:px-10 font-medium max-w-xs">{cert.scope}</td>
+                    <td className="py-6 px-4 md:py-8 md:px-6 lg:py-10 lg:px-10 text-white/40 font-light text-sm italic leading-relaxed">{cert.value}</td>
                   </tr>
                 ))}
               </tbody>

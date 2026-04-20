@@ -68,7 +68,7 @@ export const Productos = () => {
       };
 
   return (
-    <section id="productos" className="bg-[#080808] relative overflow-hidden py-24 sm:py-32 flex items-center min-h-[800px]">
+    <section id="productos" className="bg-[#080808] relative overflow-hidden py-24 sm:py-32 flex items-center min-h-[600px] md:min-h-[800px]">
       {/* Background Video Container */}
       <div className="absolute inset-0 z-0">
         <video
@@ -146,7 +146,7 @@ export const Productos = () => {
                   }}
                   whileHover={{ y: -5, scale: 1.02 }}
                   onClick={() => setSelectedProduct(product)}
-                  className="group relative p-8 backdrop-blur-3xl border transition-all duration-500 rounded-3xl flex flex-col justify-between min-h-[260px] bg-white/[0.03] border-white/10 hover:bg-white/10 hover:border-white/20 cursor-pointer"
+                  className="group relative p-8 backdrop-blur-3xl border transition-all duration-500 rounded-3xl flex flex-col justify-between min-h-[220px] md:min-h-[260px] bg-white/[0.03] border-white/10 hover:bg-white/10 hover:border-white/20 cursor-pointer"
                 >
                   <div>
                     <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-accent transition-colors uppercase">

@@ -168,7 +168,7 @@ export const PoliticaGestionPage = () => {
                 {copy.intro.split('CENTRAL DE ENVASADOS, S.A.')[1]}
               </p>
               
-              <h3 className="text-xl text-white font-medium mb-6 flexItems-center gap-3">
+              <h3 className="text-xl text-white font-medium mb-6 flex items-center gap-3">
                 <Factory className="w-5 h-5 text-accent inline-block mr-3" />
                 {copy.dedicationTitle}
               </h3>
