@@ -146,7 +146,7 @@ export const Navigation = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="flex items-center gap-1 sm:gap-2 text-white/70 hover:text-white transition-colors duration-300"
-                  aria-label="Cambiar Idioma"
+                  aria-label={language === 'es' ? 'Cambiar idioma' : 'Change language'}
                 >
                   <Globe className="w-5 h-5" />
                   <span className="text-[12px] sm:text-[14px] tracking-widest uppercase font-bold">{language === 'es' ? 'en' : 'es'}</span>
@@ -155,7 +155,11 @@ export const Navigation = () => {
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   className="p-2 text-white/70 hover:text-white transition-colors"
-                  aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                  aria-label={
+                    mobileMenuOpen
+                      ? (language === 'es' ? 'Cerrar menú' : 'Close menu')
+                      : (language === 'es' ? 'Abrir menú' : 'Open menu')
+                  }
                   aria-expanded={mobileMenuOpen}
                 >
                   {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}

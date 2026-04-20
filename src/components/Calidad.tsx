@@ -3,46 +3,99 @@ import { motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Calidad = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
-  const certs = [
-    { 
-      id: 'iso9001', 
-      title: 'Sistema de Gestión de la Calidad', 
-      description: 'en base a la norma ISO9001',
-      image: '/png-clipart-iso-9000-organization.png'
-    },
-    { 
-      id: 'iso22716', 
-      title: 'Guía d. B. P. de Fabricación', 
-      description: 'por la AEMPS y en base a la norma ISO22716',
-      image: '/SGS_bpm.png'
-    },
-    { 
-      id: 'ifsfood', 
-      title: 'Norma de Calidad y Seguridad Alimentaria', 
-      description: 'Certificación IFS Food',
-      image: '/IFS_Food.png'
-    },
-    { 
-      id: 'iso13485', 
-      title: 'Gestión Calidad Productos Sanitarios', 
-      description: 'en base a la norma ISO13485',
-      image: '/SGS_ISO_13485_round_TCL_HR.jpg'
-    },
-    { 
-      id: 'iso14001', 
-      title: 'Sistema Gestión del Medioambiente', 
-      description: 'en base a la norma ISO14001',
-      image: '/SGS-ISO-14001-COLOR.png'
-    },
-    { 
-      id: 'ecovadis', 
-      title: 'Certificación de Sostenibilidad', 
-      description: 'EcoVadis',
-      image: '/Ecovadis-Logo.jpg'
-    },
-  ];
+  const copy = language === 'en'
+    ? {
+        intro1:
+          'Our procedures and best working practices are accredited by the most demanding international bodies.',
+        intro2:
+          'We maintain an ecosystem of certifications that acts as a shield of safety and trust for world-leading brands.',
+        imageAlt: 'Quality control',
+        certs: [
+          {
+            id: 'iso9001',
+            title: 'Quality Management System',
+            description: 'based on ISO 9001',
+            image: '/png-clipart-iso-9000-organization.png'
+          },
+          {
+            id: 'iso22716',
+            title: 'Good Manufacturing Practices (GMP)',
+            description: 'AEMPS oversight and ISO 22716',
+            image: '/SGS_bpm.png'
+          },
+          {
+            id: 'ifsfood',
+            title: 'Food Quality & Safety Standard',
+            description: 'IFS Food certification',
+            image: '/IFS_Food.png'
+          },
+          {
+            id: 'iso13485',
+            title: 'Medical Devices Quality Management',
+            description: 'based on ISO 13485',
+            image: '/SGS_ISO_13485_round_TCL_HR.jpg'
+          },
+          {
+            id: 'iso14001',
+            title: 'Environmental Management System',
+            description: 'based on ISO 14001',
+            image: '/SGS-ISO-14001-COLOR.png'
+          },
+          {
+            id: 'ecovadis',
+            title: 'Sustainability Rating',
+            description: 'EcoVadis',
+            image: '/Ecovadis-Logo.jpg'
+          }
+        ]
+      }
+    : {
+        intro1:
+          'Nuestros procedimientos y buenas prácticas de trabajo están acreditadas por los organismos internacionales más exigentes.',
+        intro2:
+          'Mantenemos un ecosistema de certificaciones que actúa como un escudo de seguridad y confianza para marcas líderes a nivel mundial.',
+        imageAlt: 'Control de Calidad',
+        certs: [
+          {
+            id: 'iso9001',
+            title: 'Sistema de Gestión de la Calidad',
+            description: 'en base a la norma ISO9001',
+            image: '/png-clipart-iso-9000-organization.png'
+          },
+          {
+            id: 'iso22716',
+            title: 'Guía d. B. P. de Fabricación',
+            description: 'por la AEMPS y en base a la norma ISO22716',
+            image: '/SGS_bpm.png'
+          },
+          {
+            id: 'ifsfood',
+            title: 'Norma de Calidad y Seguridad Alimentaria',
+            description: 'Certificación IFS Food',
+            image: '/IFS_Food.png'
+          },
+          {
+            id: 'iso13485',
+            title: 'Gestión Calidad Productos Sanitarios',
+            description: 'en base a la norma ISO13485',
+            image: '/SGS_ISO_13485_round_TCL_HR.jpg'
+          },
+          {
+            id: 'iso14001',
+            title: 'Sistema Gestión del Medioambiente',
+            description: 'en base a la norma ISO14001',
+            image: '/SGS-ISO-14001-COLOR.png'
+          },
+          {
+            id: 'ecovadis',
+            title: 'Certificación de Sostenibilidad',
+            description: 'EcoVadis',
+            image: '/Ecovadis-Logo.jpg'
+          }
+        ]
+      };
 
   return (
     <section id="calidad" className="bg-black relative overflow-hidden pb-32">
@@ -58,10 +111,10 @@ export const Calidad = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white/90 tracking-tight mb-8">{t('calidad.title')}</h2>
           <div className="space-y-4 max-w-none">
             <p className="text-base lg:text-lg text-white/80 font-light leading-relaxed">
-              Nuestros procedimientos y buenas prácticas de trabajo están acreditadas por los organismos internacionales más exigentes.
+              {copy.intro1}
             </p>
             <p className="text-sm lg:text-base text-white/50 font-light leading-relaxed">
-              Mantenemos un ecosistema de certificaciones que actúa como un escudo de seguridad y confianza para marcas líderes a nivel mundial.
+              {copy.intro2}
             </p>
           </div>
         </motion.div>
@@ -73,7 +126,7 @@ export const Calidad = () => {
         <div className="absolute inset-0 z-0">
           <img loading="lazy" 
             src="/laboratorio.webp" 
-            alt="Control de Calidad" 
+            alt={copy.imageAlt}
             className="w-full h-full object-cover object-center opacity-100"
             referrerPolicy="no-referrer"
           />
@@ -108,7 +161,7 @@ export const Calidad = () => {
 
           {/* Certifications Grid - Floating and overlapping the bottom edge */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6 translate-y-32 lg:translate-y-48">
-            {certs.map((cert, index) => (
+            {copy.certs.map((cert, index) => (
               <motion.div 
                 key={cert.id}
                 initial={{ opacity: 0, y: 40 }}

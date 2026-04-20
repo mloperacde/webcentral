@@ -6,7 +6,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { VideoPlayer } from './VideoPlayer';
 
 export const Sectores = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   
@@ -145,7 +145,7 @@ export const Sectores = () => {
                       to={`/sectores#${sector.id}`}
                       className="group/btn flex items-center gap-3 text-accent text-xs font-bold uppercase tracking-[0.2em] hover:text-white transition-colors"
                     >
-                      {t('sectores.viewMore') || 'Saber más'}
+                      {t('sectores.viewMore') || (language === 'en' ? 'Learn more' : 'Saber más')}
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
                   </div>
@@ -164,7 +164,7 @@ export const Sectores = () => {
             onClick={() => setCurrentIndex(index)}
             className="relative h-1.5 transition-all duration-500"
             style={{ width: currentIndex === index ? '2.5rem' : '0.75rem' }}
-            aria-label={`Go to sector ${index + 1}`}
+            aria-label={language === 'en' ? `Go to sector ${index + 1}` : `Ir al sector ${index + 1}`}
           >
             <div className={`absolute inset-0 rounded-full transition-colors duration-500 ${currentIndex === index ? 'bg-accent' : 'bg-white/20 hover:bg-white/40'}`} />
             {currentIndex === index && (

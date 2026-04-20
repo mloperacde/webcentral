@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Cookie, X, ShieldCheck, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 export const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
@@ -25,6 +27,31 @@ export const CookieBanner = () => {
     setIsVisible(false);
   };
 
+  const isEn = language === 'en';
+  const copy = isEn
+    ? {
+        privacyMatters: 'Your privacy matters',
+        titlePrefix: 'Cookie',
+        titleAccent: 'Settings',
+        body:
+          'We use our own and third-party cookies to improve your experience, analyze traffic, and show relevant content. You can accept all, accept only necessary cookies, or review our policies.',
+        cookiesPolicy: 'Cookies Policy',
+        privacy: 'Privacy',
+        necessaryOnly: 'Only necessary',
+        acceptAll: 'Accept all'
+      }
+    : {
+        privacyMatters: 'Tu privacidad importa',
+        titlePrefix: 'Configuración de',
+        titleAccent: 'Cookies',
+        body:
+          'Utilizamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y mostrarte contenido relevante. Puedes aceptar todas, aceptar solo necesarias o revisar nuestras políticas.',
+        cookiesPolicy: 'Política de Cookies',
+        privacy: 'Privacidad',
+        necessaryOnly: 'Solo necesarias',
+        acceptAll: 'Aceptar todas'
+      };
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -43,15 +70,15 @@ export const CookieBanner = () => {
                     <div className="bg-accent/10 p-2 rounded-lg">
                       <Cookie className="w-5 h-5 text-accent" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">Tu privacidad importa</span>
+                    <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/50">{copy.privacyMatters}</span>
                   </div>
                   
                   <h3 className="text-xl md:text-2xl font-light text-white uppercase tracking-tight italic">
-                    Configuración de <span className="text-accent italic">Cookies</span>
+                    {copy.titlePrefix} <span className="text-accent italic">{copy.titleAccent}</span>
                   </h3>
                   
                   <p className="text-sm md:text-base text-white/60 font-light leading-relaxed max-w-2xl">
-                    Utilizamos cookies propias y de terceros para mejorar tu experiencia, analizar el tráfico y mostrarte contenido relevante. Puedes aceptar todas, rechazarlas o configurar tus preferencias.
+                    {copy.body}
                   </p>
 
                   <div className="flex flex-wrap items-center gap-6 pt-2">
@@ -60,7 +87,7 @@ export const CookieBanner = () => {
                       className="text-[10px] uppercase tracking-widest font-bold text-white/40 hover:text-accent transition-colors flex items-center gap-2 group"
                       onClick={() => setIsVisible(false)}
                     >
-                      Política de Cookies
+                      {copy.cookiesPolicy}
                       <ChevronRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                     </Link>
                     <Link 
@@ -68,7 +95,7 @@ export const CookieBanner = () => {
                       className="text-[10px] uppercase tracking-widest font-bold text-white/40 hover:text-accent transition-colors flex items-center gap-2 group"
                       onClick={() => setIsVisible(false)}
                     >
-                      Privacidad
+                      {copy.privacy}
                       <ChevronRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
@@ -79,14 +106,14 @@ export const CookieBanner = () => {
                     onClick={handleAcceptNecessary}
                     className="px-8 py-4 text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 hover:text-white transition-colors border border-white/10 rounded-full hover:bg-white/5"
                   >
-                    Solo necesarias
+                    {copy.necessaryOnly}
                   </button>
                   <button
                     onClick={handleAcceptAll}
                     className="px-8 py-4 text-[10px] font-bold uppercase tracking-[0.2em] text-black bg-accent rounded-full hover:bg-accent/90 transition-all transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(var(--accent-rgb),0.3)] flex items-center justify-center gap-2"
                   >
                     <ShieldCheck className="w-4 h-4" />
-                    Aceptar todas
+                    {copy.acceptAll}
                   </button>
                 </div>
               </div>

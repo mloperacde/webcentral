@@ -3,11 +3,25 @@ import { motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const NosotrosPage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const copy = language === 'en'
+    ? {
+        subtitle: 'Our Team',
+        titlePrefix: 'Team, Commitment and',
+        titleHighlight: 'Passion for our work',
+        imageAlt: 'Central de Envasados team'
+      }
+    : {
+        subtitle: 'Nuestro Equipo',
+        titlePrefix: 'Equipo, Compromiso y',
+        titleHighlight: 'Pasión por nuestro trabajo',
+        imageAlt: 'Equipo Central de Envasados'
+      };
 
   const gridItems = [
     { type: 'image', src: '/staff_group.png', span: 'col-span-2 row-span-2' },
@@ -45,7 +59,7 @@ export const NosotrosPage = () => {
             animate={{ opacity: 1, x: 0 }}
             className="page-subtitle mb-4 block"
           >
-            Nuestro Equipo
+            {copy.subtitle}
           </motion.span>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -53,7 +67,7 @@ export const NosotrosPage = () => {
             transition={{ delay: 0.2 }}
             className="text-3xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-tight text-balance"
           >
-            Equipo, Compromiso y <span className="text-accent italic">Pasión por nuestro trabajo</span>
+            {copy.titlePrefix} <span className="text-accent italic">{copy.titleHighlight}</span>
           </motion.h1>
         </header>
 
@@ -70,7 +84,7 @@ export const NosotrosPage = () => {
               {item.type === 'image' ? (
                 <img 
                   src={item.src} 
-                  alt="Equipo Central de Envasados"
+                  alt={copy.imageAlt}
                   className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110"
                 />
               ) : (

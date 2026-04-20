@@ -4,7 +4,7 @@ import { Plus, X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Productos = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -53,6 +53,20 @@ export const Productos = () => {
     },
   ];
 
+  const copy = language === 'en'
+    ? {
+        description:
+          'We develop custom packaging ecosystems. From structural design to final delivery, we ensure every product keeps its integrity and value in your customers’ hands.',
+        unitsPerYear: 'Units / Year',
+        activeLines: 'Active Lines'
+      }
+    : {
+        description:
+          'Desarrollamos ecosistemas de envasado a medida. Desde el diseño estructural hasta la entrega final, garantizamos que cada producto mantenga su integridad y valor en manos de sus clientes.',
+        unitsPerYear: 'Unidades / Año',
+        activeLines: 'Líneas Activas'
+      };
+
   return (
     <section id="productos" className="bg-[#080808] relative overflow-hidden py-24 sm:py-32 flex items-center min-h-[800px]">
       {/* Background Video Container */}
@@ -100,18 +114,18 @@ export const Productos = () => {
               {t('productos.title')}
             </h2>
             <p className="text-white/50 text-[16px] font-light max-w-md leading-relaxed mb-10">
-              Desarrollamos ecosistemas de envasado a medida. Desde el diseño estructural hasta la entrega final, garantizamos que cada producto mantenga su integridad y valor en manos de sus clientes.
+              {copy.description}
             </p>
             
             <div className="flex items-center gap-6">
               <div className="flex flex-col">
                 <span className="text-2xl font-light text-white">100M</span>
-                <span className="text-[9px] text-white/30 uppercase tracking-widest font-bold">Unidades / Año</span>
+                <span className="text-[9px] text-white/30 uppercase tracking-widest font-bold">{copy.unitsPerYear}</span>
               </div>
               <div className="w-px h-10 bg-white/10" />
               <div className="flex flex-col">
                 <span className="text-2xl font-light text-white">+30</span>
-                <span className="text-[9px] text-white/30 uppercase tracking-widest font-bold">Líneas Activas</span>
+                <span className="text-[9px] text-white/30 uppercase tracking-widest font-bold">{copy.activeLines}</span>
               </div>
             </div>
           </motion.div>

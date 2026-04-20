@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLElement>(null);
@@ -46,7 +46,7 @@ export const Hero = () => {
 
   const titleWords = t('hero.title').split(' ');
   const titleHighlight = t('hero.titleHighlight');
-  const highlightTarget = /Co[-‑]Packer de marcas líderes a nivel mundial/;
+  const highlightTarget = /Co[-‑]Packer de marcas líderes a nivel mundial|Co[-‑]Packer for world-leading brands/;
   const highlightMatch = titleHighlight.match(highlightTarget);
   const highlightParts = highlightMatch
     ? titleHighlight.split(highlightTarget)
@@ -133,7 +133,7 @@ export const Hero = () => {
             <button
               onClick={() => document.querySelector('#instalaciones')?.scrollIntoView({ behavior: 'smooth' })}
               className="group flex items-center gap-3 px-8 py-4 border border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all text-[9px] font-bold uppercase tracking-[0.2em]"
-              aria-label="Ir a Instalaciones"
+              aria-label={language === 'es' ? 'Ir a Instalaciones' : 'Go to Facilities'}
             >
               <span className="font-bold">{t('hero.ctaPrimary')}</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1" />
@@ -141,7 +141,7 @@ export const Hero = () => {
             <button
               onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
               className="group flex items-center gap-3 px-8 py-4 border border-white/10 bg-transparent hover:bg-white/5 hover:border-white/30 transition-all text-[9px] font-bold uppercase tracking-[0.2em] text-white/80"
-              aria-label="Ir a Contacto"
+              aria-label={language === 'es' ? 'Ir a Contacto' : 'Go to Contact'}
             >
               <span className="font-bold">{t('hero.ctaSecondary')}</span>
             </button>
@@ -183,7 +183,7 @@ export const Hero = () => {
         transition={{ delay: 2.5 }}
         className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[8px] text-white/20 tracking-[0.4em] uppercase font-bold">Scroll</span>
+        <span className="text-[8px] text-white/20 tracking-[0.4em] uppercase font-bold">{language === 'es' ? 'Desliza' : 'Scroll'}</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

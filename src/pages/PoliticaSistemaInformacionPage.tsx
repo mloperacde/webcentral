@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Printer, Download } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const PoliticaSistemaInformacionPage = () => {
+  const { language } = useLanguage();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -11,6 +14,8 @@ export const PoliticaSistemaInformacionPage = () => {
   const handlePrint = () => {
     window.print();
   };
+
+  const isEn = language === 'en';
 
   return (
     <div className="bg-black min-h-screen text-white pt-32 pb-20 print:pt-4 print:bg-white print:text-black">
@@ -20,7 +25,7 @@ export const PoliticaSistemaInformacionPage = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-12 gap-6 print:hidden">
           <Link to="/canal-etico" className="inline-flex items-center gap-3 text-white/60 hover:text-white transition-colors text-[10px] font-bold uppercase tracking-[0.2em]">
             <ArrowLeft className="w-4 h-4" />
-            Volver al Canal Ético
+            {isEn ? 'Back to Ethics Channel' : 'Volver al Canal Ético'}
           </Link>
           <div className="flex items-center gap-4">
             <a 
@@ -30,11 +35,11 @@ export const PoliticaSistemaInformacionPage = () => {
               className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-accent hover:text-white transition-colors bg-white/5 px-4 py-2 rounded-lg border border-white/10"
             >
               <Printer className="w-4 h-4" />
-              Imprimir
+              {isEn ? 'Print' : 'Imprimir'}
             </a>
             <a href="/politica-sistema-informacion.pdf" download="politica-sistema-informacion.pdf" className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-black bg-accent hover:bg-white transition-colors px-4 py-2 rounded-lg">
               <Download className="w-4 h-4" />
-              Descargar PDF
+              {isEn ? 'Download PDF' : 'Descargar PDF'}
             </a>
           </div>
         </div>
@@ -49,7 +54,15 @@ export const PoliticaSistemaInformacionPage = () => {
           <div className="mb-12 border-b border-white/10 print:border-black/50 pb-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="order-2 md:order-1">
               <h1 className="text-3xl lg:text-5xl font-light text-white print:text-black mb-6 uppercase tracking-tight italic">
-                Política del <span className="text-accent print:text-[#666] underline decoration-accent/30 print:decoration-transparent underline-offset-8">Sistema de Información</span>
+                {isEn ? (
+                  <>
+                    Information <span className="text-accent print:text-[#666] underline decoration-accent/30 print:decoration-transparent underline-offset-8">System Policy</span>
+                  </>
+                ) : (
+                  <>
+                    Política del <span className="text-accent print:text-[#666] underline decoration-accent/30 print:decoration-transparent underline-offset-8">Sistema de Información</span>
+                  </>
+                )}
               </h1>
               <p className="text-white/40 print:text-black/60 tracking-widest uppercase font-bold text-sm">
                 Central de Envasados S.A.
@@ -94,7 +107,105 @@ export const PoliticaSistemaInformacionPage = () => {
           
           {/* Cuerpo del Documento */}
           <div className="prose prose-invert max-w-none print:prose-p:text-black/90 print:border-none">
-            <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">1. DEFINICIONES</h2>
+            {isEn && (
+              <>
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">1. DEFINITIONS</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  Internal Information Channel: a channel through which employees and third parties related to the Organization can report suspicions of unlawful, irregular, non-aligned, or unethical conduct, as well as breaches of applicable law, the Code of Ethics, or internal regulations. Infringement: any act or omission presumed to violate the ethical principles and values of the Organization, its internal rules, or applicable law, including (among others) breaches of EU law referenced in Law 2/2023 and serious or very serious criminal or administrative offences. Organization: CENTRAL DE ENVASADOS S.A. Reporting Person: the person submitting a report. Professionals: all members of the Organization. Investigated Person: the person who is the subject of the report. Internal Information System: the set of channels, procedures, and guarantees that make up this system.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">2. REGULATORY FRAMEWORK</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  This policy is aligned with the applicable legal framework, including: Law 2/2023 (whistleblower protection and anti-corruption), EU Directive 2019/1937, Regulation (EU) 2016/679 (GDPR), Organic Law 3/2018 (LOPDGDD), and other applicable regulations.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">3. COMMITMENT</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  The Organization, faithful to its commitment to employees, customers, suppliers, and third parties, has enabled an Internal Information System to prevent and detect irregular, unlawful, criminal, discriminatory, or human-rights-infringing conduct, in compliance with Law 2/2023. Beyond investigating potential infringements, this system reinforces ethical values and supports continuous improvement of prevention protocols, transparency rules, and internal policies.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">4. BASIC PRINCIPLES</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  The Internal Information System is governed by accessibility (public and permanent access, 24/7), good faith, confidentiality, protection against retaliation, impartiality, proportionality, and respect for the rights of all parties. Reports submitted in bad faith may result in disciplinary and/or legal measures and do not benefit from protection.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">5. SCOPE OF THE INTERNAL INFORMATION SYSTEM</h2>
+                <h3 className="text-lg font-medium text-accent print:text-[#333] mt-8 mb-4">5.1. Material scope</h3>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  This policy applies to matters within Article 2 of Law 2/2023, including breaches of EU law (as per Directive (EU) 2019/1937), serious or very serious criminal or administrative offences, and other matters within the legally defined scope.
+                </p>
+                <h3 className="text-lg font-medium text-accent print:text-[#333] mt-8 mb-4">5.2. Personal scope</h3>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  Reports may be submitted by persons referenced in Article 3 of Law 2/2023, including employees, management, members of the governing body, contractors, subcontractors, suppliers, and other stakeholders connected to the Organization.
+                </p>
+                <h3 className="text-lg font-medium text-accent print:text-[#333] mt-8 mb-4">5.3. Purpose</h3>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  To regulate the Internal Information System; foster participation and communication; protect employees and third parties; prevent and detect infringements early; define the reporting and handling procedure; and provide appropriate protection against retaliation.
+                </p>
+                <h3 className="text-lg font-medium text-accent print:text-[#333] mt-8 mb-4">5.4. Available channels</h3>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  Reports can be submitted through the dedicated platform published on the Ethics Channel page. Reports may also be submitted in writing (post), verbally (telephone/voice messaging), and, upon request, via an in-person meeting within a maximum of 7 days. The reporting person will be informed about any recording of communications and the processing of personal data.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">6. RESPONSIBLE PARTIES</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  Channel management may be carried out with the support of an external specialized provider to preserve confidentiality and independence, while the Organization retains responsibility for the investigation and resolution of cases. The Organization appoints a Channel Responsible person in accordance with the requirements of Law 2/2023.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">7. REPORT MANAGEMENT PROCEDURE</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  Reports are received, registered, and assessed for admissibility. The reporting person receives an acknowledgment of receipt within the legally established deadline and, where applicable, may be asked for additional information. Investigations are conducted proportionately and confidentially. The investigated person is informed and has the right to be heard, while preserving the confidentiality of the reporting person’s identity. The maximum time frame for investigation and response follows the deadlines established under Law 2/2023, with possible extensions for cases of special complexity.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">8. PROTECTION OF REPORTING AND INVESTIGATED PERSONS</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  The Organization guarantees the protection of reporting persons, potential victims, witnesses, and affected persons, as well as the rights and guarantees of investigated persons. Confidentiality is maintained throughout the process. The presumption of innocence and the right of defense are respected at all times.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">9. PROHIBITION OF RETALIATION</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  Retaliation, threats, or attempts of retaliation against reporting persons are prohibited. Any act hindering reporting or penalizing individuals for reporting is prohibited and may result in corrective measures and liability.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">10. RETENTION, CUSTODY, AND ARCHIVING</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  Personal data is processed in accordance with GDPR and LOPDGDD. Data is retained only for the time strictly necessary to decide on initiating an investigation and to comply with legal obligations, and is deleted when it is no longer necessary. Data-subject rights may be exercised by contacting contacto@centralenvasados.com.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">11. TRAINING, AWARENESS AND COMMUNICATION</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  The Organization includes the principles and rules in this policy in training plans and awareness actions to strengthen internal compliance culture and transparency.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">12. DUE DILIGENCE FOR NEW JOINERS</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  New joiners are informed of this policy, its content, and the obligation to comply with it.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">13. APPROVAL</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  This policy is approved by the governing body of CENTRAL DE ENVASADOS S.A.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">14. COMMUNICATION AND DISSEMINATION</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  This policy is communicated and disseminated annually to Organization professionals through digital or physical distribution channels.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">15. ENTRY INTO FORCE AND EFFECTIVE DATE</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  This policy enters into force the day after it is communicated and disseminated to Organization professionals.
+                </p>
+
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">16. VERSION CONTROL</h2>
+                <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">
+                  Version 0.2 (19/06/2024): full policy review. Version 0.3 (28/01/2026): documentation update and modification of section 10 (Retention, custody, and archiving of information).
+                </p>
+              </>
+            )}
+            {!isEn && (
+              <>
+                <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">1. DEFINICIONES</h2>
 <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">Canal  Interno  de Información:  cauce  mediante  el cual,  tanto  los Profesionales  de la organización como  otros  terceros  que se relacionen  con la misma,  podrán  comunicar sospechas  de conductas contrarias,  irregulares,  no alineadas  o que impliquen  una violación, infracción  o incumplimiento de la legalidad vigente, del Código Ético o de la normativa interna de la organización. Infracción : cualquier hecho que presuntamente vulnera los preceptos establecidos en los principios y valores éticos de la Organización, de su normativa o de la legalidad vigente, y en particular: • Acciones u omisiones que puedan constituir infracciones del Derecho de la Unión Europea a que se refiere el art. 2.1 a) de la Ley 2/2023. • Acciones  u omisiones  que puedan  ser constitutivas  de infracción  penal  o administrativa grave o muy grave. En todo caso, se entenderán comprendidas todas aquellas infracciones penales o administrativas graves o muy graves que impliquen quebranto económico para la Hacienda Pública y para la Seguridad Social. Organización:  CENTRAL  DE ENVASADOS  S.A. Persona Informante: persona que realiza una comunicación de una conducta ilícita o irregular o que cuenta con indicios o tiene la sospecha de que se está cometiendo alguna de esas conductas en el seno de la Organización, que interpone una comunicación al respecto a través del  Canal Interno de Información. Profesionales: son todos los miembros de la organización, desde la Dirección y el Órgano de Administración, hasta las personas trabajadoras, pasando por los mandos intermedios y los cuerpos de gerencia. Persona  investigada: persona contra quien la persona  informante interpone la  comunicación a través  del Canal  Interno  de Información  por tener  indicios  o la sospecha  fundada  de que es autor de una conducta ilícita o irregular en el seno de la Organización. Sistema  Interno  de Información : sistema  de comunicación  de posibles infracciones que recoge los distintos canales internos de información que tiene establecidos la Organización. Stakeholders: También denominados como “partes interesadas”, los stakeholders son todas aquellas personas u organizaciones que constituyen el público de interés para la organización, es decir, que se relacionan con las actividades y decisiones de la misma, tales como empleados/as, directivos, propietarios, accionistas, clientes, pro veedores, acreedores, competidores,  bancos  y entidades financieras,  medios  de comunicación,  Gobierno, organismos y Administraciones Públicas, ONGs, sindicatos, colaboradores, partners , socios de negocio,  etc. Siguiendo la terminología de las Normas UNE/EN/ISO, son las personas u organizaciones, externas o internas, que puedan afectar, verse afectadas o percibirse como afectadas por una decisión o actividad de la organización. Política  del Sistema  Interno  de Información CÓDIGO  PSII</p>
 <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">2. MARCO  NORMATIVO</h2>
 <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">Organización es el siguiente: • Ley 2/2023,  de 20 de febrero,  reguladora  de la protección  de las personas  que informen sobre infracciones normativas y de la lucha contra la corrupción. • Ley Orgánica  5/2010,  de 22 de junio,  por la cual  se modifica  la Ley Orgánica  10/1995, de 23 de noviembre, del Código Penal. • Directiva (UE) 2019/1937 del Parlamento Europeo y del Consejo, de 23 de octubre de 2019, relativa a la protección de las personas que informen sobre infracciones del derecho de la Unión. • Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo, de 27 de abril de 2016, relativo a la protección de las personas físicas por lo que hace al tratamiento de datos personales y a la libre circulación de estos datos. • Ley Orgánica 3/2018, de 5 de diciembre, de protección de datos personales y garantía de los derechos digitales.</p>
@@ -184,6 +295,8 @@ export const PoliticaSistemaInformacionPage = () => {
 <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">La presente norma entra en vigor y está vigente desde el día siguiente al de su comunicación y difusión a los Profesionales de la Organización, de acuerdo con lo previsto en el apartado anterior. Política  del Sistema  Interno  de Información CÓDIGO  PSII</p>
 <h2 className="text-xl md:text-2xl font-semibold text-white print:text-[#1a1a1a] print:pt-6 mt-12 mb-6 border-b border-white/20 print:border-black/20 pb-2px">16. CONTROL  DE VERSIONES</h2>
 <p className="text-white/70 print:text-black/90 font-light leading-relaxed mb-6 text-justify">0.2 19/06/2024  REVISIÓN  COMPLETA  POLÍTICA 0.3 28/01/2026  ACTUALIZACIÓN DE  LA DOCUMENTACIÓN Y MODIFICACIÓN DEL PUNTO: 10. Co nservación, custodia y archivo de la información</p>
+              </>
+            )}
           </div>
         </motion.div>
       </div>

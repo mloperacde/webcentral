@@ -5,7 +5,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { searchTechnicalInfo } from '../services/geminiService';
 
 export const Contacto = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,7 +21,17 @@ export const Contacto = () => {
     setIsSubmitting(true);
 
     try {
-      const prompt = `Redacta un email profesional de respuesta automática para una empresa de packaging y envasado.
+      const prompt = language === 'en'
+        ? `Write a professional auto-reply email for a packaging and contract filling company.
+Customer details:
+- Name: ${formData.name}
+- Company: ${formData.empresa || 'Not specified'}
+- Email: ${formData.email}
+- Phone: ${formData.telefono || 'Not specified'}
+- Message: ${formData.mensaje}
+
+The email must thank them for reaching out and mention we will reply within 24 hours.`
+        : `Redacta un email profesional de respuesta automática para una empresa de packaging y envasado.
 Datos del cliente:
 - Nombre: ${formData.name}
 - Empresa: ${formData.empresa || 'No especificada'}
@@ -92,7 +102,7 @@ El email debe agradecer el contacto y mencionar que se responderá en menos de 2
                   onClick={() => setSubmitted(false)}
                   className="mt-8 px-6 py-3 border border-white/20 text-white/80 hover:border-white/50 hover:text-white text-[11px] tracking-[0.2em] uppercase transition-all duration-300"
                 >
-                  {t('contacto.success.button') || 'Volver'}
+                  {t('contacto.success.button') || (language === 'en' ? 'Back' : 'Volver')}
                 </button>
               </div>
             ) : (

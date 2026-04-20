@@ -95,11 +95,67 @@ const ProductSection = ({ id, icon: Icon, title, subtitle, description, image, s
 };
 
 export const ProductosPage = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const isEn = language === 'en';
+
+  const copy = isEn
+    ? {
+        back: 'Back to Home',
+        heroTitle: 'Innovation Formats',
+        heroAccent: 'Innovation',
+        heroBody:
+          'Every product requires a specific environment and technology. Discover our range of tailored packaging solutions.',
+        explore: 'Explore',
+        sanitaryTableTitle: 'Current Production Capabilities',
+        sanitaryCol1: 'Format',
+        sanitaryCol2: 'Technical Specification',
+        sanitaryCol3: 'Applications',
+        sanitaryNote:
+          'Regulatory note: Manufactured products are classified as Medical Devices (MDR 2017/745) or Advanced Hygiene, not as Medicines.',
+        sanitaryScopeTitle: 'Development Scope',
+        sanitaryCtaTitle: 'Do you have a healthcare-grade formulation in development?',
+        sanitaryCtaBody:
+          'We manage scale-up from pilot batch to industrial production while maintaining healthcare regulatory classification (non-pharmaceutical).',
+        sanitaryCtaButton: 'Check Feasibility',
+        sanitaryLegalTitle: 'Legal Disclaimer (AEMPS Compliance)',
+        sanitaryGlobalCtaTitlePrefix: 'Do you have a project with a',
+        sanitaryGlobalCtaTitleAccent: 'special format',
+        sanitaryGlobalCtaBody:
+          'Our team can adapt our lines for custom formats or exclusive developments.',
+        sanitaryGlobalCtaButton: 'Talk to a specialist',
+        aempsBadge: 'Manufacturing Authorized by AEMPS'
+      }
+    : {
+        back: 'Regresar al Inicio',
+        heroTitle: 'Formatos de Innovación',
+        heroAccent: 'Innovación',
+        heroBody:
+          'Cada producto exige un entorno y una tecnología específicos. Descubre nuestra gama de soluciones de envasado a medida.',
+        explore: 'Explorar',
+        sanitaryTableTitle: 'Capacidades Productivas Actuales',
+        sanitaryCol1: 'Formato',
+        sanitaryCol2: 'Especificación Técnica',
+        sanitaryCol3: 'Aplicaciones',
+        sanitaryNote:
+          'Nota regulatoria: Los productos fabricados se clasifican como Productos Sanitarios (MDR 2017/745) o Higiene Avanzada, no como Medicamentos.',
+        sanitaryScopeTitle: 'Alcance de Desarrollo',
+        sanitaryCtaTitle: '¿Tiene una formulación de Producto Sanitario en desarrollo?',
+        sanitaryCtaBody:
+          'Gestionamos el escalado desde lote piloto hasta producción industrial manteniendo la clasificación regulatoria sanitaria (no farmacéutica).',
+        sanitaryCtaButton: 'Consultar Viabilidad',
+        sanitaryLegalTitle: 'Disclaimer Legal (AEMPS Compliance)',
+        sanitaryGlobalCtaTitlePrefix: '¿Tiene un proyecto con un',
+        sanitaryGlobalCtaTitleAccent: 'formato especial',
+        sanitaryGlobalCtaBody:
+          'Nuestro equipo puede adaptar nuestras líneas para formatos a medida o desarrollos exclusivos.',
+        sanitaryGlobalCtaButton: 'Consultar con un especialista',
+        aempsBadge: 'Fabricación Autorizada por la AEMPS'
+      };
 
   const productConfigs = {
     sachets: { scale: 1.4, x: 60, y: 75, size: 1000 },
@@ -110,115 +166,243 @@ export const ProductosPage = () => {
     aemps: { scale: 0.65, x: 200, y: -10, size: 300 }
   };
 
-  const productTypes = [
-    {
-      id: 'sachets',
-      icon: Layers,
-      title: 'Sachets',
-      subtitle: 'Monodosis Inteligente',
-      description: 'El formato más versátil para el consumo On-the-Go. Tecnología multicapa que garantiza máxima barrera y conservación.',
-      image: '/sachets2.webp',
-      theme: 'accent',
-      specs: [
-        { icon: Settings2, label: 'Flexibilidad', value: 'Formatos planos, con toallita o doypack. Codificación por presión, tinta o laser.' },
-        { icon: Sparkles, label: 'Acabados', value: 'Mate, brillo o acabados técnicos. Acondicionamiento secundario, estuches de grupo o estuches expositores.' },
-        { icon: CheckCircle2, label: 'Dosificación', value: 'De 1ml a 100ml con precisión total. Liquidos, viscosos, polvo y solidos.' },
-        { icon: ShieldCheck, label: 'Protección', value: 'Materiales barrera específicos (O2, luz).' }
-      ]
-    },
-    {
-      id: 'bottles',
-      icon: Cylinder,
-      title: 'Frascos',
-      subtitle: 'Precisión y Estilo',
-      description: 'Especialistas en el llenado de frascos para las industrias cosmética, perfumería y alimentaria. Soluciones para texturas densas o fluidas.',
-      image: '/frascos.webp',
-      theme: 'cyan',
-      specs: [
-        { icon: Settings2, label: 'Formatos', value: 'Vidrio, Plástico, PCR o Aluminio. Soluciones para cualquier tipo de etiquetado.' },
-        { icon: Sparkles, label: 'Cierres', value: 'Bombas, cuentagotas o tapones de rosca. Estuchado y celofanado.' },
-        { icon: CheckCircle2, label: 'Capacidades', value: 'Desde viales pequeños hasta gran formato.' },
-        { icon: ShieldCheck, label: 'Seguridad', value: 'Sello de inducción y precintos. Codificación de envases y estuches tinta o laser.' }
-      ]
-    },
-    {
-      id: 'jars',
-      icon: Container,
-      title: 'Tarros',
-      subtitle: 'El Tacto de la Calidad',
-      description: 'Envasado de alta precisión para cremas, bálsamos y productos densos. Cuidado extremo en la manipulación para evitar burbujas y contaminación.',
-      image: '/tarros.webp',
-      theme: 'accent',
-      specs: [
-        { icon: Settings2, label: 'Llenado', value: 'Tecnología sin contacto para máxima pureza.' },
-        { icon: Sparkles, label: 'Presentación', value: 'Nivelado perfecto y limpieza de bordes.' },
-        { icon: CheckCircle2, label: 'Materiales', value: 'PET, PP, Vidrio y acabados lujo.' },
-        { icon: ShieldCheck, label: 'Control', value: 'Inspección visual del 100% de tarrinas.' }
-      ]
-    },
-    {
-      id: 'vials',
-      icon: FlaskConical,
-      title: 'Viales',
-      subtitle: 'Precisión Milimétrica, Presentación Inmaculada',
-      description: 'El formato por excelencia para la cosmética de alto valor y las fragancias de nicho. Desde el 1 ml para muestras exclusivas hasta el 30 ml para formatos travel premium, los viales de cristal neutro combinan la transparencia absoluta del vidrio con la versatilidad funcional que exige el mercado del lujo.',
-      image: '/viales.webp',
-      theme: 'cyan',
-      specs: [
-        { icon: Settings2, label: 'Precisión', value: 'Tolerancias mínimas en productos críticos.' },
-        { icon: Sparkles, label: 'Formatos', value: 'Adaptamos el sistema de dosificación al comportamiento del producto: pulverizadores para perfume, stoppers para aceites o bombas airless.' },
-        { icon: CheckCircle2, label: 'Versatilidad', value: 'Tapón rosca cromado, stopper siliconado, bomba dosificadora, pulverizador micro-spray, roll-on.' },
-        { icon: ShieldCheck, label: 'Presentación', value: 'Cartelas para muestras, miniaturas, estuchado individual o de colecciones premium.' }
-      ]
-    },
-    {
-      id: 'sanitary',
-      icon: Stethoscope,
-      isSpecial: true,
-      title: 'Gama Sanitaria',
-      subtitle: 'Certificación sanitaria AEMPS para productos de cuidado especializado (no medicamentos)',
-      heroTitle: 'Producto Sanitario. Soluciones de Higiene Avanzada',
-      heroSubtitle: 'Rigor Sanitario aplicado al Cuidado Personal Especializado',
-      description: 'Fabricación bajo autorización de la Agencia Española de Medicamentos para Productos Sanitarios de Higiene, excluyendo expresamente medicamentos. Especializados en cuidado ocular de mantenimiento y soluciones de higiene para zonas sensibles, combinando el rigor de la normativa sanitaria con la usabilidad del consumidor final.',
-      image: '/productosanitario.webp',
-      theme: 'cyan',
-      pillars: [
+  const productTypes = isEn
+    ? [
         {
-          id: '01',
-          title: 'Pureza Garantizada',
-          description: 'Generación in-house de Agua Purificada Ph. Eur. (Farmacopea Europea) con caudal continuo de 700 L/h, garantizando la máxima seguridad en el excipiente acuoso.'
+          id: 'sachets',
+          icon: Layers,
+          title: 'Sachets',
+          subtitle: 'Smart Single-Dose',
+          description:
+            'The most versatile format for on-the-go consumption. Multi-layer technology that ensures maximum barrier performance and preservation.',
+          image: '/sachets2.webp',
+          theme: 'accent',
+          specs: [
+            { icon: Settings2, label: 'Flexibility', value: 'Flat formats, with wipe, or doypack. Pressure, ink, or laser coding.' },
+            { icon: Sparkles, label: 'Finishes', value: 'Matte, gloss, or technical finishes. Secondary packaging, multipacks, or display boxes.' },
+            { icon: CheckCircle2, label: 'Filling', value: 'From 1 ml to 100 ml with full precision. Liquids, viscous products, powders, and solids.' },
+            { icon: ShieldCheck, label: 'Protection', value: 'Specific barrier materials (O₂, light).' }
+          ]
         },
         {
-          id: '02',
-          title: 'Seguridad Ocular',
-          description: 'Especialización en formulaciones de mantenimiento ocular en formato monodosis y multidosis con sistemas de dosificación técnica diseñados para el confort.'
+          id: 'bottles',
+          icon: Cylinder,
+          title: 'Bottles',
+          subtitle: 'Precision and Style',
+          description:
+            'Specialists in bottle filling for the cosmetic, perfumery, and food industries. Solutions for dense or fluid textures.',
+          image: '/frascos.webp',
+          theme: 'cyan',
+          specs: [
+            { icon: Settings2, label: 'Formats', value: 'Glass, plastic, PCR, or aluminum. Solutions for any labeling type.' },
+            { icon: Sparkles, label: 'Closures', value: 'Pumps, droppers, or screw caps. Cartoning and cellophaning.' },
+            { icon: CheckCircle2, label: 'Capacities', value: 'From small vials to large formats.' },
+            { icon: ShieldCheck, label: 'Safety', value: 'Induction seals and tamper evidence. Coding for bottles and cartons (ink or laser).' }
+          ]
         },
         {
-          id: '03',
-          title: 'Sin Prescripción',
-          description: 'Productos de autocuidado avanzados certificados bajo normativa sanitaria, optimizados para su distribución en canales especializados sin requisitos de receta.'
+          id: 'jars',
+          icon: Container,
+          title: 'Jars',
+          subtitle: 'The Touch of Quality',
+          description:
+            'High-precision packaging for creams, balms, and dense products. Extreme care in handling to avoid bubbles and contamination.',
+          image: '/tarros.webp',
+          theme: 'accent',
+          specs: [
+            { icon: Settings2, label: 'Filling', value: 'Non-contact technology for maximum purity.' },
+            { icon: Sparkles, label: 'Presentation', value: 'Perfect leveling and rim cleaning.' },
+            { icon: CheckCircle2, label: 'Materials', value: 'PET, PP, glass, and luxury finishes.' },
+            { icon: ShieldCheck, label: 'Control', value: '100% visual inspection of tubs.' }
+          ]
+        },
+        {
+          id: 'vials',
+          icon: FlaskConical,
+          title: 'Vials',
+          subtitle: 'Millimetric Precision, Immaculate Presentation',
+          description:
+            'The benchmark format for high-value cosmetics and niche fragrances. From 1 ml for exclusive samples to 30 ml for premium travel sizes, neutral glass vials combine absolute transparency with the functional versatility demanded by the luxury market.',
+          image: '/viales.webp',
+          theme: 'cyan',
+          specs: [
+            { icon: Settings2, label: 'Precision', value: 'Minimal tolerances for critical products.' },
+            { icon: Sparkles, label: 'Formats', value: 'We adapt the dosing system to product behavior: sprayers for perfume, stoppers for oils, or airless pumps.' },
+            { icon: CheckCircle2, label: 'Versatility', value: 'Chrome screw cap, silicone stopper, dosing pump, micro-spray, roll-on.' },
+            { icon: ShieldCheck, label: 'Presentation', value: 'Sample cards, miniatures, individual boxing, or premium collection sets.' }
+          ]
+        },
+        {
+          id: 'sanitary',
+          icon: Stethoscope,
+          isSpecial: true,
+          title: 'Healthcare Range',
+          subtitle: 'AEMPS healthcare authorization for specialized care products (non-medicines)',
+          heroTitle: 'Medical Device. Advanced Hygiene Solutions',
+          heroSubtitle: 'Healthcare rigor applied to specialized personal care',
+          description:
+            'Manufacturing under authorization from the Spanish Agency of Medicines and Medical Devices (AEMPS) for advanced hygiene healthcare products, explicitly excluding medicines. Specialized in maintenance eye care and hygiene solutions for sensitive areas—combining regulatory rigor with consumer usability.',
+          image: '/productosanitario.webp',
+          theme: 'cyan',
+          pillars: [
+            {
+              id: '01',
+              title: 'Guaranteed Purity',
+              description:
+                'In-house generation of Purified Water Ph. Eur. (European Pharmacopoeia) with continuous 700 L/h flow, ensuring maximum safety for the aqueous excipient.'
+            },
+            {
+              id: '02',
+              title: 'Eye Safety',
+              description:
+                'Specialization in maintenance eye care formulations in single-dose and multi-dose formats with technical dosing systems designed for comfort.'
+            },
+            {
+              id: '03',
+              title: 'No Prescription',
+              description:
+                'Advanced self-care products certified under healthcare regulation, optimized for distribution through specialized channels without prescription requirements.'
+            }
+          ],
+          table: [
+            {
+              format: 'Ophthalmic Bottles',
+              specs: '10 ml / 15 ml · Aptar-type screw-clip cap · Drop-by-drop dosing',
+              apps: 'Eye hygiene, comfort eye lubricants (non-therapeutic)'
+            },
+            {
+              format: 'Single-Dose Sachets',
+              specs: '1 to 10 ml · Wipes in ophthalmic solution',
+              apps: 'Eyelid cleansing, maintenance hygiene, specialized wipes'
+            }
+          ],
+          reach: [
+            'Mucosal hygiene solutions (nasal, auricular)',
+            'Physiological saline for daily self-care hygiene',
+            'Advanced personal care based on purified aqueous solutions'
+          ],
+          disclaimer:
+            'Central de Envasados is authorized by AEMPS to manufacture healthcare products (category: medical hygiene and advanced personal care). We are not authorized to manufacture prescription medicines or OTC drugs. All production is carried out under healthcare product regulation.'
         }
-      ],
-      table: [
+      ]
+    : [
         {
-          format: 'Frascos Oftálmicos',
-          specs: '10 ml / 15 ml · Tapón rosca-clip tipo Aptar · Dosificación gota a gota',
-          apps: 'Higiene ocular, lubricantes oculares de confort (no terapéuticos)'
+          id: 'sachets',
+          icon: Layers,
+          title: 'Sachets',
+          subtitle: 'Monodosis Inteligente',
+          description:
+            'El formato más versátil para el consumo On-the-Go. Tecnología multicapa que garantiza máxima barrera y conservación.',
+          image: '/sachets2.webp',
+          theme: 'accent',
+          specs: [
+            { icon: Settings2, label: 'Flexibilidad', value: 'Formatos planos, con toallita o doypack. Codificación por presión, tinta o laser.' },
+            { icon: Sparkles, label: 'Acabados', value: 'Mate, brillo o acabados técnicos. Acondicionamiento secundario, estuches de grupo o estuches expositores.' },
+            { icon: CheckCircle2, label: 'Dosificación', value: 'De 1ml a 100ml con precisión total. Liquidos, viscosos, polvo y solidos.' },
+            { icon: ShieldCheck, label: 'Protección', value: 'Materiales barrera específicos (O2, luz).' }
+          ]
         },
         {
-          format: 'Sachets Monodosis',
-          specs: '1 a 10 ml · Toallitas en solución oftalmológica',
-          apps: 'Limpieza palpebral, higiene de mantenimiento, wipes especializados'
+          id: 'bottles',
+          icon: Cylinder,
+          title: 'Frascos',
+          subtitle: 'Precisión y Estilo',
+          description:
+            'Especialistas en el llenado de frascos para las industrias cosmética, perfumería y alimentaria. Soluciones para texturas densas o fluidas.',
+          image: '/frascos.webp',
+          theme: 'cyan',
+          specs: [
+            { icon: Settings2, label: 'Formatos', value: 'Vidrio, Plástico, PCR o Aluminio. Soluciones para cualquier tipo de etiquetado.' },
+            { icon: Sparkles, label: 'Cierres', value: 'Bombas, cuentagotas o tapones de rosca. Estuchado y celofanado.' },
+            { icon: CheckCircle2, label: 'Capacidades', value: 'Desde viales pequeños hasta gran formato.' },
+            { icon: ShieldCheck, label: 'Seguridad', value: 'Sello de inducción y precintos. Codificación de envases y estuches tinta o laser.' }
+          ]
+        },
+        {
+          id: 'jars',
+          icon: Container,
+          title: 'Tarros',
+          subtitle: 'El Tacto de la Calidad',
+          description:
+            'Envasado de alta precisión para cremas, bálsamos y productos densos. Cuidado extremo en la manipulación para evitar burbujas y contaminación.',
+          image: '/tarros.webp',
+          theme: 'accent',
+          specs: [
+            { icon: Settings2, label: 'Llenado', value: 'Tecnología sin contacto para máxima pureza.' },
+            { icon: Sparkles, label: 'Presentación', value: 'Nivelado perfecto y limpieza de bordes.' },
+            { icon: CheckCircle2, label: 'Materiales', value: 'PET, PP, Vidrio y acabados lujo.' },
+            { icon: ShieldCheck, label: 'Control', value: 'Inspección visual del 100% de tarrinas.' }
+          ]
+        },
+        {
+          id: 'vials',
+          icon: FlaskConical,
+          title: 'Viales',
+          subtitle: 'Precisión Milimétrica, Presentación Inmaculada',
+          description:
+            'El formato por excelencia para la cosmética de alto valor y las fragancias de nicho. Desde el 1 ml para muestras exclusivas hasta el 30 ml para formatos travel premium, los viales de cristal neutro combinan la transparencia absoluta del vidrio con la versatilidad funcional que exige el mercado del lujo.',
+          image: '/viales.webp',
+          theme: 'cyan',
+          specs: [
+            { icon: Settings2, label: 'Precisión', value: 'Tolerancias mínimas en productos críticos.' },
+            { icon: Sparkles, label: 'Formatos', value: 'Adaptamos el sistema de dosificación al comportamiento del producto: pulverizadores para perfume, stoppers para aceites o bombas airless.' },
+            { icon: CheckCircle2, label: 'Versatilidad', value: 'Tapón rosca cromado, stopper siliconado, bomba dosificadora, pulverizador micro-spray, roll-on.' },
+            { icon: ShieldCheck, label: 'Presentación', value: 'Cartelas para muestras, miniaturas, estuchado individual o de colecciones premium.' }
+          ]
+        },
+        {
+          id: 'sanitary',
+          icon: Stethoscope,
+          isSpecial: true,
+          title: 'Gama Sanitaria',
+          subtitle: 'Certificación sanitaria AEMPS para productos de cuidado especializado (no medicamentos)',
+          heroTitle: 'Producto Sanitario. Soluciones de Higiene Avanzada',
+          heroSubtitle: 'Rigor Sanitario aplicado al Cuidado Personal Especializado',
+          description:
+            'Fabricación bajo autorización de la Agencia Española de Medicamentos para Productos Sanitarios de Higiene, excluyendo expresamente medicamentos. Especializados en cuidado ocular de mantenimiento y soluciones de higiene para zonas sensibles, combinando el rigor de la normativa sanitaria con la usabilidad del consumidor final.',
+          image: '/productosanitario.webp',
+          theme: 'cyan',
+          pillars: [
+            {
+              id: '01',
+              title: 'Pureza Garantizada',
+              description:
+                'Generación in-house de Agua Purificada Ph. Eur. (Farmacopea Europea) con caudal continuo de 700 L/h, garantizando la máxima seguridad en el excipiente acuoso.'
+            },
+            {
+              id: '02',
+              title: 'Seguridad Ocular',
+              description:
+                'Especialización en formulaciones de mantenimiento ocular en formato monodosis y multidosis con sistemas de dosificación técnica diseñados para el confort.'
+            },
+            {
+              id: '03',
+              title: 'Sin Prescripción',
+              description:
+                'Productos de autocuidado avanzados certificados bajo normativa sanitaria, optimizados para su distribución en canales especializados sin requisitos de receta.'
+            }
+          ],
+          table: [
+            {
+              format: 'Frascos Oftálmicos',
+              specs: '10 ml / 15 ml · Tapón rosca-clip tipo Aptar · Dosificación gota a gota',
+              apps: 'Higiene ocular, lubricantes oculares de confort (no terapéuticos)'
+            },
+            {
+              format: 'Sachets Monodosis',
+              specs: '1 a 10 ml · Toallitas en solución oftalmológica',
+              apps: 'Limpieza palpebral, higiene de mantenimiento, wipes especializados'
+            }
+          ],
+          reach: [
+            'Soluciones de higiene mucosa (nasal, auricular)',
+            'Sueros fisiológicos de autocuidado para higiene diaria',
+            'Cuidado personal avanzado de base acuosa purificada'
+          ],
+          disclaimer:
+            'Central de Envasados cuenta con autorización AEMPS para fabricación de Productos Sanitarios (categoría: higiene médica y cuidado personal avanzado). No estamos autorizados para medicamentos de prescripción ni venta libre (OTC). Toda la producción se realiza bajo normativa de Productos Sanitarios.'
         }
-      ],
-      reach: [
-        'Soluciones de higiene mucosa (nasal, auricular)',
-        'Sueros fisiológicos de autocuidado para higiene diaria',
-        'Cuidado personal avanzado de base acuosa purificada'
-      ],
-      disclaimer: 'Central de Envasados cuenta con autorización AEMPS para fabricación de Productos Sanitarios (categoría: higiene médica y cuidado personal avanzado). No estamos autorizados para medicamentos de prescripción ni venta libre (OTC). Toda la producción se realiza bajo normativa de Productos Sanitarios.'
-    }
-  ];
+      ];
 
   return (
     <div className="bg-black min-h-screen text-white">
@@ -248,14 +432,21 @@ export const ProductosPage = () => {
           >
             <Link to="/" className="inline-flex items-center gap-3 text-white/80 text-[10px] font-bold uppercase tracking-[0.4em] mb-12 hover:text-white transition-all border border-white/20 px-8 py-4 bg-black/60 backdrop-blur-md">
               <ArrowLeft className="w-3 h-3" />
-              Regresar al Inicio
+              {copy.back}
             </Link>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tighter leading-tight uppercase italic drop-shadow-2xl">
-              Formatos de <span className="text-accent underline decoration-accent/30 underline-offset-8">Innovación</span>
+              {isEn ? (
+                <>
+                  <span className="text-accent underline decoration-accent/30 underline-offset-8">Innovation</span> Formats
+                </>
+              ) : (
+                <>
+                  Formatos de <span className="text-accent underline decoration-accent/30 underline-offset-8">Innovación</span>
+                </>
+              )}
             </h1>
             <p className="max-w-2xl mx-auto text-white/60 text-base lg:text-lg font-light leading-relaxed mb-12 px-4 py-2">
-              Cada producto exige un entorno y una tecnología específicos. 
-              Descubre nuestra gama de soluciones de envasado a medida.
+              {copy.heroBody}
             </p>
             
             <div className="flex flex-wrap justify-center gap-3">
@@ -279,7 +470,7 @@ export const ProductosPage = () => {
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-40 opacity-40"
         >
-          <span className="text-[9px] text-white uppercase tracking-[0.4em] [writing-mode:vertical-lr]">Explorar</span>
+          <span className="text-[9px] text-white uppercase tracking-[0.4em] [writing-mode:vertical-lr]">{copy.explore}</span>
           <div className="w-px h-10 bg-white" />
         </motion.div>
       </section>
@@ -335,11 +526,11 @@ export const ProductosPage = () => {
                   >
                     <img 
                       src="/logo_aemps_ministerio.jpg" 
-                      alt="Logo AEMPS Ministerio" 
+                      alt={isEn ? 'AEMPS ministry logo' : 'Logo AEMPS Ministerio'} 
                       className="w-full h-auto object-contain"
                     />
                     <div className="mt-8 text-[10px] text-zinc-900 uppercase text-center font-bold tracking-[0.3em] leading-normal border-t border-zinc-100 pt-6 w-full">
-                      Fabricación Autorizada por la AEMPS
+                      {copy.aempsBadge}
                     </div>
                   </div>
                 </div>
@@ -360,15 +551,15 @@ export const ProductosPage = () => {
               <div className="mb-32">
                 <h3 className="text-white/90 text-2xl font-light mb-12 flex items-center gap-4 italic uppercase tracking-widest">
                   <span className="h-px w-12 bg-sky-400/30"></span>
-                  Capacidades Productivas Actuales
+                  {copy.sanitaryTableTitle}
                 </h3>
                 <div className="overflow-x-auto rounded-3xl border border-white/5">
                   <table className="w-full text-left border-collapse bg-sky-500/\[0.02\]">
                     <thead>
                         <tr className="border-b border-white/10 text-white/30 text-[11px] uppercase font-bold tracking-[0.2em] bg-sky-500/\[0.03\]">
-                        <th className="py-8 px-10">Formato</th>
-                        <th className="py-8 px-10">Especificación Técnica</th>
-                        <th className="py-8 px-10">Aplicaciones</th>
+                        <th className="py-8 px-10">{copy.sanitaryCol1}</th>
+                        <th className="py-8 px-10">{copy.sanitaryCol2}</th>
+                        <th className="py-8 px-10">{copy.sanitaryCol3}</th>
                       </tr>
                     </thead>
                     <tbody className="text-white/80">
@@ -388,34 +579,44 @@ export const ProductosPage = () => {
                     <div className="rounded-[40px] overflow-hidden border border-white/10 bg-white/[0.03] aspect-[4/3] relative mb-6 p-8 flex items-center justify-center">
                       <img 
                         src="/colirios.webp" 
-                        alt="Soluciones de Mantenimiento Ocular" 
+                        alt={isEn ? 'Eye care maintenance solutions' : 'Soluciones de Mantenimiento Ocular'} 
                         className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105"
                       />
                     </div>
-                    <h4 className="text-white font-medium text-lg uppercase tracking-tight italic ml-4">Frascos de Confort Ocular</h4>
+                    <h4 className="text-white font-medium text-lg uppercase tracking-tight italic ml-4">{isEn ? 'Eye Comfort Bottles' : 'Frascos de Confort Ocular'}</h4>
                   </div>
                   <div className="group">
                     <div className="rounded-[40px] overflow-hidden border border-white/10 bg-white/[0.03] aspect-[4/3] relative mb-6 p-8 flex items-center justify-center">
                       <img 
                         src="/monodosis_sanitario.webp" 
-                        alt="Monodosis de Higiene Avanzada" 
+                        alt={isEn ? 'Advanced hygiene single-dose' : 'Monodosis de Higiene Avanzada'} 
                         className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105"
                       />
                     </div>
-                    <h4 className="text-white font-medium text-lg uppercase tracking-tight italic ml-4">Monodosis de Precisión</h4>
+                    <h4 className="text-white font-medium text-lg uppercase tracking-tight italic ml-4">{isEn ? 'Precision Single-Dose' : 'Monodosis de Precisión'}</h4>
                   </div>
                 </div>
 
                 <p className="mt-8 text-[11px] text-white/30 font-medium uppercase tracking-widest flex items-center gap-3 italic">
                   <ShieldCheck className="w-3 h-3 text-sky-400" />
-                  Nota regulatoria: Los productos fabricados se clasifican como Productos Sanitarios (MDR 2017/745) o Higiene Avanzada, no como Medicamentos.
+                  {copy.sanitaryNote}
                 </p>
               </div>
 
               {/* Alcance Section */}
               <div className="grid lg:grid-cols-2 gap-20 items-center border-t border-white/5 pt-32">
                 <div>
-                  <h3 className="text-4xl font-light text-white mb-10 tracking-tight italic uppercase">Alcance de <span className="text-sky-400">Desarrollo</span></h3>
+                  <h3 className="text-4xl font-light text-white mb-10 tracking-tight italic uppercase">
+                    {isEn ? (
+                      <>
+                        Development <span className="text-sky-400">Scope</span>
+                      </>
+                    ) : (
+                      <>
+                        Alcance de <span className="text-sky-400">Desarrollo</span>
+                      </>
+                    )}
+                  </h3>
                   <div className="grid gap-6">
                     {p.reach.map((item: string, idx: number) => (
                       <div key={idx} className="flex items-center gap-4 group">
@@ -427,13 +628,13 @@ export const ProductosPage = () => {
                 </div>
 
                 <div className="bg-sky-400/5 border border-sky-400/10 p-12 rounded-[40px] text-center backdrop-blur-md">
-                  <h4 className="text-2xl font-medium text-white mb-6 uppercase tracking-tight italic">¿Tiene una formulación de Producto Sanitario en desarrollo?</h4>
-                  <p className="text-white/40 mb-10 text-base font-light leading-relaxed">Gestionamos el escalado desde lote piloto hasta producción industrial manteniendo la clasificación regulatoria sanitaria (no farmacéutica).</p>
+                  <h4 className="text-2xl font-medium text-white mb-6 uppercase tracking-tight italic">{copy.sanitaryCtaTitle}</h4>
+                  <p className="text-white/40 mb-10 text-base font-light leading-relaxed">{copy.sanitaryCtaBody}</p>
                   <Link 
                     to="/#contacto" 
                     className="inline-flex items-center gap-4 px-10 py-5 bg-sky-400 hover:bg-sky-500 text-black uppercase text-[11px] font-black tracking-[0.3em] transition-all"
                   >
-                    Consultar Viabilidad
+                    {copy.sanitaryCtaButton}
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -441,7 +642,7 @@ export const ProductosPage = () => {
 
               {/* Legal Disclaimer Footer */}
               <div className="mt-32 pt-12 mb-24 border-t border-white/5 opacity-30 text-[11px] leading-relaxed max-w-4xl tracking-tight">
-                <p className="uppercase font-bold mb-2 text-[12px]">Disclaimer Legal (AEMPS Compliance)</p>
+                <p className="uppercase font-bold mb-2 text-[12px]">{copy.sanitaryLegalTitle}</p>
                 <p>{p.disclaimer}</p>
               </div>
             </div>
@@ -455,17 +656,16 @@ export const ProductosPage = () => {
               <section className="py-40 relative overflow-hidden text-center bg-zinc-950/20 border-y border-white/5">
                 <div className="max-w-4xl mx-auto px-4 relative z-10">
                   <h2 className="text-3xl sm:text-5xl font-light text-white mb-10 tracking-tight leading-tight uppercase italic">
-                    ¿Tiene un proyecto con un <br /><span className="text-accent underline decoration-accent/30 underline-offset-8">formato especial?</span>
+                    {copy.sanitaryGlobalCtaTitlePrefix} <br /><span className="text-accent underline decoration-accent/30 underline-offset-8">{copy.sanitaryGlobalCtaTitleAccent}</span>
                   </h2>
                   <p className="text-white/40 text-lg mb-12 max-w-xl mx-auto font-light">
-                    Nuestro equipo puede adaptar nuestras líneas para formatos a medida 
-                    o desarrollos exclusivos.
+                    {copy.sanitaryGlobalCtaBody}
                   </p>
                   <Link 
                     to="/#contacto" 
                     className="inline-flex items-center gap-4 px-12 py-5 bg-accent hover:bg-accent/80 text-white uppercase text-[10px] font-bold tracking-[0.3em] transition-all"
                   >
-                    Consultar con un especialista
+                    {copy.sanitaryGlobalCtaButton}
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>

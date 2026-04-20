@@ -5,13 +5,21 @@ import { Users, TrendingUp, Landmark, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const Nosotros = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
-  const details = [
-    { icon: Landmark, label: 'nosotros.stat1', value: '35+ Años' },
-    { icon: Users, label: 'nosotros.stat2', value: '+250 Prof.' },
-    { icon: TrendingUp, label: 'nosotros.stat3', value: '30+ Salas' },
-  ];
+  const isEn = language === 'en';
+
+  const details = isEn
+    ? [
+        { icon: Landmark, label: 'nosotros.stat1', value: '35+ Years' },
+        { icon: Users, label: 'nosotros.stat2', value: '+250 Staff' },
+        { icon: TrendingUp, label: 'nosotros.stat3', value: '30+ Rooms' }
+      ]
+    : [
+        { icon: Landmark, label: 'nosotros.stat1', value: '35+ Años' },
+        { icon: Users, label: 'nosotros.stat2', value: '+250 Prof.' },
+        { icon: TrendingUp, label: 'nosotros.stat3', value: '30+ Salas' }
+      ];
 
   return (
     <section id="nosotros" className="pt-48 pb-24 lg:pt-64 lg:pb-32 bg-black relative overflow-hidden w-full">
@@ -86,7 +94,7 @@ export const Nosotros = () => {
             <div className="relative shadow-[0_0_80px_rgba(0,0,0,0.6)] overflow-hidden">
               <img 
                 src="/factory.webp" 
-                alt="Factory Central de Envasados" 
+                alt={isEn ? 'Central de Envasados factory' : 'Factory Central de Envasados'} 
                 className="w-full h-auto object-cover transition-transform duration-1000 hover:scale-105"
                 style={{ 
                   height: '584px'
