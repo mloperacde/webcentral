@@ -185,14 +185,14 @@ export const InstalacionesPage = () => {
   return (
     <div className="bg-black min-h-screen text-white mesh-gradient">
       {/* Hero Section */}
-      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[100vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="/factory.webp" 
             alt="Central de Envasados Exterior" 
             className="w-full h-full object-cover opacity-85" 
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/5 to-black/70 z-10" />
+          <div className="h-[720px] bg-gradient-to-b from-black/50 via-black/5 to-black/70 z-10" />
         </div>
         
         <div className="relative z-20 page-container text-center">
@@ -200,8 +200,9 @@ export const InstalacionesPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="-translate-y-6 md:-translate-y-8"
           >
-            <Link to="/" className="inline-flex items-center gap-2 text-white/80 text-[9px] font-bold uppercase tracking-[0.35em] mb-10 hover:text-white transition-all border border-white/20 px-6 py-3 bg-black/50 backdrop-blur-sm">
+            <Link to="/" className="inline-flex items-center gap-2 text-white/80 text-[9px] font-bold uppercase tracking-[0.35em] mb-8 hover:text-white transition-all border border-white/20 px-6 py-3 bg-black/50 backdrop-blur-sm">
               <ArrowLeft className="w-2.5 h-2.5" />
               {copy.back}
             </Link>
@@ -216,14 +217,14 @@ export const InstalacionesPage = () => {
                 </>
               )}
             </h1>
-            <p className="text-lg sm:text-xl text-white/70 font-light leading-relaxed max-w-2xl mx-auto mb-16 px-4">
+            <p className="text-lg sm:text-xl text-white/70 font-light leading-relaxed max-w-2xl mx-auto mb-10 px-4">
               {copy.heroBody}
             </p>
           </motion.div>
         </div>
 
         {/* Floating Stats */}
-        <div className="absolute bottom-4 left-0 right-0 z-30 px-4">
+        <div className="absolute bottom-10 left-0 right-0 z-30 px-4">
           <div className="page-container grid grid-cols-2 md:grid-cols-4 gap-4">
             {stats.map((stat, idx) => (
               <motion.div
@@ -231,10 +232,10 @@ export const InstalacionesPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + (idx * 0.1) }}
-                className="bg-white/[0.015] backdrop-blur-xl border border-white/5 p-6 md:p-8 text-center rounded-xl"
+                className="bg-black/20 backdrop-blur-xl border border-white/10 p-5 md:p-7 text-center rounded-2xl"
               >
-                <div className="text-xl md:text-2xl font-light text-accent mb-2">{stat.value}</div>
-                <div className="text-[9px] sm:text-[10px] text-white/65 uppercase tracking-[0.15em] font-bold whitespace-nowrap">{stat.label}</div>
+                <div className="text-2xl md:text-3xl font-light text-accent mb-2">{stat.value}</div>
+                <div className="text-[9px] text-white/55 uppercase tracking-[0.2em] font-bold">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -258,7 +259,7 @@ export const InstalacionesPage = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="max-w-2xl"
+                className="max-w-2xl pt-10 pb-10"
               >
                 <span className="page-subtitle mb-4 block text-accent">{copy.introPill}</span>
                 <h2 className="text-3xl sm:text-5xl lg:text-6xl font-light text-white mb-10 text-balance italic uppercase tracking-tight">
