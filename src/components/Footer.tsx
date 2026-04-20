@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -12,7 +11,7 @@ export const Footer = () => {
     { label: t('nav.productos'), href: '/productos' },
     { label: t('nav.instalaciones'), href: '/instalaciones' },
     { label: t('nav.calidad'), href: '/calidad' },
-    { label: t('nav.contacto'), href: '/#contacto' },
+    { label: t('nav.contacto'), href: '/contacto' },
   ];
 
   const legalLinks = [
@@ -49,10 +48,10 @@ export const Footer = () => {
             <ul className="space-y-4">
               {navLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-[var(--text-fluid-xl)] text-white/60 hover:text-white transition-colors duration-300 font-light flex items-center gap-2 group">
+                  <Link to={link.href} className="text-[var(--text-fluid-xl)] text-white/60 hover:text-white transition-colors duration-300 font-light flex items-center gap-2 group">
                     <span className="w-1.5 h-px bg-accent scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

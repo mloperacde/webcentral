@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, Fragment } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { 
@@ -19,6 +19,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import { Footer } from '../components/Footer';
 import { Navigation } from '../components/Navigation';
+import { PageMeta } from '../components/PageMeta';
 
 const ProductSection = ({ id, icon: Icon, title, subtitle, description, image, specs, theme = 'accent', finalConfig }: any) => {
   const isCyan = theme === 'cyan';
@@ -100,6 +101,11 @@ export const ProductosPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const metaTitle = language === 'en' ? 'Products | Central Envasados' : 'Productos | Central Envasados';
+  const metaDesc = language === 'en'
+    ? 'Custom packaging formats: sachets, bottles, jars and vials. Capacity of over 100 million units per year.'
+    : 'Formatos de envasado a medida: sachets, frascos, tarros y viales. Capacidad de más de 100 millones de unidades al año.';
 
   const isEn = language === 'en';
 
@@ -405,6 +411,8 @@ export const ProductosPage = () => {
       ];
 
   return (
+    <>
+      <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#080808]">
@@ -631,7 +639,7 @@ export const ProductosPage = () => {
                   <h4 className="text-2xl font-medium text-white mb-6 uppercase tracking-tight italic">{copy.sanitaryCtaTitle}</h4>
                   <p className="text-white/40 mb-10 text-base font-light leading-relaxed">{copy.sanitaryCtaBody}</p>
                   <Link 
-                    to="/#contacto" 
+                    to="/contacto" 
                     className="inline-flex items-center gap-4 px-10 py-5 bg-sky-400 hover:bg-sky-500 text-black uppercase text-[11px] font-black tracking-[0.3em] transition-all"
                   >
                     {copy.sanitaryCtaButton}
@@ -648,7 +656,7 @@ export const ProductosPage = () => {
             </div>
           </div>
         ) : (
-          <React.Fragment key={p.id}>
+          <Fragment key={p.id}>
             <ProductSection {...p} finalConfig={productConfigs[p.id as keyof typeof productConfigs]} />
             
             {/* Global CTA - Inserted right after Vials (the last standard product) */}
@@ -662,7 +670,7 @@ export const ProductosPage = () => {
                     {copy.sanitaryGlobalCtaBody}
                   </p>
                   <Link 
-                    to="/#contacto" 
+                    to="/contacto" 
                     className="inline-flex items-center gap-4 px-12 py-5 bg-accent hover:bg-accent/80 text-white uppercase text-[10px] font-bold tracking-[0.3em] transition-all"
                   >
                     {copy.sanitaryGlobalCtaButton}
@@ -671,9 +679,10 @@ export const ProductosPage = () => {
                 </div>
               </section>
             )}
-          </React.Fragment>
+          </Fragment>
         )
       ))}
     </div>
+    </>
   );
 };

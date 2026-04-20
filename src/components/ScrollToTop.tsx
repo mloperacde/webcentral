@@ -1,20 +1,45 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { getLenis } from '../lib/lenis';
 
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // If we have a hash (like #contacto), handle it differently
+    const lenis = getLenis();
+
     if (hash) {
-      const element = document.getElementById(hash.replace('#', ''));
-      if (element) {
-        setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
+      const targetId = hash.replace('#', '');
+      let attempts = 0;
+      const maxAttempts = 60;
+
+      const tryScroll = () => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          if (lenis) {
+            lenis.scrollTo(element, { offset: 0 });
+          } else {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+          return true;
+        }
+        return false;
+      };
+
+      if (!tryScroll()) {
+        const interval = setInterval(() => {
+          attempts++;
+          if (tryScroll() || attempts >= maxAttempts) {
+            clearInterval(interval);
+          }
+        }, 20);
       }
     } else {
-      window.scrollTo(0, 0);
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: true });
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
   }, [pathname, hash]);
 

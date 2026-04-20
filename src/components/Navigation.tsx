@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Globe } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
+import { getLenis } from '../lib/lenis';
 
 export const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -28,13 +29,18 @@ export const Navigation = () => {
     { key: 'nav.productos', href: '/productos', type: 'link' },
     { key: 'nav.calidad', href: '/calidad', type: 'link' },
     { key: 'nav.instalaciones', href: '/instalaciones', type: 'link' },
-    { key: 'nav.contacto', href: isHome ? '#contacto' : '/#contacto', type: 'anchor' },
+    { key: 'nav.contacto', href: '/contacto', type: 'link' },
   ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const lenis = getLenis();
+      if (lenis) {
+        lenis.scrollTo(element as HTMLElement);
+      } else {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setMobileMenuOpen(false);
   };
@@ -133,9 +139,10 @@ export const Navigation = () => {
                 <button
                   onClick={toggleLanguage}
                   className="flex items-center gap-2 px-3 py-1.5 text-[11px] font-bold text-white/60 hover:text-white tracking-[0.2em] uppercase transition-all duration-300 group"
+                  aria-label={language === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
                 >
                   <Globe className="w-4 h-4 text-accent/70 group-hover:text-accent group-hover:rotate-180 transition-all duration-700" />
-                  <span>{language.toUpperCase()}</span>
+                  <span>{language === 'es' ? 'EN' : 'ES'}</span>
                 </button>
               </div>
 

@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, FileText, Lock, AlertTriangle, ExternalLink, Download } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PageMeta } from '../components/PageMeta';
 
 export const CanalEticoPage = () => {
   const { language } = useLanguage();
@@ -13,6 +14,11 @@ export const CanalEticoPage = () => {
 
   const centinelaUrl = "https://centinela.lefebvre.es/public/concept/1522932?access=2ui%2FPQJ1VZU1OLIcKnIyhZm8%2BHeOCc4fvQtvC59v68k%3D";
   const isEn = language === 'en';
+
+  const metaTitle = isEn ? 'Ethics Channel | Central Envasados' : 'Canal Ético | Central Envasados';
+  const metaDesc = isEn
+    ? 'Report any conduct that may involve a breach of regulations through our ethics channel.'
+    : 'Comunícanos cualquier conducta que pueda suponer un incumplimiento normativo a través de nuestro canal ético.';
 
   const copy = isEn
     ? {
@@ -105,6 +111,8 @@ export const CanalEticoPage = () => {
       };
 
   return (
+    <>
+    <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link to="/" className="inline-flex items-center gap-3 text-white/60 hover:text-white transition-colors mb-12 text-[10px] font-bold uppercase tracking-[0.2em]">
@@ -256,5 +264,6 @@ export const CanalEticoPage = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };

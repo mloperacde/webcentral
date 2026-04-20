@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Cookie, Shield, Info, Settings } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PageMeta } from '../components/PageMeta';
 
 export const CookiesPage = () => {
   const { language } = useLanguage();
@@ -12,6 +13,11 @@ export const CookiesPage = () => {
   }, []);
 
   const isEn = language === 'en';
+
+  const metaTitle = isEn ? 'Cookie Policy | Central Envasados' : 'Política de Cookies | Central Envasados';
+  const metaDesc = isEn
+    ? 'Information about the cookies we use on our website and how to manage your preferences.'
+    : 'Información sobre las cookies que utilizamos en nuestra web y cómo gestionar tus preferencias.';
 
   const copy = isEn
     ? {
@@ -127,6 +133,8 @@ export const CookiesPage = () => {
       ];
 
   return (
+    <>
+    <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link to="/" className="inline-flex items-center gap-3 text-white/40 hover:text-white transition-all mb-16 text-[10px] font-bold uppercase tracking-[0.3em] group">
@@ -302,5 +310,6 @@ export const CookiesPage = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };

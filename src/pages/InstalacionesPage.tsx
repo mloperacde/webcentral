@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { 
@@ -14,6 +14,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PageMeta } from '../components/PageMeta';
 
 export const InstalacionesPage = () => {
   const { t, language } = useLanguage();
@@ -23,6 +24,11 @@ export const InstalacionesPage = () => {
   }, []);
 
   const isEn = language === 'en';
+
+  const metaTitle = isEn ? 'Facilities | Central Envasados' : 'Instalaciones | Central Envasados';
+  const metaDesc = isEn
+    ? 'Over 5,000 m² of certified facilities. 30 production lines, 6 clean rooms and purified water plant.'
+    : 'Más de 5.000 m² de instalaciones certificadas. 30 líneas de producción, 6 salas blancas y planta de agua purificada.';
 
   const copy = isEn
     ? {
@@ -183,6 +189,8 @@ export const InstalacionesPage = () => {
       ];
 
   return (
+    <>
+    <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white mesh-gradient">
       {/* Hero Section */}
       <section className="relative h-[100vh] flex items-center justify-center overflow-hidden">
@@ -459,7 +467,7 @@ export const InstalacionesPage = () => {
             {copy.closingBody}
           </p>
           <Link 
-            to="/#contacto" 
+            to="/contacto" 
             className="group relative inline-flex items-center gap-6 px-14 py-6 bg-white text-black hover:bg-accent hover:text-white uppercase text-xs font-black tracking-[0.4em] transition-all duration-500 rounded-full"
           >
             {copy.closingCta}
@@ -469,5 +477,6 @@ export const InstalacionesPage = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-accent/5 to-transparent opacity-30" />
       </section>
     </div>
+    </>
   );
 };

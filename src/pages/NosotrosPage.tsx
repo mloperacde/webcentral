@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
+import { PageMeta } from '../components/PageMeta';
 
 export const NosotrosPage = () => {
   const { t, language } = useLanguage();
@@ -8,6 +9,11 @@ export const NosotrosPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const metaTitle = language === 'en' ? 'About Us | Central Envasados' : 'Nosotros | Central Envasados';
+  const metaDesc = language === 'en'
+    ? 'Over 35 years of experience in precision packaging. More than 250 professionals and 30 production lines.'
+    : 'Más de 35 años de experiencia en envasado de precisión. Más de 250 profesionales y 30 líneas de producción.';
 
   const copy = language === 'en'
     ? {
@@ -51,6 +57,8 @@ export const NosotrosPage = () => {
   ];
 
   return (
+    <>
+      <PageMeta title={metaTitle} description={metaDesc} />
     <div className="min-h-screen bg-black pt-32 pb-20 mesh-gradient">
       <div className="page-container-wide">
         <header className="mb-16">
@@ -99,5 +107,6 @@ export const NosotrosPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };

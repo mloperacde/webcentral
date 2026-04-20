@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { 
@@ -16,6 +16,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import { Footer } from '../components/Footer';
 import { Navigation } from '../components/Navigation';
+import { PageMeta } from '../components/PageMeta';
 
 const SectorDetail = ({ id, icon: Icon, title, description, features, image, content, details, processImage, position, theme = 'accent' }: any) => {
   const isCyan = theme === 'cyan';
@@ -122,7 +123,7 @@ const SectorDetail = ({ id, icon: Icon, title, description, features, image, con
 export const SectoresPage = () => {
   const { language } = useLanguage();
 
-  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -132,6 +133,11 @@ export const SectoresPage = () => {
   }, []);
 
   const isEn = language === 'en';
+
+  const metaTitle = isEn ? 'Sectors | Central Envasados' : 'Sectores | Central Envasados';
+  const metaDesc = isEn
+    ? 'Specialized packaging solutions for cosmetics, healthcare and food sectors. Over 35 years of experience.'
+    : 'Soluciones de envasado especializadas para sectores de cosmética, sanitario y alimentación. Más de 35 años de experiencia.';
 
   const copy = isEn
     ? {
@@ -276,6 +282,8 @@ export const SectoresPage = () => {
       ];
 
   return (
+    <>
+      <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white">
       {/* Wide Hero Subpage with Video Background */}
       <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
@@ -349,7 +357,7 @@ export const SectoresPage = () => {
             {copy.badgeTitle} <span className="text-accent italic">{copy.badgeAccent}</span>.
           </h2>
           <Link 
-            to="/#contacto" 
+            to="/contacto" 
             className="px-12 py-5 bg-white/10 hover:bg-white/20 border border-white/10 text-white uppercase text-[10px] font-bold tracking-[0.3em] transition-all"
           >
             {copy.badgeCta}
@@ -357,5 +365,6 @@ export const SectoresPage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };

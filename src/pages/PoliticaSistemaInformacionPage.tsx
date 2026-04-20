@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Printer, Download } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PageMeta } from '../components/PageMeta';
 
 export const PoliticaSistemaInformacionPage = () => {
   const { language } = useLanguage();
@@ -17,7 +18,14 @@ export const PoliticaSistemaInformacionPage = () => {
 
   const isEn = language === 'en';
 
+  const metaTitle = isEn ? 'Information System Policy | Central Envasados' : 'Política del Sistema de Información | Central Envasados';
+  const metaDesc = isEn
+    ? 'Internal information system policy for reporting irregularities at Central Envasados Grupo TCL S.L.'
+    : 'Política del sistema interno de información para la comunicación de irregularidades de Central Envasados Grupo TCL S.L.';
+
   return (
+    <>
+    <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white pt-32 pb-20 print:pt-4 print:bg-white print:text-black">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -301,5 +309,6 @@ export const PoliticaSistemaInformacionPage = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };

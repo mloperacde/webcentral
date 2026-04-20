@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Building2, Book, ShieldAlert, Scale, PhoneCall, FileText } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PageMeta } from '../components/PageMeta';
 
 export const AvisoLegalPage = () => {
   const { language } = useLanguage();
@@ -12,6 +13,11 @@ export const AvisoLegalPage = () => {
   }, []);
 
   const isEn = language === 'en';
+
+  const metaTitle = isEn ? 'Legal Notice | Central Envasados' : 'Aviso Legal | Central Envasados';
+  const metaDesc = isEn
+    ? 'Legal information about Central Envasados Grupo TCL S.L., corporate data, and terms of use.'
+    : 'Información legal sobre Central Envasados Grupo TCL S.L., datos societarios y condiciones de uso.';
 
   const copy = isEn
     ? {
@@ -92,6 +98,8 @@ export const AvisoLegalPage = () => {
       };
 
   return (
+    <>
+    <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link to="/" className="inline-flex items-center gap-3 text-white/60 hover:text-white transition-colors mb-12 text-[10px] font-bold uppercase tracking-[0.2em]">
@@ -242,5 +250,6 @@ export const AvisoLegalPage = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };

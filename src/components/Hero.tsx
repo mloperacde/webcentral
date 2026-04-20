@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
@@ -8,6 +9,7 @@ export const Hero = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLElement>(null);
+  const hasFired = useRef(false);
 
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
@@ -16,26 +18,37 @@ export const Hero = () => {
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
-      video.addEventListener('loadeddata', () => setVideoLoaded(true));
+    if (!video) return;
 
-      const playVideo = () => {
-        video.play().catch(error => {
-          console.log("Auto-play was prevented. Waiting for interaction.", error);
-        });
-      };
+    const handleLoaded = () => {
+      if (!hasFired.current) {
+        hasFired.current = true;
+        setVideoLoaded(true);
+      }
+    };
 
-      playVideo();
+    video.addEventListener('loadeddata', handleLoaded);
 
-      const timeout = setTimeout(() => {
-        if (!videoLoaded) setVideoLoaded(true);
-      }, 3000);
+    const playVideo = () => {
+      video.play().catch(() => {
+        // Auto-play was prevented. User interaction required.
+      });
+    };
 
-      return () => {
-        clearTimeout(timeout);
-      };
-    }
-  }, [videoLoaded]);
+    playVideo();
+
+    const timeout = setTimeout(() => {
+      if (!hasFired.current) {
+        hasFired.current = true;
+        setVideoLoaded(true);
+      }
+    }, 3000);
+
+    return () => {
+      video.removeEventListener('loadeddata', handleLoaded);
+      clearTimeout(timeout);
+    };
+  }, []);
 
   const stats = [
     { value: '35+', label: 'hero.stats.experience' },
@@ -138,13 +151,13 @@ export const Hero = () => {
               <span className="font-bold">{t('hero.ctaPrimary')}</span>
               <ArrowRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1" />
             </button>
-            <button
-              onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
+            <Link
+              to="/contacto"
               className="group flex items-center gap-3 px-8 py-4 border border-white/10 bg-transparent hover:bg-white/5 hover:border-white/30 transition-all text-[9px] font-bold uppercase tracking-[0.2em] text-white/80"
               aria-label={language === 'es' ? 'Ir a Contacto' : 'Go to Contact'}
             >
               <span className="font-bold">{t('hero.ctaSecondary')}</span>
-            </button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

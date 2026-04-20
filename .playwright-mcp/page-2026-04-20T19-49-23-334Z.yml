@@ -1,0 +1,209 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "Central de Envasados" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "Central de Envasados" [ref=e10]
+      - navigation [ref=e11]:
+        - link "Inicio" [ref=e13] [cursor=pointer]:
+          - /url: /#hero
+          - text: Inicio
+        - link "Nosotros" [ref=e15] [cursor=pointer]:
+          - /url: /nosotros
+          - text: Nosotros
+        - link "Sectores" [ref=e17] [cursor=pointer]:
+          - /url: /sectores
+          - text: Sectores
+        - link "Productos" [ref=e19] [cursor=pointer]:
+          - /url: /productos
+          - text: Productos
+        - link "Calidad" [ref=e21] [cursor=pointer]:
+          - /url: /calidad
+          - text: Calidad
+        - link "Instalaciones" [ref=e23] [cursor=pointer]:
+          - /url: /instalaciones
+          - text: Instalaciones
+        - link "Contacto" [ref=e25] [cursor=pointer]:
+          - /url: /#contacto
+          - text: Contacto
+      - button "ES" [ref=e28]:
+        - img [ref=e29]
+        - generic [ref=e32]: ES
+  - generic [ref=e33]:
+    - generic [ref=e34]:
+      - generic [ref=e39]:
+        - link "Regresar al Inicio" [ref=e40] [cursor=pointer]:
+          - /url: /
+          - img [ref=e41]
+          - text: Regresar al Inicio
+        - heading "Sectores de Excelencia" [level=1] [ref=e43]
+        - paragraph [ref=e44]: Diseñamos ecosistemas de envasado a medida para las industrias más exigentes del mercado global.
+        - generic [ref=e45]:
+          - link "Cosmética y Perfumería" [ref=e46] [cursor=pointer]:
+            - /url: "#cosmetic"
+            - img [ref=e47]
+            - text: Cosmética y Perfumería
+          - link "Grado Sanitario & Envasado Estéril" [ref=e50] [cursor=pointer]:
+            - /url: "#sanitary"
+            - img [ref=e51]
+            - text: Grado Sanitario & Envasado Estéril
+          - link "Alimentación" [ref=e53] [cursor=pointer]:
+            - /url: "#food"
+            - img [ref=e54]
+            - text: Alimentación
+      - generic [ref=e57]: Explorar
+    - generic [ref=e63]:
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - img [ref=e67]
+          - heading "Cosmética y Perfumería" [level=2] [ref=e70]
+          - paragraph [ref=e71]: Lideramos la fabricación y envasado de productos cosméticos de alta gama. Nuestra tecnología nos permite manejar texturas delicadas, fragancias exclusivas y envases innovadores.
+          - generic [ref=e72]:
+            - generic [ref=e73]: Sachets
+            - generic [ref=e74]: Frascos
+            - generic [ref=e75]: Tarros
+            - generic [ref=e76]: Viales
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - img [ref=e79]
+            - heading "Control Microbológico" [level=4] [ref=e83]
+            - paragraph [ref=e84]: Análisis exhaustivo en laboratorio interno propio.
+          - generic [ref=e85]:
+            - img [ref=e86]
+            - heading "Dosificación de Alta Precisión" [level=4] [ref=e89]
+            - paragraph [ref=e90]: Llenado exacto desde 1ml hasta 500ml con tolerancia mínima.
+          - generic [ref=e91]:
+            - img [ref=e92]
+            - heading "Clean Room ISO 22716" [level=4] [ref=e95]
+            - paragraph [ref=e96]: Ambientes controlados bajo estrictos protocolos de pureza.
+          - generic [ref=e97]:
+            - img [ref=e98]
+            - heading "Luxury Finishing" [level=4] [ref=e101]
+            - paragraph [ref=e102]: Acabados de lujo y personalización premium para marcas exclusivas.
+      - generic [ref=e103]:
+        - img "Cosmética y Perfumería" [ref=e105]
+        - paragraph [ref=e108]: "\"Precisión absoluta en el manejo de principios activos y fragancias de lujo.\""
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - img [ref=e117]
+          - heading "Grado Sanitario & Envasado Estéril" [level=2] [ref=e119]
+          - paragraph [ref=e120]: Simplificamos la entrada al mercado de productos sanitarios bajo un entorno de seguridad absoluta. Integramos 6 Salas Blancas, Sala de Envasado Estéril y suministro propio de Agua Purificada (700 L/h).
+          - generic [ref=e121]:
+            - generic [ref=e122]: Envasado Estéril
+            - generic [ref=e123]: Trazabilidad 100%
+            - generic [ref=e124]: Zona de fabricación
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - img [ref=e127]
+            - heading "Acreditación ISO 13485" [level=4] [ref=e129]
+            - paragraph [ref=e130]: Operamos bajo la norma ISO 13485 y autorización AEMPS.
+          - generic [ref=e131]:
+            - img [ref=e132]
+            - heading "Agua Purificada (700 L/h)" [level=4] [ref=e135]
+            - paragraph [ref=e136]: Garantía de calidad aséptica pura desde el origen.
+          - generic [ref=e137]:
+            - img [ref=e138]
+            - heading "Trazabilidad Digital 100%" [level=4] [ref=e141]
+            - paragraph [ref=e142]: Sistemas avanzados para seguimiento clínico del lote.
+          - generic [ref=e143]:
+            - img [ref=e144]
+            - heading "Envasado Estéril" [level=4] [ref=e148]
+            - paragraph [ref=e149]: Condiciones asépticas estrictas y pureza total.
+      - generic [ref=e150]:
+        - img "Grado Sanitario & Envasado Estéril" [ref=e152]
+        - paragraph [ref=e155]: "\"Compromiso inquebrantable con la pureza, certificación ISO 13485 y registro AEMPS.\""
+    - generic [ref=e160]:
+      - generic [ref=e161]:
+        - generic [ref=e162]:
+          - img [ref=e164]
+          - heading "Alimentación" [level=2] [ref=e166]
+          - paragraph [ref=e167]: Soluciones de envasado innovadoras para el sector alimentario, desde suplementos nutricionales hasta aceites de oliva de alta gama. Especialistas en formatos monodosis.
+          - generic [ref=e168]:
+            - generic [ref=e169]: Aceite de Oliva
+            - generic [ref=e170]: Complementos alimenticios
+            - generic [ref=e171]: Nutricosmética
+        - generic [ref=e172]:
+          - generic [ref=e173]:
+            - img [ref=e174]
+            - heading "Higiene de Grado Alimentario" [level=4] [ref=e177]
+            - paragraph [ref=e178]: Protocolos IFS integrados en cada fase del proceso.
+          - generic [ref=e179]:
+            - img [ref=e180]
+            - heading "Especialistas Monodosis" [level=4] [ref=e183]
+            - paragraph [ref=e184]: Formatos inteligentes optimizados para el consumo On-the-Go.
+          - generic [ref=e185]:
+            - img [ref=e186]
+            - heading "Protección contra Oxidación" [level=4] [ref=e189]
+            - paragraph [ref=e190]: Materiales barrera que triplican la vida útil del producto.
+          - generic [ref=e191]:
+            - img [ref=e192]
+            - heading "Diseño Estructural" [level=4] [ref=e195]
+            - paragraph [ref=e196]: Envases ergonómicos que potencian la experiencia del consumidor.
+      - generic [ref=e197]:
+        - img "Alimentación" [ref=e199]
+        - paragraph [ref=e202]: "\"Innovación en conservación activa para preservar la frescura y pureza original.\""
+    - generic [ref=e204]:
+      - 'heading "Del Concepto al Mercado: Excelencia en Proyectos 360º." [level=2] [ref=e206]'
+      - link "Solicitar Dossier Técnico" [ref=e207] [cursor=pointer]:
+        - /url: /#contacto
+  - contentinfo [ref=e208]:
+    - generic [ref=e209]:
+      - generic [ref=e210]:
+        - generic [ref=e211]:
+          - link "Central de Envasados" [ref=e212] [cursor=pointer]:
+            - /url: /
+            - img "Central de Envasados" [ref=e213]
+          - paragraph [ref=e214]: Partner estratégico de las principales marcas de cosmética, perfumería y cuidado personal. Más de 35 años de experiencia en fabricación y envasado de precisión.
+        - generic [ref=e215]:
+          - heading "ENLACES" [level=3] [ref=e216]
+          - list [ref=e217]:
+            - listitem [ref=e218]:
+              - link "Inicio" [ref=e219] [cursor=pointer]:
+                - /url: /#hero
+                - text: Inicio
+            - listitem [ref=e220]:
+              - link "Sectores" [ref=e221] [cursor=pointer]:
+                - /url: /sectores
+                - text: Sectores
+            - listitem [ref=e222]:
+              - link "Productos" [ref=e223] [cursor=pointer]:
+                - /url: /productos
+                - text: Productos
+            - listitem [ref=e224]:
+              - link "Instalaciones" [ref=e225] [cursor=pointer]:
+                - /url: /instalaciones
+                - text: Instalaciones
+            - listitem [ref=e226]:
+              - link "Calidad" [ref=e227] [cursor=pointer]:
+                - /url: /calidad
+                - text: Calidad
+            - listitem [ref=e228]:
+              - link "Contacto" [ref=e229] [cursor=pointer]:
+                - /url: /#contacto
+                - text: Contacto
+        - generic [ref=e230]:
+          - heading "LEGAL" [level=3] [ref=e231]
+          - list [ref=e232]:
+            - listitem [ref=e233]:
+              - link "Aviso Legal" [ref=e234] [cursor=pointer]:
+                - /url: /aviso-legal
+                - text: Aviso Legal
+            - listitem [ref=e235]:
+              - link "Política de Privacidad" [ref=e236] [cursor=pointer]:
+                - /url: /politica-privacidad
+                - text: Política de Privacidad
+            - listitem [ref=e237]:
+              - link "Cookies" [ref=e238] [cursor=pointer]:
+                - /url: /cookies
+                - text: Cookies
+            - listitem [ref=e239]:
+              - link "Canal Ético" [ref=e240] [cursor=pointer]:
+                - /url: /canal-etico
+                - text: Canal Ético
+            - listitem [ref=e241]:
+              - link "Política de Gestión" [ref=e242] [cursor=pointer]:
+                - /url: /politica-gestion
+                - text: Política de Gestión
+      - paragraph [ref=e244]: De conformidad con lo que dispone el Reglamento (UE) 2016/679 de 27 de abril de 2016 (RGPD), la Ley Orgánica 3/2018 del 5 de diciembre (LOPDGDD) y demás normativa legal vigente en materia de protección de datos personales, le informamos que los datos personales aportados en este formulario de contacto serán tratados por Central de Envasados, S.A con la finalidad de obtener el catálogo seleccionado así como gestionar sus datos previo consentimiento para el envío de información comercial. La legitimación para el tratamiento de sus datos personales se basa en el consentimiento del interesado. Sus datos se conservarán durante el tiempo necesario para cumplir con la finalidad para la que se recabaron y para determinar las posibles responsabilidades que se pudieran derivar de dicha finalidad y del tratamiento de los datos. No se realizan transferencias internacionales de datos, perfilados ni sometimiento de datos a decisiones automatizadas. Podrá ejercitar sus derechos de acceso, rectificación, oposición, supresión, limitación del tratamiento y portabilidad dirigiéndose por escrito y con acreditación de su identidad ante Central de Envasados, S.A en la dirección de correo info@centraldeenvasados.com Tiene derecho a interponer una reclamación ante la autoridad de control si considera que sus derechos no han sido correctamente atendidos, dirigiéndose a la Agencia Española de Protección de Datos (www.aepd.es).
+      - paragraph [ref=e246]: © 2026 CENTRAL DE ENVASADOS, S.A. TODOS LOS DERECHOS RESERVADOS

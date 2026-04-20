@@ -1,0 +1,316 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "Central de Envasados" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "Central de Envasados" [ref=e10]
+      - navigation [ref=e11]:
+        - link "Inicio" [ref=e13] [cursor=pointer]:
+          - /url: /#hero
+          - text: Inicio
+        - link "Nosotros" [ref=e15] [cursor=pointer]:
+          - /url: /nosotros
+          - text: Nosotros
+        - link "Sectores" [ref=e17] [cursor=pointer]:
+          - /url: /sectores
+          - text: Sectores
+        - link "Productos" [ref=e19] [cursor=pointer]:
+          - /url: /productos
+          - text: Productos
+        - link "Calidad" [ref=e21] [cursor=pointer]:
+          - /url: /calidad
+          - text: Calidad
+        - link "Instalaciones" [ref=e23] [cursor=pointer]:
+          - /url: /instalaciones
+          - text: Instalaciones
+        - link "Contacto" [ref=e25] [cursor=pointer]:
+          - /url: /#contacto
+          - text: Contacto
+      - button "ES" [ref=e28]:
+        - img [ref=e29]
+        - generic [ref=e32]: ES
+  - generic [ref=e33]:
+    - generic [ref=e34]:
+      - img "Productos Central de Envasados" [ref=e36]
+      - generic [ref=e41]:
+        - link "Regresar al Inicio" [ref=e42] [cursor=pointer]:
+          - /url: /
+          - img [ref=e43]
+          - text: Regresar al Inicio
+        - heading "Formatos de Innovación" [level=1] [ref=e45]
+        - paragraph [ref=e46]: Cada producto exige un entorno y una tecnología específicos. Descubre nuestra gama de soluciones de envasado a medida.
+        - generic [ref=e47]:
+          - link "Sachets" [ref=e48] [cursor=pointer]:
+            - /url: "#sachets"
+            - img [ref=e49]
+            - text: Sachets
+          - link "Frascos" [ref=e53] [cursor=pointer]:
+            - /url: "#bottles"
+            - img [ref=e54]
+            - text: Frascos
+          - link "Tarros" [ref=e57] [cursor=pointer]:
+            - /url: "#jars"
+            - img [ref=e58]
+            - text: Tarros
+          - link "Viales" [ref=e62] [cursor=pointer]:
+            - /url: "#vials"
+            - img [ref=e63]
+            - text: Viales
+          - link "Gama Sanitaria" [ref=e65] [cursor=pointer]:
+            - /url: "#sanitary"
+            - img [ref=e66]
+            - text: Gama Sanitaria
+      - generic [ref=e71]: Explorar
+    - generic [ref=e77]:
+      - generic [ref=e78]:
+        - img [ref=e80]
+        - heading "Sachets" [level=2] [ref=e84]
+        - heading "Monodosis Inteligente" [level=3] [ref=e85]
+        - paragraph [ref=e86]: El formato más versátil para el consumo On-the-Go. Tecnología multicapa que garantiza máxima barrera y conservación.
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - img [ref=e89]
+            - generic [ref=e92]:
+              - heading "Flexibilidad" [level=4] [ref=e93]
+              - paragraph [ref=e94]: Formatos planos, con toallita o doypack. Codificación por presión, tinta o laser.
+          - generic [ref=e95]:
+            - img [ref=e96]
+            - generic [ref=e99]:
+              - heading "Acabados" [level=4] [ref=e100]
+              - paragraph [ref=e101]: Mate, brillo o acabados técnicos. Acondicionamiento secundario, estuches de grupo o estuches expositores.
+          - generic [ref=e102]:
+            - img [ref=e103]
+            - generic [ref=e106]:
+              - heading "Dosificación" [level=4] [ref=e107]
+              - paragraph [ref=e108]: De 1ml a 100ml con precisión total. Liquidos, viscosos, polvo y solidos.
+          - generic [ref=e109]:
+            - img [ref=e110]
+            - generic [ref=e113]:
+              - heading "Protección" [level=4] [ref=e114]
+              - paragraph [ref=e115]: Materiales barrera específicos (O2, luz).
+      - img "Sachets" [ref=e119]
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - img [ref=e127]
+        - heading "Frascos" [level=2] [ref=e130]
+        - heading "Precisión y Estilo" [level=3] [ref=e131]
+        - paragraph [ref=e132]: Especialistas en el llenado de frascos para las industrias cosmética, perfumería y alimentaria. Soluciones para texturas densas o fluidas.
+        - generic [ref=e133]:
+          - generic [ref=e134]:
+            - img [ref=e135]
+            - generic [ref=e138]:
+              - heading "Formatos" [level=4] [ref=e139]
+              - paragraph [ref=e140]: Vidrio, Plástico, PCR o Aluminio. Soluciones para cualquier tipo de etiquetado.
+          - generic [ref=e141]:
+            - img [ref=e142]
+            - generic [ref=e145]:
+              - heading "Cierres" [level=4] [ref=e146]
+              - paragraph [ref=e147]: Bombas, cuentagotas o tapones de rosca. Estuchado y celofanado.
+          - generic [ref=e148]:
+            - img [ref=e149]
+            - generic [ref=e152]:
+              - heading "Capacidades" [level=4] [ref=e153]
+              - paragraph [ref=e154]: Desde viales pequeños hasta gran formato.
+          - generic [ref=e155]:
+            - img [ref=e156]
+            - generic [ref=e159]:
+              - heading "Seguridad" [level=4] [ref=e160]
+              - paragraph [ref=e161]: Sello de inducción y precintos. Codificación de envases y estuches tinta o laser.
+      - img "Frascos" [ref=e165]
+    - generic [ref=e170]:
+      - generic [ref=e171]:
+        - img [ref=e173]
+        - heading "Tarros" [level=2] [ref=e177]
+        - heading "El Tacto de la Calidad" [level=3] [ref=e178]
+        - paragraph [ref=e179]: Envasado de alta precisión para cremas, bálsamos y productos densos. Cuidado extremo en la manipulación para evitar burbujas y contaminación.
+        - generic [ref=e180]:
+          - generic [ref=e181]:
+            - img [ref=e182]
+            - generic [ref=e185]:
+              - heading "Llenado" [level=4] [ref=e186]
+              - paragraph [ref=e187]: Tecnología sin contacto para máxima pureza.
+          - generic [ref=e188]:
+            - img [ref=e189]
+            - generic [ref=e192]:
+              - heading "Presentación" [level=4] [ref=e193]
+              - paragraph [ref=e194]: Nivelado perfecto y limpieza de bordes.
+          - generic [ref=e195]:
+            - img [ref=e196]
+            - generic [ref=e199]:
+              - heading "Materiales" [level=4] [ref=e200]
+              - paragraph [ref=e201]: PET, PP, Vidrio y acabados lujo.
+          - generic [ref=e202]:
+            - img [ref=e203]
+            - generic [ref=e206]:
+              - heading "Control" [level=4] [ref=e207]
+              - paragraph [ref=e208]: Inspección visual del 100% de tarrinas.
+      - img "Tarros" [ref=e212]
+    - generic [ref=e217]:
+      - generic [ref=e218]:
+        - img [ref=e220]
+        - heading "Viales" [level=2] [ref=e222]
+        - heading "Precisión Milimétrica, Presentación Inmaculada" [level=3] [ref=e223]
+        - paragraph [ref=e224]: El formato por excelencia para la cosmética de alto valor y las fragancias de nicho. Desde el 1 ml para muestras exclusivas hasta el 30 ml para formatos travel premium, los viales de cristal neutro combinan la transparencia absoluta del vidrio con la versatilidad funcional que exige el mercado del lujo.
+        - generic [ref=e225]:
+          - generic [ref=e226]:
+            - img [ref=e227]
+            - generic [ref=e230]:
+              - heading "Precisión" [level=4] [ref=e231]
+              - paragraph [ref=e232]: Tolerancias mínimas en productos críticos.
+          - generic [ref=e233]:
+            - img [ref=e234]
+            - generic [ref=e237]:
+              - heading "Formatos" [level=4] [ref=e238]
+              - paragraph [ref=e239]: "Adaptamos el sistema de dosificación al comportamiento del producto: pulverizadores para perfume, stoppers para aceites o bombas airless."
+          - generic [ref=e240]:
+            - img [ref=e241]
+            - generic [ref=e244]:
+              - heading "Versatilidad" [level=4] [ref=e245]
+              - paragraph [ref=e246]: Tapón rosca cromado, stopper siliconado, bomba dosificadora, pulverizador micro-spray, roll-on.
+          - generic [ref=e247]:
+            - img [ref=e248]
+            - generic [ref=e251]:
+              - heading "Presentación" [level=4] [ref=e252]
+              - paragraph [ref=e253]: Cartelas para muestras, miniaturas, estuchado individual o de colecciones premium.
+      - img "Viales" [ref=e257]
+    - generic [ref=e259]:
+      - heading "¿Tiene un proyecto con un formato especial" [level=2] [ref=e260]:
+        - text: ¿Tiene un proyecto con un
+        - text: formato especial
+      - paragraph [ref=e261]: Nuestro equipo puede adaptar nuestras líneas para formatos a medida o desarrollos exclusivos.
+      - link "Consultar con un especialista" [ref=e262] [cursor=pointer]:
+        - /url: /#contacto
+        - text: Consultar con un especialista
+        - img [ref=e263]
+    - generic [ref=e265]:
+      - generic [ref=e266]:
+        - img "Gama Sanitaria" [ref=e268]
+        - generic [ref=e272]:
+          - generic [ref=e273]:
+            - img [ref=e274]
+            - generic [ref=e278]: Certificación sanitaria AEMPS para productos de cuidado especializado (no medicamentos)
+          - heading "Producto Sanitario. Soluciones de Higiene Avanzada" [level=2] [ref=e279]
+          - paragraph [ref=e280]: Rigor Sanitario aplicado al Cuidado Personal Especializado
+      - generic [ref=e281]:
+        - generic [ref=e282]:
+          - paragraph [ref=e284]: Fabricación bajo autorización de la Agencia Española de Medicamentos para Productos Sanitarios de Higiene, excluyendo expresamente medicamentos. Especializados en cuidado ocular de mantenimiento y soluciones de higiene para zonas sensibles, combinando el rigor de la normativa sanitaria con la usabilidad del consumidor final.
+          - generic [ref=e286]:
+            - img "Logo AEMPS Ministerio" [ref=e394]
+            - generic [ref=e287]: Fabricación Autorizada por la AEMPS
+        - generic [ref=e288]:
+          - generic [ref=e289]:
+            - generic [ref=e290]: "01"
+            - heading "Pureza Garantizada" [level=4] [ref=e291]
+            - paragraph [ref=e292]: Generación in-house de Agua Purificada Ph. Eur. (Farmacopea Europea) con caudal continuo de 700 L/h, garantizando la máxima seguridad en el excipiente acuoso.
+          - generic [ref=e293]:
+            - generic [ref=e294]: "02"
+            - heading "Seguridad Ocular" [level=4] [ref=e295]
+            - paragraph [ref=e296]: Especialización en formulaciones de mantenimiento ocular en formato monodosis y multidosis con sistemas de dosificación técnica diseñados para el confort.
+          - generic [ref=e297]:
+            - generic [ref=e298]: "03"
+            - heading "Sin Prescripción" [level=4] [ref=e299]
+            - paragraph [ref=e300]: Productos de autocuidado avanzados certificados bajo normativa sanitaria, optimizados para su distribución en canales especializados sin requisitos de receta.
+        - generic [ref=e301]:
+          - heading "Capacidades Productivas Actuales" [level=3] [ref=e302]: Capacidades Productivas Actuales
+          - table [ref=e305]:
+            - rowgroup [ref=e306]:
+              - row "Formato Especificación Técnica Aplicaciones" [ref=e307]:
+                - columnheader "Formato" [ref=e308]
+                - columnheader "Especificación Técnica" [ref=e309]
+                - columnheader "Aplicaciones" [ref=e310]
+            - rowgroup [ref=e311]:
+              - row "Frascos Oftálmicos 10 ml / 15 ml · Tapón rosca-clip tipo Aptar · Dosificación gota a gota Higiene ocular, lubricantes oculares de confort (no terapéuticos)" [ref=e312]:
+                - cell "Frascos Oftálmicos" [ref=e313]
+                - cell "10 ml / 15 ml · Tapón rosca-clip tipo Aptar · Dosificación gota a gota" [ref=e314]
+                - cell "Higiene ocular, lubricantes oculares de confort (no terapéuticos)" [ref=e315]
+              - row "Sachets Monodosis 1 a 10 ml · Toallitas en solución oftalmológica Limpieza palpebral, higiene de mantenimiento, wipes especializados" [ref=e316]:
+                - cell "Sachets Monodosis" [ref=e317]
+                - cell "1 a 10 ml · Toallitas en solución oftalmológica" [ref=e318]
+                - cell "Limpieza palpebral, higiene de mantenimiento, wipes especializados" [ref=e319]
+          - generic [ref=e320]:
+            - generic [ref=e321]:
+              - img "Soluciones de Mantenimiento Ocular" [ref=e323]
+              - heading "Frascos de Confort Ocular" [level=4] [ref=e324]
+            - generic [ref=e325]:
+              - img "Monodosis de Higiene Avanzada" [ref=e327]
+              - heading "Monodosis de Precisión" [level=4] [ref=e328]
+          - paragraph [ref=e329]:
+            - img [ref=e330]
+            - text: "Nota regulatoria: Los productos fabricados se clasifican como Productos Sanitarios (MDR 2017/745) o Higiene Avanzada, no como Medicamentos."
+        - generic [ref=e333]:
+          - generic [ref=e334]:
+            - heading "Alcance de Desarrollo" [level=3] [ref=e335]
+            - generic [ref=e336]:
+              - generic [ref=e339]: Soluciones de higiene mucosa (nasal, auricular)
+              - generic [ref=e342]: Sueros fisiológicos de autocuidado para higiene diaria
+              - generic [ref=e345]: Cuidado personal avanzado de base acuosa purificada
+          - generic [ref=e346]:
+            - heading "¿Tiene una formulación de Producto Sanitario en desarrollo?" [level=4] [ref=e347]
+            - paragraph [ref=e348]: Gestionamos el escalado desde lote piloto hasta producción industrial manteniendo la clasificación regulatoria sanitaria (no farmacéutica).
+            - link "Consultar Viabilidad" [ref=e349] [cursor=pointer]:
+              - /url: /#contacto
+              - text: Consultar Viabilidad
+              - img [ref=e350]
+        - generic [ref=e352]:
+          - paragraph [ref=e353]: Disclaimer Legal (AEMPS Compliance)
+          - paragraph [ref=e354]: "Central de Envasados cuenta con autorización AEMPS para fabricación de Productos Sanitarios (categoría: higiene médica y cuidado personal avanzado). No estamos autorizados para medicamentos de prescripción ni venta libre (OTC). Toda la producción se realiza bajo normativa de Productos Sanitarios."
+  - contentinfo [ref=e355]:
+    - generic [ref=e356]:
+      - generic [ref=e357]:
+        - generic [ref=e358]:
+          - link "Central de Envasados" [ref=e359] [cursor=pointer]:
+            - /url: /
+            - img "Central de Envasados" [ref=e360]
+          - paragraph [ref=e361]: Partner estratégico de las principales marcas de cosmética, perfumería y cuidado personal. Más de 35 años de experiencia en fabricación y envasado de precisión.
+        - generic [ref=e362]:
+          - heading "ENLACES" [level=3] [ref=e363]
+          - list [ref=e364]:
+            - listitem [ref=e365]:
+              - link "Inicio" [ref=e366] [cursor=pointer]:
+                - /url: /#hero
+                - text: Inicio
+            - listitem [ref=e367]:
+              - link "Sectores" [ref=e368] [cursor=pointer]:
+                - /url: /sectores
+                - text: Sectores
+            - listitem [ref=e369]:
+              - link "Productos" [ref=e370] [cursor=pointer]:
+                - /url: /productos
+                - text: Productos
+            - listitem [ref=e371]:
+              - link "Instalaciones" [ref=e372] [cursor=pointer]:
+                - /url: /instalaciones
+                - text: Instalaciones
+            - listitem [ref=e373]:
+              - link "Calidad" [ref=e374] [cursor=pointer]:
+                - /url: /calidad
+                - text: Calidad
+            - listitem [ref=e375]:
+              - link "Contacto" [ref=e376] [cursor=pointer]:
+                - /url: /#contacto
+                - text: Contacto
+        - generic [ref=e377]:
+          - heading "LEGAL" [level=3] [ref=e378]
+          - list [ref=e379]:
+            - listitem [ref=e380]:
+              - link "Aviso Legal" [ref=e381] [cursor=pointer]:
+                - /url: /aviso-legal
+                - text: Aviso Legal
+            - listitem [ref=e382]:
+              - link "Política de Privacidad" [ref=e383] [cursor=pointer]:
+                - /url: /politica-privacidad
+                - text: Política de Privacidad
+            - listitem [ref=e384]:
+              - link "Cookies" [ref=e385] [cursor=pointer]:
+                - /url: /cookies
+                - text: Cookies
+            - listitem [ref=e386]:
+              - link "Canal Ético" [ref=e387] [cursor=pointer]:
+                - /url: /canal-etico
+                - text: Canal Ético
+            - listitem [ref=e388]:
+              - link "Política de Gestión" [ref=e389] [cursor=pointer]:
+                - /url: /politica-gestion
+                - text: Política de Gestión
+      - paragraph [ref=e391]: De conformidad con lo que dispone el Reglamento (UE) 2016/679 de 27 de abril de 2016 (RGPD), la Ley Orgánica 3/2018 del 5 de diciembre (LOPDGDD) y demás normativa legal vigente en materia de protección de datos personales, le informamos que los datos personales aportados en este formulario de contacto serán tratados por Central de Envasados, S.A con la finalidad de obtener el catálogo seleccionado así como gestionar sus datos previo consentimiento para el envío de información comercial. La legitimación para el tratamiento de sus datos personales se basa en el consentimiento del interesado. Sus datos se conservarán durante el tiempo necesario para cumplir con la finalidad para la que se recabaron y para determinar las posibles responsabilidades que se pudieran derivar de dicha finalidad y del tratamiento de los datos. No se realizan transferencias internacionales de datos, perfilados ni sometimiento de datos a decisiones automatizadas. Podrá ejercitar sus derechos de acceso, rectificación, oposición, supresión, limitación del tratamiento y portabilidad dirigiéndose por escrito y con acreditación de su identidad ante Central de Envasados, S.A en la dirección de correo info@centraldeenvasados.com Tiene derecho a interponer una reclamación ante la autoridad de control si considera que sus derechos no han sido correctamente atendidos, dirigiéndose a la Agencia Española de Protección de Datos (www.aepd.es).
+      - paragraph [ref=e393]: © 2026 CENTRAL DE ENVASADOS, S.A. TODOS LOS DERECHOS RESERVADOS

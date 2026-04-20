@@ -1,0 +1,7 @@
+Total messages: 5 (Errors: 1, Warnings: 1)
+
+[DEBUG] [vite] connecting... @ http://localhost:3000/@vite/client:788
+[DEBUG] [vite] connected. @ http://localhost:3000/@vite/client:911
+[INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/node_modules/.vite/deps/react-dom_client.js?v=4c8d294e:20102
+[WARNING] API key should be set when using the Gemini API. @ http://localhost:3000/node_modules/.vite/deps/@google_genai.js?v=4c8d294e:11381
+[ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/favicon.ico:0

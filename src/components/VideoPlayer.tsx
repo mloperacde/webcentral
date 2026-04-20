@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 export const VideoPlayer = ({ src, isActive, isPlaying, fallbackImage }: { src: string; isActive: boolean; isPlaying: boolean; fallbackImage: string }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -12,7 +12,6 @@ export const VideoPlayer = ({ src, isActive, isPlaying, fallbackImage }: { src: 
       if (playPromise !== undefined) {
         playPromise.catch(() => {
           // Auto-play was prevented or video failed
-          console.warn("Video play failed, showing fallback");
         });
       }
     } else {

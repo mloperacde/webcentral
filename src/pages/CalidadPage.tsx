@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { 
@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { Footer } from '../components/Footer';
+import { PageMeta } from '../components/PageMeta';
 
 export const CalidadPage = () => {
   const { language } = useLanguage();
@@ -28,6 +29,11 @@ export const CalidadPage = () => {
   }, []);
 
   const isEn = language === 'en';
+
+  const metaTitle = isEn ? 'Quality | Central Envasados' : 'Calidad | Central Envasados';
+  const metaDesc = isEn
+    ? 'Full Spectrum certifications: ISO 9001, ISO 13485, ISO 22716, IFS Food and EcoVadis. Over 35 years of quality guarantee.'
+    : 'Certificaciones Full Spectrum: ISO 9001, ISO 13485, ISO 22716, IFS Food y EcoVadis. Más de 35 años de garantía de calidad.';
 
   const copy = isEn
     ? {
@@ -236,6 +242,8 @@ export const CalidadPage = () => {
       };
 
   return (
+    <>
+      <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white mesh-gradient">
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
@@ -524,7 +532,7 @@ export const CalidadPage = () => {
               {copy.finalBody}
             </p>
             <Link 
-              to="/#contacto" 
+              to="/contacto" 
               className="inline-flex items-center gap-6 px-14 py-6 border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 text-white uppercase text-xs font-black tracking-[0.4em] transition-all shadow-2xl"
             >
               {copy.finalCta}
@@ -534,5 +542,6 @@ export const CalidadPage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };

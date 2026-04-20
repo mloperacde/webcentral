@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, CheckCircle2, ShieldCheck, Globe, Factory } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PageMeta } from '../components/PageMeta';
 
 export const PoliticaGestionPage = () => {
   const { language } = useLanguage();
@@ -12,6 +13,11 @@ export const PoliticaGestionPage = () => {
   }, []);
 
   const isEn = language === 'en';
+
+  const metaTitle = isEn ? 'Management Policy | Central Envasados' : 'Política de Gestión | Central Envasados';
+  const metaDesc = isEn
+    ? 'Quality, environmental and safety management policy of Central Envasados Grupo TCL S.L.'
+    : 'Política de gestión de calidad, medioambiente y seguridad de Central Envasados Grupo TCL S.L.';
 
   const copy = isEn
     ? {
@@ -130,6 +136,8 @@ export const PoliticaGestionPage = () => {
       };
 
   return (
+    <>
+    <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white pt-32 pb-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link to="/" className="inline-flex items-center gap-3 text-white/60 hover:text-white transition-colors mb-12 text-[10px] font-bold uppercase tracking-[0.2em]">
@@ -248,5 +256,6 @@ export const PoliticaGestionPage = () => {
         </motion.div>
       </div>
     </div>
+    </>
   );
 };

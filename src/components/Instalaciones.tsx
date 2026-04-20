@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'motion/react';
 import { Factory, ShieldCheck, Beaker, Droplets, Warehouse } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';

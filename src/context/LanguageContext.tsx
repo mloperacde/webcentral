@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode, type FC } from 'react';
 
 type Language = 'es' | 'en';
 
@@ -521,6 +521,10 @@ const translations: Record<Language, Record<string, any>> = {
     "contacto.form.message": "MENSAJE",
     "contacto.form.submit": "ENVIAR MENSAJE",
     "contacto.form.success": "Mensaje enviado correctamente",
+    "contacto.form.success.description": "Hemos recibido tu mensaje. Nuestro equipo comercial se pondrá en contacto contigo en menos de 24 horas.",
+    "contacto.form.sending": "Enviando...",
+    "contacto.form.error": "Error al enviar el mensaje. Por favor, inténtalo de nuevo o contacta directamente por teléfono.",
+    "contacto.form.error.invalidEmail": "Por favor, introduce un email válido.",
     "contacto.info.address": "DIRECCIÓN",
     "contacto.info.phone": "TELÉFONO",
     "contacto.info.email": "EMAIL",
@@ -1053,6 +1057,10 @@ const translations: Record<Language, Record<string, any>> = {
     "contacto.form.message": "Message",
     "contacto.form.submit": "Send message",
     "contacto.form.success": "Message sent successfully",
+    "contacto.form.success.description": "We have received your message. Our commercial team will contact you within 24 hours.",
+    "contacto.form.sending": "Sending...",
+    "contacto.form.error": "Failed to send the message. Please try again or contact us directly by phone.",
+    "contacto.form.error.invalidEmail": "Please enter a valid email address.",
     "contacto.info.address": "Address",
     "contacto.info.phone": "Phone",
     "contacto.info.email": "Email",
@@ -1074,8 +1082,12 @@ const translations: Record<Language, Record<string, any>> = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const LanguageProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('es');
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
 
   const t = useCallback((key: string) => {
     return translations[language][key] || key;

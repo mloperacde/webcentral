@@ -1,0 +1,209 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - link "Central de Envasados":
+          - /url: /
+          - generic:
+            - img "Central de Envasados"
+      - navigation [ref=e8]:
+        - link "Inicio" [ref=e10] [cursor=pointer]:
+          - /url: /#hero
+          - text: Inicio
+        - link "Nosotros" [ref=e12] [cursor=pointer]:
+          - /url: /nosotros
+          - text: Nosotros
+        - link "Sectores" [ref=e14] [cursor=pointer]:
+          - /url: /sectores
+          - text: Sectores
+        - link "Productos" [ref=e16] [cursor=pointer]:
+          - /url: /productos
+          - text: Productos
+        - link "Calidad" [ref=e18] [cursor=pointer]:
+          - /url: /calidad
+          - text: Calidad
+        - link "Instalaciones" [ref=e20] [cursor=pointer]:
+          - /url: /instalaciones
+          - text: Instalaciones
+        - link "Contacto" [ref=e22] [cursor=pointer]:
+          - /url: /#contacto
+          - text: Contacto
+      - button "ES" [ref=e25]:
+        - img [ref=e26]
+        - generic [ref=e29]: ES
+  - generic [ref=e30]:
+    - generic [ref=e31]:
+      - img "Calidad Central de Envasados" [ref=e33]
+      - generic [ref=e38]:
+        - link "Regresar al Inicio" [ref=e39] [cursor=pointer]:
+          - /url: /
+          - img [ref=e40]
+          - text: Regresar al Inicio
+        - generic [ref=e42]: Compromiso con la Excelencia
+        - heading "Garantía de Confianza para Marcas Líderes" [level=1] [ref=e43]
+        - paragraph [ref=e44]: "\"No delegamos la calidad; la integramos en cada proceso.\""
+      - generic [ref=e46]: Explorar
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - heading "Rigor Normativo y Certificaciones Full Spectrum" [level=2] [ref=e52]
+        - generic [ref=e53]:
+          - paragraph [ref=e54]: Mantenemos un ecosistema de certificaciones concurrentes que opera como escudo de seguridad legal y reputacional para las marcas más exigentes del mundo.
+          - paragraph [ref=e55]: Nuestra infraestructura auditada permite fabricar simultáneamente bajo estándares cosméticos, sanitarios y alimentarios sin riesgo de contaminación cruzada ni gaps regulatorios.
+      - img "Holograma Certificaciones ISO" [ref=e58]
+    - generic [ref=e59]:
+      - generic [ref=e61]:
+        - heading "Control de Alta Precisión" [level=2] [ref=e62]
+        - paragraph [ref=e63]: Validación constante en cada nodo crítico del proceso para asegurar la excelencia en cada unidad producida.
+      - generic [ref=e64]:
+        - img "Control de Proceso Central de Envasados" [ref=e66]
+        - generic [ref=e70]:
+          - generic [ref=e71]:
+            - img [ref=e73]
+            - heading "Laboratorio Microbiológico Propio" [level=4] [ref=e77]
+            - paragraph [ref=e78]: Control de carga microbiana, aerobios mesófilos y específicos según especificación. Validación de conservantes y vida útil acelerada.
+          - generic [ref=e79]:
+            - img [ref=e81]
+            - heading "Inspección Visual 100%" [level=4] [ref=e84]
+            - paragraph [ref=e85]: Control de proceso continuo. Detección de defectos de sellado, dosificación o partículas antes de salir de línea.
+          - generic [ref=e86]:
+            - img [ref=e88]
+            - heading "Trazabilidad Digital Completa" [level=4] [ref=e94]
+            - paragraph [ref=e95]: "Trazabilidad y registro: materia prima (proveedor, lote, COA), condiciones de producción y resultados por turno."
+          - generic [ref=e96]:
+            - img [ref=e98]
+            - heading "Estabilidad y Hermeticidad" [level=4] [ref=e100]
+            - paragraph [ref=e101]: Control de peso, aspecto y estanqueidad, fugas (vacío) y torque para garantizar la integridad durante toda la vida útil declarada.
+    - generic [ref=e106]:
+      - generic [ref=e107]:
+        - heading "Matriz de Certificaciones" [level=2] [ref=e108]
+        - paragraph [ref=e109]: Cumplimiento multinorma bajo un mismo techo
+      - table [ref=e111]:
+        - rowgroup [ref=e112]:
+          - row "Certificación Alcance Técnico Valor para tu Marca" [ref=e113]:
+            - columnheader "Certificación" [ref=e114]
+            - columnheader "Alcance Técnico" [ref=e115]
+            - columnheader "Valor para tu Marca" [ref=e116]
+        - rowgroup [ref=e117]:
+          - row "ISO 9001:2015 Sistema de Gestión de Calidad Procesos estandarizados, mejora continua documentada y enfoque preventivo de riesgos operativos." [ref=e118]:
+            - cell "ISO 9001:2015" [ref=e119]
+            - cell "Sistema de Gestión de Calidad" [ref=e120]
+            - cell "Procesos estandarizados, mejora continua documentada y enfoque preventivo de riesgos operativos." [ref=e121]
+          - row "GMP AEMPS + ISO 22716 Buenas Prácticas (Cosmética) Fabricación bajo inspección de la AEMPS, garantizando inocuidad y trazabilidad farmacéutica." [ref=e122]:
+            - cell "GMP AEMPS + ISO 22716" [ref=e123]
+            - cell "Buenas Prácticas (Cosmética)" [ref=e124]
+            - cell "Fabricación bajo inspección de la AEMPS, garantizando inocuidad y trazabilidad farmacéutica." [ref=e125]
+          - row "IFS Food Seguridad Alimentaria Cumplimiento de los más altos estándares globales de seguridad y calidad en el procesado de alimentos." [ref=e126]:
+            - cell "IFS Food" [ref=e127]
+            - cell "Seguridad Alimentaria" [ref=e128]
+            - cell "Cumplimiento de los más altos estándares globales de seguridad y calidad en el procesado de alimentos." [ref=e129]
+          - row "ISO 13485 Productos Sanitarios Habilitación para fabricar Medical Devices clase I/IIa bajo rigor clínico y normativo." [ref=e130]:
+            - cell "ISO 13485" [ref=e131]
+            - cell "Productos Sanitarios" [ref=e132]
+            - cell "Habilitación para fabricar Medical Devices clase I/IIa bajo rigor clínico y normativo." [ref=e133]
+          - row "ISO 14001:2015 Gestión Ambiental Minimización de residuos y cumplimiento de due diligence ambiental de grupos internacionales." [ref=e134]:
+            - cell "ISO 14001:2015" [ref=e135]
+            - cell "Gestión Ambiental" [ref=e136]
+            - cell "Minimización de residuos y cumplimiento de due diligence ambiental de grupos internacionales." [ref=e137]
+          - row "EcoVadis Plata/Dorado Evaluación de Sostenibilidad Acreditación externa de prácticas éticas y ESG para acceso a grandes distribuidores." [ref=e138]:
+            - cell "EcoVadis Plata/Dorado" [ref=e139]
+            - cell "Evaluación de Sostenibilidad" [ref=e140]
+            - cell "Acreditación externa de prácticas éticas y ESG para acceso a grandes distribuidores." [ref=e141]
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - heading "Auditoría Permanente" [level=2] [ref=e146]
+        - paragraph [ref=e147]: "\"Las certificaciones son el punto de partida, no la meta.\""
+        - generic [ref=e148]:
+          - generic [ref=e149]:
+            - img [ref=e151]
+            - generic [ref=e155]:
+              - heading "Autoinspecciones Trimestrales" [level=4] [ref=e156]
+              - paragraph [ref=e157]: Simulación de auditorías de cliente para detectar puntos de mejora preventiva.
+          - generic [ref=e158]:
+            - img [ref=e160]
+            - generic [ref=e162]:
+              - heading "Mantenimiento IQ/OQ/PQ" [level=4] [ref=e163]
+              - paragraph [ref=e164]: Mantenimiento preventivo validado sobre todos los equipos críticos de la planta.
+          - generic [ref=e165]:
+            - img [ref=e167]
+            - generic [ref=e170]:
+              - heading "Gestión de Cambios" [level=4] [ref=e171]
+              - paragraph [ref=e172]: Documentación rigurosa de cualquier modificación en procesos o infraestructura.
+          - generic [ref=e173]:
+            - img [ref=e175]
+            - generic [ref=e180]:
+              - heading "Formación Continua" [level=4] [ref=e181]
+              - paragraph [ref=e182]: Capacitación obligatoria en salas blancas y protocolos de manipulación aséptica.
+      - generic [ref=e184]:
+        - heading "Cobertura Legal 'Full Spectrum'" [level=3] [ref=e186]
+        - paragraph [ref=e187]: La combinación de AEMPS (productos sanitarios) + ISO 22716 (cosmética) + ISO 13485 (medical devices) nos permite ofrecer la capacidad única de desarrollar líneas paralelas bajo el mismo techo certificado.
+        - paragraph [ref=e189]: "\"Toda la producción se realiza bajo un mismo ecosistema de calidad, eliminando la duplicidad de auditorías y riesgos regulatorios.\""
+    - generic [ref=e196]:
+      - img [ref=e197]
+      - 'heading "Tu garantía final: Seguridad Jurídica" [level=2] [ref=e200]':
+        - text: "Tu garantía final:"
+        - text: Seguridad Jurídica
+      - paragraph [ref=e201]: Cada producto que sale de nuestras instalaciones lleva implícita la suma de estas validaciones, traducida en seguridad para tu marca y confianza para tu consumidor final.
+      - link "Auditar nuestra Planta" [ref=e202] [cursor=pointer]:
+        - /url: /#contacto
+        - text: Auditar nuestra Planta
+        - img [ref=e203]
+  - contentinfo [ref=e205]:
+    - generic [ref=e206]:
+      - generic [ref=e207]:
+        - generic [ref=e208]:
+          - link "Central de Envasados":
+            - /url: /
+            - img "Central de Envasados"
+          - paragraph [ref=e209]: Partner estratégico de las principales marcas de cosmética, perfumería y cuidado personal. Más de 35 años de experiencia en fabricación y envasado de precisión.
+        - generic [ref=e210]:
+          - heading "ENLACES" [level=3] [ref=e211]
+          - list [ref=e212]:
+            - listitem [ref=e213]:
+              - link "Inicio" [ref=e214] [cursor=pointer]:
+                - /url: /#hero
+                - text: Inicio
+            - listitem [ref=e215]:
+              - link "Sectores" [ref=e216] [cursor=pointer]:
+                - /url: /sectores
+                - text: Sectores
+            - listitem [ref=e217]:
+              - link "Productos" [ref=e218] [cursor=pointer]:
+                - /url: /productos
+                - text: Productos
+            - listitem [ref=e219]:
+              - link "Instalaciones" [ref=e220] [cursor=pointer]:
+                - /url: /instalaciones
+                - text: Instalaciones
+            - listitem [ref=e221]:
+              - link "Calidad" [ref=e222] [cursor=pointer]:
+                - /url: /calidad
+                - text: Calidad
+            - listitem [ref=e223]:
+              - link "Contacto" [ref=e224] [cursor=pointer]:
+                - /url: /#contacto
+                - text: Contacto
+        - generic [ref=e225]:
+          - heading "LEGAL" [level=3] [ref=e226]
+          - list [ref=e227]:
+            - listitem [ref=e228]:
+              - link "Aviso Legal" [ref=e229] [cursor=pointer]:
+                - /url: /aviso-legal
+                - text: Aviso Legal
+            - listitem [ref=e230]:
+              - link "Política de Privacidad" [ref=e231] [cursor=pointer]:
+                - /url: /politica-privacidad
+                - text: Política de Privacidad
+            - listitem [ref=e232]:
+              - link "Cookies" [ref=e233] [cursor=pointer]:
+                - /url: /cookies
+                - text: Cookies
+            - listitem [ref=e234]:
+              - link "Canal Ético" [ref=e235] [cursor=pointer]:
+                - /url: /canal-etico
+                - text: Canal Ético
+            - listitem [ref=e236]:
+              - link "Política de Gestión" [ref=e237] [cursor=pointer]:
+                - /url: /politica-gestion
+                - text: Política de Gestión
+      - paragraph [ref=e239]: De conformidad con lo que dispone el Reglamento (UE) 2016/679 de 27 de abril de 2016 (RGPD), la Ley Orgánica 3/2018 del 5 de diciembre (LOPDGDD) y demás normativa legal vigente en materia de protección de datos personales, le informamos que los datos personales aportados en este formulario de contacto serán tratados por Central de Envasados, S.A con la finalidad de obtener el catálogo seleccionado así como gestionar sus datos previo consentimiento para el envío de información comercial. La legitimación para el tratamiento de sus datos personales se basa en el consentimiento del interesado. Sus datos se conservarán durante el tiempo necesario para cumplir con la finalidad para la que se recabaron y para determinar las posibles responsabilidades que se pudieran derivar de dicha finalidad y del tratamiento de los datos. No se realizan transferencias internacionales de datos, perfilados ni sometimiento de datos a decisiones automatizadas. Podrá ejercitar sus derechos de acceso, rectificación, oposición, supresión, limitación del tratamiento y portabilidad dirigiéndose por escrito y con acreditación de su identidad ante Central de Envasados, S.A en la dirección de correo info@centraldeenvasados.com Tiene derecho a interponer una reclamación ante la autoridad de control si considera que sus derechos no han sido correctamente atendidos, dirigiéndose a la Agencia Española de Protección de Datos (www.aepd.es).
+      - paragraph [ref=e241]: © 2026 CENTRAL DE ENVASADOS, S.A. TODOS LOS DERECHOS RESERVADOS

@@ -18,16 +18,18 @@ async function startServer() {
 
   // API routes FIRST
   app.post("/api/contact", async (req, res) => {
-    const { name, email, phone, message } = req.body;
+    const { name, email, company, phone, message } = req.body;
 
     if (!name || !email || !message) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: "Invalid email format" });
+    }
+
     try {
-      // Configure transporter
-      // Note: For production, use a real service like SendGrid, Mailgun, etc.
-      // For now, we'll use environment variables for SMTP configuration.
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST || "smtp.gmail.com",
         port: parseInt(process.env.SMTP_PORT || "587"),
@@ -39,27 +41,25 @@ async function startServer() {
       });
 
       const mailOptions = {
-        from: `"${name}" <${process.env.SMTP_USER}>`,
+        from: `"Formulario Web - Central de Envasados" <${process.env.SMTP_USER}>`,
         to: "contacto@centralenvasados.com",
         replyTo: email,
-        subject: `Nuevo mensaje de contacto de ${name}`,
-        text: `
-Nombre: ${name}
+        subject: `[Web] Nuevo mensaje de contacto de ${name}`,
+        text: `Nombre: ${name}
 Email: ${email}
+Empresa: ${company || "No especificada"}
 Teléfono: ${phone || "No proporcionado"}
 
 Mensaje:
-${message}
-        `,
-        html: `
-<h2>Nuevo mensaje de contacto</h2>
+${message}`,
+        html: `<h2>Nuevo mensaje de contacto - Web</h2>
 <p><strong>Nombre:</strong> ${name}</p>
 <p><strong>Email:</strong> ${email}</p>
+<p><strong>Empresa:</strong> ${company || "No especificada"}</p>
 <p><strong>Teléfono:</strong> ${phone || "No proporcionado"}</p>
 <br/>
 <p><strong>Mensaje:</strong></p>
-<p>${message.replace(/\n/g, "<br/>")}</p>
-        `,
+<p>${message.replace(/\n/g, "<br/>")}</p>`,
       };
 
       await transporter.sendMail(mailOptions);

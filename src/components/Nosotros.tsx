@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'motion/react';
 import { useLanguage } from '../context/LanguageContext';
 import { Users, TrendingUp, Landmark, ArrowRight } from 'lucide-react';
