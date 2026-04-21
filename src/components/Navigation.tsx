@@ -55,19 +55,19 @@ export const Navigation = () => {
           transition={{ duration: 0.4 }}
           className="fixed top-4 left-4 sm:top-6 sm:left-8 lg:left-20 z-50 print:hidden"
         >
-          <a href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }} className="block">
+          <Link to="/" className="block">
             {!logoError ? (
               <img
                 src="/logo.webp"
                 alt="Central de Envasados"
-                className="h-24 sm:h-28 md:h-32 lg:h-44 w-auto mix-blend-screen"
+                className="h-16 sm:h-20 md:h-24 lg:h-32 xl:h-40 w-auto mix-blend-screen"
                 onError={() => setLogoError(true)}
                 referrerPolicy="no-referrer"
               />
             ) : (
-              <span className="text-white font-light tracking-[0.4em] text-xl sm:text-2xl lg:text-3xl uppercase">Central de Envasados</span>
+              <span className="text-white font-light tracking-[0.4em] text-base sm:text-lg md:text-xl lg:text-2xl uppercase">Central de Envasados</span>
             )}
-          </a>
+          </Link>
         </motion.div>
       )}
 
@@ -88,7 +88,6 @@ export const Navigation = () => {
             <div className="w-48 sm:w-64 flex-shrink-0">
               <Link
                 to="/"
-                onClick={(e) => { e.preventDefault(); scrollToSection('#hero'); }}
                 className={`group inline-block transition-opacity duration-500 ${!scrolled && isHome ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
               >
                 {!logoError ? (

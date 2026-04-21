@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowLeft, 
   Sparkles, 
   Shield, 
   Beaker, 
@@ -141,7 +140,6 @@ export const SectoresPage = () => {
 
   const copy = isEn
     ? {
-        back: 'Back to Home',
         title: 'Sectors of',
         titleAccent: 'Excellence',
         subtitle:
@@ -152,7 +150,6 @@ export const SectoresPage = () => {
         badgeCta: 'Request Technical Dossier'
       }
     : {
-        back: 'Regresar al Inicio',
         title: 'Sectores de',
         titleAccent: 'Excelencia',
         subtitle:
@@ -307,10 +304,7 @@ export const SectoresPage = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
-            <Link to="/" className="inline-flex items-center gap-3 text-white/80 text-[9px] font-bold uppercase tracking-[0.4em] mb-12 hover:text-white transition-all border border-white/20 px-8 py-4 bg-white/10 backdrop-blur-md">
-              <ArrowLeft className="w-3 h-3" />
-              {copy.back}
-            </Link>
+
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight leading-tight">
               {copy.title} <span className="text-accent italic">{copy.titleAccent}</span>
             </h1>

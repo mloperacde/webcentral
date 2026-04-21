@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowLeft, 
   ShieldCheck, 
   Microscope, 
   Search, 
@@ -37,7 +36,6 @@ export const CalidadPage = () => {
 
   const copy = isEn
     ? {
-        back: 'Back to Home',
         heroKicker: 'Commitment to Excellence',
         heroTitleStart: 'A Guarantee of',
         heroTitleAccent: 'Trust',
@@ -139,7 +137,6 @@ export const CalidadPage = () => {
         ]
       }
     : {
-        back: 'Regresar al Inicio',
         heroKicker: 'Compromiso con la Excelencia',
         heroTitleStart: 'Garantía de',
         heroTitleAccent: 'Confianza',
@@ -264,10 +261,7 @@ export const CalidadPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            <Link to="/" className="inline-flex items-center gap-3 text-white/80 text-[10px] font-bold uppercase tracking-[0.4em] mb-12 hover:text-white transition-all border border-white/20 px-8 py-4 bg-black/60 backdrop-blur-md">
-              <ArrowLeft className="w-3 h-3" />
-              {copy.back}
-            </Link>
+
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}

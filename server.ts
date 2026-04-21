@@ -18,7 +18,7 @@ async function startServer() {
 
   // API routes FIRST
   app.post("/api/contact", async (req, res) => {
-    const { name, email, company, phone, message } = req.body;
+    const { name, email, company, phone, message, commercialConsent } = req.body;
 
     if (!name || !email || !message) {
       return res.status(400).json({ error: "Missing required fields" });
@@ -49,6 +49,7 @@ async function startServer() {
 Email: ${email}
 Empresa: ${company || "No especificada"}
 Teléfono: ${phone || "No proporcionado"}
+Comunicaciones comerciales: ${commercialConsent ? "Sí (ha dado su consentimiento)" : "No"}
 
 Mensaje:
 ${message}`,
@@ -57,6 +58,7 @@ ${message}`,
 <p><strong>Email:</strong> ${email}</p>
 <p><strong>Empresa:</strong> ${company || "No especificada"}</p>
 <p><strong>Teléfono:</strong> ${phone || "No proporcionado"}</p>
+<p><strong>Comunicaciones comerciales:</strong> ${commercialConsent ? "Sí (ha dado su consentimiento)" : "No"}</p>
 <br/>
 <p><strong>Mensaje:</strong></p>
 <p>${message.replace(/\n/g, "<br/>")}</p>`,

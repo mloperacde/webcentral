@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowLeft, 
   Factory, 
   ShieldCheck, 
   Droplets, 
@@ -32,7 +31,6 @@ export const InstalacionesPage = () => {
 
   const copy = isEn
     ? {
-        back: 'Back to Home',
         heroSubtitle: 'Cutting-Edge Architecture',
         heroTitlePrefix: 'Sanitary',
         heroTitleAccent: 'Grade',
@@ -79,7 +77,6 @@ export const InstalacionesPage = () => {
         closingCta: 'Request Details'
       }
     : {
-        back: 'Regresar al Inicio',
         heroSubtitle: 'Arquitectura de Vanguardia',
         heroTitlePrefix: 'Grado',
         heroTitleAccent: 'Sanitario',
@@ -210,10 +207,7 @@ export const InstalacionesPage = () => {
             transition={{ duration: 1.2, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="-translate-y-6 md:-translate-y-8"
           >
-            <Link to="/" className="inline-flex items-center gap-2 text-white/80 text-[9px] font-bold uppercase tracking-[0.35em] mb-8 hover:text-white transition-all border border-white/20 px-6 py-3 bg-black/50 backdrop-blur-sm">
-              <ArrowLeft className="w-2.5 h-2.5" />
-              {copy.back}
-            </Link>
+
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-6 text-balance uppercase italic tracking-tight leading-[0.95]">
               {isEn ? (
                 <>

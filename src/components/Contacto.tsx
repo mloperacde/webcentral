@@ -1,6 +1,7 @@
 import { useState, useCallback, type FormEvent, type ChangeEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Phone, Mail, Clock, Send, AlertCircle, CheckCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 interface FormData {
@@ -24,6 +25,8 @@ export const Contacto = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [fieldError, setFieldError] = useState<string | null>(null);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [commercialConsent, setCommercialConsent] = useState(false);
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -49,6 +52,11 @@ export const Contacto = () => {
       return;
     }
 
+    if (!privacyAccepted) {
+      setFieldError(t('contacto.form.privacyRequired'));
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -60,7 +68,8 @@ export const Contacto = () => {
           email: formData.email.trim(),
           company: formData.empresa.trim() || undefined,
           phone: formData.telefono.trim() || undefined,
-          message: formData.mensaje.trim()
+          message: formData.mensaje.trim(),
+          commercialConsent
         })
       });
 
@@ -72,6 +81,8 @@ export const Contacto = () => {
 
       setSubmitted(true);
       setFormData({ name: '', email: '', empresa: '', telefono: '', mensaje: '' });
+      setPrivacyAccepted(false);
+      setCommercialConsent(false);
     } catch {
       setSubmitError(t('contacto.form.error'));
     } finally {
@@ -231,6 +242,41 @@ export const Contacto = () => {
                       className="w-full bg-transparent border-b border-white/10 py-2 text-white/80 text-[13px] focus:border-blue-500/50 focus:outline-none transition-colors resize-none disabled:opacity-50"
                     />
                   </div>
+
+                  {/* Privacy notice */}
+                  <p className="text-[10px] text-white/30 leading-relaxed font-light mb-6">
+                    {t('contacto.form.privacyNotice')}
+                  </p>
+
+                  {/* Privacy checkbox */}
+                  <label className="flex items-start gap-3 mb-4 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={privacyAccepted}
+                      onChange={(e) => {
+                        setPrivacyAccepted(e.target.checked);
+                        if (fieldError) setFieldError(null);
+                      }}
+                      className="mt-0.5 w-4 h-4 accent-accent cursor-pointer"
+                    />
+                    <span className="text-[11px] text-white/50 font-light leading-relaxed group-hover:text-white/70 transition-colors">
+                      {t('contacto.form.privacyCheckbox')}
+                      <Link to="/politica-privacidad" className="text-accent hover:underline ml-0.5">{t('contacto.form.privacyCheckboxLink')}</Link>
+                    </span>
+                  </label>
+
+                  {/* Commercial checkbox */}
+                  <label className="flex items-start gap-3 mb-8 cursor-pointer group">
+                    <input
+                      type="checkbox"
+                      checked={commercialConsent}
+                      onChange={(e) => setCommercialConsent(e.target.checked)}
+                      className="mt-0.5 w-4 h-4 accent-accent cursor-pointer"
+                    />
+                    <span className="text-[11px] text-white/50 font-light leading-relaxed group-hover:text-white/70 transition-colors">
+                      {t('contacto.form.commercialCheckbox')}
+                    </span>
+                  </label>
 
                   <AnimatePresence>
                     {(fieldError || submitError) && (

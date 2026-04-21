@@ -1,8 +1,7 @@
-import { useEffect, Fragment } from 'react';
+import { useEffect, Fragment, useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowLeft, 
   Layers, 
   Container, 
   Cylinder, 
@@ -29,6 +28,15 @@ const ProductSection = ({ id, icon: Icon, title, subtitle, description, image, s
   const colorIcon = isCyan ? 'text-sky-400/60' : 'text-accent/60';
 
   const { scale = 1.1, x = 0, y = 0, size = 700 } = finalConfig || {};
+
+  const [isLg, setIsLg] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia('(min-width: 1024px)');
+    const handler = (e: MediaQueryListEvent) => setIsLg(e.matches);
+    setIsLg(mql.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
 
   return (
     <div id={id} className="min-h-screen pt-32 pb-20 border-b border-white/5 relative overflow-hidden flex items-center mesh-gradient">
@@ -79,14 +87,16 @@ const ProductSection = ({ id, icon: Icon, title, subtitle, description, image, s
           >
             <div className="relative w-full aspect-square" style={{ maxWidth: `${size}px` }}>
               <div className={`absolute inset-0 ${colorBg} blur-[120px] rounded-full opacity-25`} />
-              <img 
-                src={image} 
-                alt={title} 
-                className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.1)] transition-transform duration-300 max-lg:transform-none"
-                style={{ 
-                  transform: `scale(${scale}) translate(${x}px, ${y}px)` 
-                }}
-              />
+              <div 
+                className="relative z-10 w-full h-full"
+                style={{ transform: isLg ? `scale(${scale}) translate(${x}px, ${y}px)` : 'none' }}
+              >
+                <img 
+                  src={image} 
+                  alt={title} 
+                  className="w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.1)]"
+                />
+              </div>
             </div>
           </motion.div>
         </div>
@@ -111,7 +121,6 @@ export const ProductosPage = () => {
 
   const copy = isEn
     ? {
-        back: 'Back to Home',
         heroTitle: 'Innovation Formats',
         heroAccent: 'Innovation',
         heroBody:
@@ -137,7 +146,6 @@ export const ProductosPage = () => {
         aempsBadge: 'Manufacturing Authorized by AEMPS'
       }
     : {
-        back: 'Regresar al Inicio',
         heroTitle: 'Formatos de Innovación',
         heroAccent: 'Innovación',
         heroBody:
@@ -420,7 +428,7 @@ export const ProductosPage = () => {
           <img 
             src="/cabecera_productos.webp" 
             alt="Productos Central de Envasados" 
-            className="w-full h-full object-contain opacity-80 brightness-100 transform translate-y-8" 
+            className="w-full h-full object-cover object-center opacity-80 brightness-100" 
           />
           {/* Enhanced Dark Veil - 80% intensity feel */}
           <div className="absolute inset-0 bg-black/35 z-10" />
@@ -438,10 +446,7 @@ export const ProductosPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            <Link to="/" className="inline-flex items-center gap-3 text-white/80 text-[10px] font-bold uppercase tracking-[0.4em] mb-12 hover:text-white transition-all border border-white/20 px-8 py-4 bg-black/60 backdrop-blur-md">
-              <ArrowLeft className="w-3 h-3" />
-              {copy.back}
-            </Link>
+
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-6 tracking-tighter leading-tight uppercase italic drop-shadow-2xl">
               {isEn ? (
                 <>
@@ -525,7 +530,7 @@ export const ProductosPage = () => {
                 </div>
                 <div className="flex justify-center items-center">
                   <div 
-                    className="bg-white p-8 md:p-12 rounded-3xl shadow-2xl flex flex-col justify-center items-center transition-all duration-300 overflow-hidden w-full max-w-[700px] lg:scale-[0.65] lg:translate-x-[200px] lg:-translate-y-[10px]"
+                    className="bg-white p-6 md:p-8 rounded-2xl shadow-2xl flex flex-col justify-center items-center transition-all duration-300 overflow-hidden w-full max-w-[280px] md:max-w-[400px] lg:max-w-[700px] lg:scale-[0.65] lg:translate-x-[200px] lg:-translate-y-[10px]"
                   >
                     <img 
                       src="/logo_aemps_ministerio.jpg" 
