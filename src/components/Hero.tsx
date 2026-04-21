@@ -84,7 +84,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-black/40" />
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 pt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-48 sm:pt-56 md:pt-64 lg:pt-72 xl:pt-80">
         <motion.div 
           style={{ y: y2, opacity }}
           className="text-center"

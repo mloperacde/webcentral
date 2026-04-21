@@ -53,7 +53,7 @@ export const Navigation = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -20 : 0, pointerEvents: scrolled ? 'none' : 'auto' }}
           transition={{ duration: 0.4 }}
-          className="fixed top-4 left-4 sm:top-6 sm:left-8 lg:left-20 z-50 print:hidden"
+          className="fixed top-[7rem] sm:top-[8rem] md:top-[9rem] lg:top-[10rem] left-1/2 -translate-x-1/2 z-50 print:hidden"
         >
           <Link to="/" className="block">
             {!logoError ? (
