@@ -82,7 +82,7 @@ const ProductSection = ({ id, icon: Icon, title, subtitle, description, image, s
               <img 
                 src={image} 
                 alt={title} 
-                className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.1)] transition-transform duration-300"
+                className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_0_50px_rgba(255,255,255,0.1)] transition-transform duration-300 max-lg:transform-none"
                 style={{ 
                   transform: `scale(${scale}) translate(${x}px, ${y}px)` 
                 }}

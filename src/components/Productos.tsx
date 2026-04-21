@@ -68,7 +68,7 @@ export const Productos = () => {
       };
 
   return (
-    <section id="productos" className="bg-[#080808] relative overflow-hidden py-24 sm:py-32 flex items-center min-h-[600px] md:min-h-[800px]">
+    <section id="productos" className="bg-[#080808] relative overflow-hidden py-24 sm:py-32 flex items-center min-h-dvh">
       {/* Background Video Container */}
       <div className="absolute inset-0 z-0">
         <video
@@ -79,7 +79,7 @@ export const Productos = () => {
           playsInline
           onLoadedData={handleVideoLoad}
           onCanPlay={handleVideoLoad}
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute inset-0 object-cover object-center transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         >
           <source src="/productos-hero.mp4" type="video/mp4" />
         </video>
@@ -88,7 +88,7 @@ export const Productos = () => {
           <img loading="lazy" 
             src="/fondoproductos.webp" 
             alt="Product background fallback"
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
+            className="absolute inset-0 object-cover object-center opacity-50"
             referrerPolicy="no-referrer"
           />
         )}
