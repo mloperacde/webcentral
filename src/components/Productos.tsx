@@ -98,24 +98,26 @@ export const Productos = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-[40%_60%] gap-16 items-center">
+        <div className="grid lg:grid-cols-[40%_60%] gap-16 items-start">
           {/* Left Column: Heading & Description */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-between lg:pt-8 h-full"
           >
-            <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold mb-6 block">
-              {t('productos.subtitle')}
-            </span>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[1.1] mb-8">
-              {t('productos.title')}
-            </h2>
-            <p className="text-white/50 text-[16px] font-light max-w-md leading-relaxed mb-10">
-              {copy.description}
-            </p>
+            <div>
+              <span className="text-[10px] text-accent tracking-[0.3em] uppercase font-bold mb-6 block">
+                {t('productos.subtitle')}
+              </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[1.1] mb-8">
+                {t('productos.title')}
+              </h2>
+              <p className="text-white/50 text-[16px] font-light max-w-md leading-relaxed">
+                {copy.description}
+              </p>
+            </div>
             
             <div className="flex items-center gap-6">
               <div className="flex flex-col">
@@ -131,7 +133,7 @@ export const Productos = () => {
           </motion.div>
 
           {/* Right Column: 2x2 Grid */}
-          <div className="relative">
+          <div className="relative lg:pt-16">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
               {products.map((product, index) => (
                 <motion.div 
