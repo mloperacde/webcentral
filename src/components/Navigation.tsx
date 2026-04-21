@@ -53,14 +53,14 @@ export const Navigation = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -20 : 0, pointerEvents: scrolled ? 'none' : 'auto' }}
           transition={{ duration: 0.4 }}
-          className="fixed top-10 sm:top-12 md:top-14 lg:top-14 left-1/2 -translate-x-1/2 z-50 print:hidden"
+          className="fixed top-6 sm:top-8 md:top-10 lg:top-10 left-1/2 -translate-x-1/2 z-50 print:hidden"
         >
           <Link to="/" className="block">
             {!logoError ? (
               <img
                 src="/logo.webp"
                 alt="Central de Envasados"
-                className="h-16 sm:h-20 md:h-24 lg:h-32 xl:h-40 w-auto mix-blend-screen"
+                className="h-20 sm:h-24 md:h-28 lg:h-36 xl:h-44 w-auto mix-blend-screen"
                 onError={() => setLogoError(true)}
                 referrerPolicy="no-referrer"
               />

@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+
 import { useLanguage } from '../context/LanguageContext';
 
 export const Hero = () => {
@@ -84,7 +83,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-black/40" />
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-36 sm:pt-40 md:pt-44 lg:pt-48 xl:pt-52">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           style={{ y: y2, opacity }}
           className="text-center"
@@ -137,28 +136,7 @@ export const Hero = () => {
             {t('hero.subtitle')}
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6"
-          >
-            <button
-              onClick={() => document.querySelector('#instalaciones')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group flex items-center gap-3 px-8 py-4 border border-white/10 bg-white/5 hover:border-white/30 hover:bg-white/10 transition-all text-[9px] font-bold uppercase tracking-[0.2em]"
-              aria-label={language === 'es' ? 'Ir a Instalaciones' : 'Go to Facilities'}
-            >
-              <span className="font-bold">{t('hero.ctaPrimary')}</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1" />
-            </button>
-            <Link
-              to="/contacto"
-              className="group flex items-center gap-3 px-8 py-4 border border-white/10 bg-transparent hover:bg-white/5 hover:border-white/30 transition-all text-[9px] font-bold uppercase tracking-[0.2em] text-white/80"
-              aria-label={language === 'es' ? 'Ir a Contacto' : 'Go to Contact'}
-            >
-              <span className="font-bold">{t('hero.ctaSecondary')}</span>
-            </Link>
-          </motion.div>
+
         </motion.div>
       </div>
 
