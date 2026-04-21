@@ -84,7 +84,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-black/40" />
       </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-48 sm:pt-56 md:pt-64 lg:pt-72 xl:pt-80">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 pt-36 sm:pt-40 md:pt-44 lg:pt-48 xl:pt-52">
         <motion.div 
           style={{ y: y2, opacity }}
           className="text-center"
@@ -93,13 +93,13 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 rounded-full border border-white/10 mb-8 sm:mb-12 bg-white/5 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4 sm:px-5 py-1.5 rounded-full border border-white/10 mb-6 sm:mb-8 bg-white/5 backdrop-blur-md"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(56,189,248,0.8)]" />
             <span className="text-[9px] sm:text-[10px] text-white/70 tracking-[0.25em] uppercase font-bold">{t('hero.badge')}</span>
           </motion.div>
 
-          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-light text-white/90 mb-8 tracking-tight leading-tight max-w-6xl mx-auto text-center">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-light text-white/90 mb-6 tracking-tight leading-tight max-w-6xl mx-auto text-center">
             <div className="flex flex-wrap justify-center gap-x-[0.3em] gap-y-[0.1em]">
               {titleWords.map((word, i) => (
                 <div key={i} className="overflow-hidden">
@@ -132,7 +132,7 @@ export const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="max-w-4xl mx-auto text-white/50 text-xl lg:text-2xl font-light leading-relaxed mb-16 px-4 text-balance"
+            className="max-w-4xl mx-auto text-white/50 text-xl lg:text-2xl font-light leading-relaxed mb-10 px-4 text-balance"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -141,7 +141,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6 mb-24"
+            className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-6"
           >
             <button
               onClick={() => document.querySelector('#instalaciones')?.scrollIntoView({ behavior: 'smooth' })}
@@ -166,7 +166,7 @@ export const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-16 left-0 w-full z-10 px-4"
+        className="absolute bottom-10 left-0 w-full z-10 px-4"
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">

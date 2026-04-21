@@ -53,7 +53,7 @@ export const Navigation = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: scrolled ? 0 : 1, y: scrolled ? -20 : 0, pointerEvents: scrolled ? 'none' : 'auto' }}
           transition={{ duration: 0.4 }}
-          className="fixed top-[7rem] sm:top-[8rem] md:top-[9rem] lg:top-[10rem] left-1/2 -translate-x-1/2 z-50 print:hidden"
+          className="fixed top-10 sm:top-12 md:top-14 lg:top-14 left-1/2 -translate-x-1/2 z-50 print:hidden"
         >
           <Link to="/" className="block">
             {!logoError ? (
@@ -107,7 +107,7 @@ export const Navigation = () => {
             </div>
 
             {/* Desktop Navigation (Centered) */}
-            <nav className="hidden xl:flex items-center justify-center flex-1 gap-1 px-4">
+            <nav className={`items-center justify-center flex-1 gap-1 px-4 ${isHome && !scrolled ? 'hidden' : 'hidden xl:flex'}`}>
               {navLinks.map((link) => (
                 <div key={link.key} className="relative group px-1">
                   {link.type === 'anchor' && isHome ? (
@@ -134,19 +134,34 @@ export const Navigation = () => {
 
             {/* Language Right */}
             <div className="w-48 sm:w-64 flex justify-end items-center flex-shrink-0">
-              <div className="hidden xl:block">
-                <button
+              <div className={`items-center gap-2 sm:gap-4 ${isHome && !scrolled ? 'hidden' : 'flex xl:hidden'}`}>
+                <motion.button
                   onClick={toggleLanguage}
-                  className="flex items-center gap-2 px-3 py-1.5 text-[11px] font-bold text-white/60 hover:text-white tracking-[0.2em] uppercase transition-all duration-300 group"
-                  aria-label={language === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-1 sm:gap-2 text-white/70 hover:text-white transition-colors duration-300"
+                  aria-label={language === 'es' ? 'Cambiar idioma' : 'Change language'}
                 >
-                  <Globe className="w-4 h-4 text-accent/70 group-hover:text-accent group-hover:rotate-180 transition-all duration-700" />
-                  <span>{language === 'es' ? 'EN' : 'ES'}</span>
+                  <Globe className="w-5 h-5" />
+                  <span className="text-[12px] sm:text-[14px] tracking-widest uppercase font-bold">{language === 'es' ? 'en' : 'es'}</span>
+                </motion.button>
+
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="p-2 text-white/70 hover:text-white transition-colors"
+                  aria-label={
+                    mobileMenuOpen
+                      ? (language === 'es' ? 'Cerrar menú' : 'Close menu')
+                      : (language === 'es' ? 'Abrir menú' : 'Open menu')
+                  }
+                  aria-expanded={mobileMenuOpen}
+                >
+                  {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
                 </button>
               </div>
 
-              {/* Language & Mobile Menu Toggle */}
-              <div className="flex xl:hidden items-center gap-2 sm:gap-4">
+              {/* Desktop Language & Hamburger — shown on home before scroll */}
+              <div className={`items-center gap-2 sm:gap-4 ${isHome && !scrolled ? 'flex' : 'hidden'}`}>
                   <motion.button
                   onClick={toggleLanguage}
                   whileHover={{ scale: 1.05 }}
