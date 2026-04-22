@@ -24,72 +24,81 @@ export const Nosotros = () => {
   return (
     <section id="nosotros" className="pt-48 pb-24 lg:pt-64 lg:pb-32 bg-black relative overflow-hidden w-full">
       <div className="w-full px-4 sm:px-8 lg:px-20">
-        <div className="grid lg:grid-cols-[55%_45%] gap-12 items-start">
-          
-          {/* Left Column: Narrative Content */}
+
+        {/* Header block: label + title, 65% width on desktop */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-12 lg:mb-16"
+        >
+          <span className="text-[9px] text-accent tracking-[0.3em] uppercase font-bold mb-6 block">
+            {t('nav.nosotros')}
+          </span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white tracking-tight leading-[1.1] lg:max-w-[65%]">
+            {t('nosotros.title')}
+          </h2>
+        </motion.div>
+
+        {/* Two-column grid: text/metrics 35% | image 65% */}
+        <div className="grid lg:grid-cols-[35%_65%] gap-12 items-start">
+
+          {/* Left Column: subtitle, paragraphs, quote, CTA, stats */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="flex flex-col h-full z-10"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-col h-full"
           >
-            <div className="mb-0">
-              <span className="text-[9px] text-accent tracking-[0.3em] uppercase font-bold mb-6 block">
-                {t('nav.nosotros')}
-              </span>
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-white mb-8 tracking-tight leading-[1.1] max-w-4xl">
-                {t('nosotros.title')}
-              </h2>
-              
-              <h3 className="text-[16px] text-accent/90 font-light italic mb-8 leading-relaxed max-w-2xl">
-                {t('nosotros.subtitle')}
-              </h3>
-              
-              <div className="space-y-4 text-white/50 text-[17px] font-light leading-relaxed mb-10 max-w-2xl">
-                <p>{t('nosotros.p1')}</p>
-                <div className="border-l border-accent/20 pl-6 italic text-white/70 py-1">
-                  {t('nosotros.p3')}
-                </div>
+            <h3 className="text-[16px] text-accent/90 font-light italic mb-8 leading-relaxed">
+              {t('nosotros.subtitle')}
+            </h3>
+
+            <div className="space-y-4 text-white/50 text-[17px] font-light leading-relaxed mb-10">
+              <p>{t('nosotros.p1')}</p>
+              <div className="border-l border-accent/20 pl-6 italic text-white/70 py-1">
+                {t('nosotros.p3')}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-12">
+              <div>
+                <Link
+                  to="/nosotros"
+                  className="group inline-flex items-center gap-4 px-8 py-4 bg-white/[0.03] hover:bg-white/[0.08] text-white transition-all duration-300 rounded-full border border-white/10 text-[9px] uppercase font-bold tracking-[0.2em]"
+                >
+                  {t('nosotros.cta')}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
 
-              <div className="flex flex-col gap-12">
-                <div>
-                  <Link
-                    to="/nosotros"
-                    className="group inline-flex items-center gap-4 px-8 py-4 bg-white/[0.03] hover:bg-white/[0.08] text-white transition-all duration-300 rounded-full border border-white/10 text-[9px] uppercase font-bold tracking-[0.2em]"
-                  >
-                    {t('nosotros.cta')}
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-3 w-full max-w-xl">
-                  {details.map((detail, idx) => (
-                    <div key={idx} className="p-4 rounded-lg border border-white/5 bg-white/[0.015] flex-1 flex flex-col items-start gap-2">
-                      <detail.icon className="w-3.5 h-3.5 text-accent/70 mb-1" />
-                      <div className="text-lg sm:text-xl text-white font-light mb-1 leading-none">{detail.value}</div>
-                      <div className="text-[8px] sm:text-[9px] text-white/30 uppercase tracking-widest font-bold leading-tight">{t(detail.label)}</div>
-                    </div>
-                  ))}
-                </div>
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-3 w-full">
+                {details.map((detail, idx) => (
+                  <div key={idx} className="p-4 rounded-lg border border-white/5 bg-white/[0.015] flex-1 flex flex-col items-start gap-2">
+                    <detail.icon className="w-3.5 h-3.5 text-accent/70 mb-1" />
+                    <div className="text-lg sm:text-xl text-white font-light mb-1 leading-none">{detail.value}</div>
+                    <div className="text-[8px] sm:text-[9px] text-white/30 uppercase tracking-widest font-bold leading-tight">{t(detail.label)}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Image with Fixed Design Values */}
+          {/* Right Column: Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
-            className="relative lg:mt-44 lg:-ml-64"
+            className="relative"
           >
             <div className="relative shadow-[0_0_80px_rgba(0,0,0,0.6)] overflow-hidden">
-              <img 
-                src="/factory.webp" 
-                alt={isEn ? 'Central de Envasados factory' : 'Factory Central de Envasados'} 
+              <img
+                src="/factory.webp"
+                alt={isEn ? 'Central de Envasados factory' : 'Factory Central de Envasados'}
                 className="w-full h-auto lg:h-[584px] object-cover transition-transform duration-1000 hover:scale-105"
               />
             </div>

@@ -1,0 +1,17 @@
+- generic [ref=e3]:
+  - generic:
+    - link "Central de Envasados":
+      - /url: /
+  - banner [ref=e7]:
+    - generic [ref=e9]
+  - main [ref=e528]:
+    - generic [ref=e529]
+    - generic [ref=e575]
+    - generic [ref=e612]
+    - generic [ref=e677]
+    - generic [ref=e745]
+    - generic [ref=e794]
+    - generic [ref=e847]
+    - generic [ref=e905]
+  - contentinfo [ref=e465]:
+    - generic [ref=e466]
