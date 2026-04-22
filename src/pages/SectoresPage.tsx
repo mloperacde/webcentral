@@ -283,7 +283,7 @@ export const SectoresPage = () => {
       <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white">
       {/* Wide Hero Subpage with Video Background */}
-      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[95vh] flex flex-col justify-end items-center pb-16 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video 
             ref={videoRef}
@@ -312,7 +312,7 @@ export const SectoresPage = () => {
               {copy.subtitle}
             </p>
             
-            <div className="flex flex-wrap justify-center gap-4 mt-12">
+            <div className="flex flex-wrap justify-center gap-4">
               {sectorData.map(s => (
                 <a 
                   key={s.id} 
@@ -331,7 +331,7 @@ export const SectoresPage = () => {
         <motion.div 
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
         >
           <span className="text-[9px] text-white/20 uppercase tracking-[0.4em] [writing-mode:vertical-lr]">{copy.explore}</span>
           <div className="w-px h-16 bg-gradient-to-b from-white/20 to-transparent" />

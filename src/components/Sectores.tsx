@@ -103,7 +103,7 @@ export const Sectores = () => {
             <div
               key={sector.id}
               onClick={() => setCurrentIndex(index)}
-              className={`relative h-[clamp(420px,55vh,700px)] w-[85vw] sm:w-[70vw] lg:w-[60vw] flex-shrink-0 overflow-hidden rounded-2xl sm:rounded-3xl bg-zinc-900/50 border border-white/5 transition-all duration-1000 ease-[0.21, 0.47, 0.32, 0.98] cursor-pointer group ${
+              className={`relative h-[clamp(500px,62vh,780px)] w-[85vw] sm:w-[70vw] lg:w-[60vw] flex-shrink-0 overflow-hidden rounded-2xl sm:rounded-3xl bg-zinc-900/50 border border-white/5 transition-all duration-1000 ease-[0.21, 0.47, 0.32, 0.98] cursor-pointer group ${
                 currentIndex === index ? 'opacity-100 scale-100 shadow-[0_0_50px_rgba(56,189,248,0.15)]' : 'opacity-40 scale-[0.85] blur-[1px]'
               }`}
             >
@@ -139,9 +139,10 @@ export const Sectores = () => {
                   }}
                 />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20" />
 
-              <div className="absolute inset-0 flex flex-col justify-end p-6 sm:p-10 lg:p-16">
+              <div className="absolute inset-0 flex flex-col p-5 sm:p-8 lg:p-12">
+                <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/90 via-black/50 to-transparent pointer-events-none" />
                 <motion.div
                   initial={false}
                   animate={{
@@ -149,19 +150,19 @@ export const Sectores = () => {
                     y: currentIndex === index ? 0 : 30
                   }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                  className="max-w-3xl"
+                  className="relative z-10 max-w-3xl mt-auto max-h-[68%] overflow-y-auto pr-1"
                 >
-                  <h3 className="text-2xl sm:text-3xl lg:text-5xl font-medium text-white mb-4 sm:mb-6 tracking-tight">
+                  <h3 className="text-xl sm:text-2xl lg:text-4xl font-medium text-white mb-2 sm:mb-3 tracking-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
                     {t(sector.title)}
                   </h3>
-                  <p className="text-white/60 text-base sm:text-lg lg:text-xl font-light leading-relaxed mb-6 sm:mb-10 max-w-2xl">
+                  <p className="text-white/70 text-sm sm:text-base lg:text-lg font-light leading-relaxed mb-4 sm:mb-6 max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] line-clamp-3">
                     {t(sector.description)}
                   </p>
 
                   <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-6">
                     <div className="flex flex-wrap gap-2 sm:gap-3">
                       {Array.isArray(t(sector.features)) && (t(sector.features) as unknown as string[]).map((feature, fIndex) => (
-                        <span key={fIndex} className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-white/40 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em]">
+                        <span key={fIndex} className="px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/40 text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.15em]">
                           {feature}
                         </span>
                       ))}

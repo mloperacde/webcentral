@@ -186,6 +186,18 @@ export const Navigation = () => {
                   {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
                 </button>
               </div>
+
+              {/* Desktop Language button — shown on other pages or when scrolled */}
+              <div className={`items-center ${isHome && !scrolled ? 'hidden' : 'hidden xl:flex'}`}>
+                <button
+                  onClick={toggleLanguage}
+                  className="flex items-center gap-2 px-3 py-1.5 text-[11px] font-bold text-white/60 hover:text-white tracking-[0.2em] uppercase transition-all duration-300 group"
+                  aria-label={language === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
+                >
+                  <Globe className="w-4 h-4 text-accent/70 group-hover:text-accent group-hover:rotate-180 transition-all duration-700" />
+                  <span>{language === 'es' ? 'EN' : 'ES'}</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
