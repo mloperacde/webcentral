@@ -97,8 +97,8 @@ export const Productos = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/10 to-black" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-[30%_70%] gap-12 items-start">
+      <div className="w-full px-4 sm:px-8 lg:px-16 xl:px-24 relative z-10">
+        <div className="grid lg:grid-cols-[28%_72%] gap-12 items-start">
           {/* Left Column: Heading & Description */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
