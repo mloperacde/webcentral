@@ -68,7 +68,7 @@ export const Productos = () => {
       };
 
   return (
-    <section id="productos" className="bg-[#080808] relative overflow-hidden py-24 sm:py-32 flex items-center min-h-dvh">
+    <section id="productos" className="bg-[#080808] relative overflow-hidden py-12 sm:py-16 lg:py-20 flex items-center min-h-dvh">
       {/* Background Video Container */}
       <div className="absolute inset-0 z-0">
         <video
@@ -79,7 +79,7 @@ export const Productos = () => {
           playsInline
           onLoadedData={handleVideoLoad}
           onCanPlay={handleVideoLoad}
-          className={`absolute inset-0 object-cover object-center transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
         >
           <source src="/productos-hero.mp4" type="video/mp4" />
         </video>
@@ -88,7 +88,7 @@ export const Productos = () => {
           <img loading="lazy" 
             src="/fondoproductos.webp" 
             alt="Product background fallback"
-            className="absolute inset-0 object-cover object-center opacity-50"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full w-auto h-auto object-cover opacity-50"
             referrerPolicy="no-referrer"
           />
         )}
@@ -97,8 +97,8 @@ export const Productos = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/10 to-black" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-[40%_60%] gap-16 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-[30%_70%] gap-12 items-start">
           {/* Left Column: Heading & Description */}
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
@@ -134,41 +134,59 @@ export const Productos = () => {
 
           {/* Right Column: 2x2 Grid */}
           <div className="relative lg:pt-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
               {products.map((product, index) => (
-                <motion.div 
+                <motion.div
                   key={product.id}
                   initial={{ opacity: 0, y: 30, scale: 0.9 }}
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ 
-                    duration: 0.8, 
-                    delay: index * 0.1, 
-                    ease: [0.21, 0.47, 0.32, 0.98] 
+                  transition={{
+                    duration: 0.8,
+                    delay: index * 0.1,
+                    ease: [0.21, 0.47, 0.32, 0.98]
                   }}
-                  whileHover={{ y: -5, scale: 1.02 }}
                   onClick={() => setSelectedProduct(product)}
-                  className="group relative p-8 backdrop-blur-3xl border transition-all duration-500 rounded-3xl flex flex-col justify-between min-h-[220px] md:min-h-[260px] bg-white/[0.03] border-white/10 hover:bg-white/10 hover:border-white/20 cursor-pointer"
+                  className="group cursor-pointer aspect-video"
                 >
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-3 tracking-tight group-hover:text-accent transition-colors uppercase">
-                      {t(product.title)}
-                    </h3>
-                    <p className="text-white/50 text-[13px] leading-relaxed line-clamp-3 font-light">
-                      {t(product.description)}
-                    </p>
-                  </div>
+                  <div className="relative w-full h-full [perspective:1000px]">
+                    <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] [will-change:transform] group-hover:[transform:rotateY(180deg)]">
+                      {/* Front face */}
+                      <div className="absolute inset-0 [backface-visibility:hidden] [transform:translateZ(1px)] rounded-3xl p-6 backdrop-blur-3xl border bg-white/[0.03] border-white/10 flex flex-col justify-between z-[2]">
+                        <div>
+                          <h3 className="text-xl font-bold text-white mb-3 tracking-tight uppercase">
+                            {t(product.title)}
+                          </h3>
+                          <p className="text-white/50 text-[13px] leading-relaxed line-clamp-2 font-light">
+                            {t(product.description)}
+                          </p>
+                        </div>
+                        <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
+                          <span className="text-accent text-[10px] tracking-[0.2em] uppercase font-bold">
+                            {t(product.capacity)}
+                          </span>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedProduct(product);
+                            }}
+                            className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all duration-300 hover:scale-110"
+                          >
+                            <Plus className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
 
-                  <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between">
-                    <span className="text-accent text-[10px] tracking-[0.2em] uppercase font-bold">
-                      {t(product.capacity)}
-                    </span>
-                    <button 
-                      onClick={() => setSelectedProduct(product)}
-                      className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent group-hover:text-white transition-all duration-300 hover:scale-110"
-                    >
-                      <Plus className="w-4 h-4" />
-                    </button>
+                      {/* Back face */}
+                      <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-3xl overflow-hidden z-[1]">
+                        <img
+                          src={product.image}
+                          alt={t(product.title)}
+                          className="w-full h-full object-cover"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               ))}

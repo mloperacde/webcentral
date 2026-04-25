@@ -1,0 +1,442 @@
+- generic [ref=e3]:
+  - generic:
+    - link "Central de Envasados":
+      - /url: /
+      - img "Central de Envasados"
+  - banner [ref=e7]:
+    - generic [ref=e9]:
+      - link "Central de Envasados" [ref=e513] [cursor=pointer]:
+        - /url: /
+        - img "Central de Envasados" [ref=e515]
+      - navigation [ref=e516]:
+        - link "Inicio" [ref=e518] [cursor=pointer]:
+          - /url: "#hero"
+          - text: Inicio
+        - link "Nosotros" [ref=e520] [cursor=pointer]:
+          - /url: /nosotros
+          - text: Nosotros
+        - link "Sectores" [ref=e522] [cursor=pointer]:
+          - /url: /sectores
+          - text: Sectores
+        - link "Productos" [ref=e524] [cursor=pointer]:
+          - /url: /productos
+          - text: Productos
+        - link "Calidad" [ref=e526] [cursor=pointer]:
+          - /url: /calidad
+          - text: Calidad
+        - link "Instalaciones" [ref=e528] [cursor=pointer]:
+          - /url: /instalaciones
+          - text: Instalaciones
+        - link "Contacto" [ref=e530] [cursor=pointer]:
+          - /url: /contacto
+          - text: Contacto
+      - button "Cambiar a inglés" [ref=e532]:
+        - img [ref=e533]
+        - generic [ref=e536]: EN
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic [ref=e26]:
+        - generic [ref=e29]: Líder Europeo en Co-Packing
+        - heading "Más de 35 años de experiencia como Co‑Packer de marcas líderes a nivel mundial" [level=1] [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e33]: Más
+            - generic [ref=e35]: de
+            - generic [ref=e37]: "35"
+            - generic [ref=e39]: años
+            - generic [ref=e41]: de
+            - generic [ref=e43]: experiencia
+            - generic [ref=e45]: como Co‑Packer de marcas líderes a nivel mundial
+        - paragraph [ref=e46]: Infraestructura única en España con capacidad de fabricación y envasado bajo las más estrictas normativas sanitarias, cosméticas y alimentarias.
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - generic [ref=e51]: 35+
+          - generic [ref=e52]: Años de Experiencia
+        - generic [ref=e53]:
+          - generic [ref=e54]: "30"
+          - generic [ref=e55]: Líneas de Producción
+        - generic [ref=e56]:
+          - generic [ref=e57]: 250+
+          - generic [ref=e58]: Profesionales
+        - generic [ref=e59]:
+          - generic [ref=e60]: +100M
+          - generic [ref=e61]: Unidades/año
+      - generic [ref=e63]: Desliza
+    - generic [ref=e66]:
+      - generic [ref=e67]:
+        - generic [ref=e68]: Nosotros
+        - 'heading "Nuestra Historia: El Compromiso con nuestros Clientes" [level=2] [ref=e69]'
+      - generic [ref=e70]:
+        - generic [ref=e71]:
+          - heading "Más de 35 años evolucionando con la calidad como objetivo" [level=3] [ref=e72]
+          - generic [ref=e73]:
+            - paragraph [ref=e74]: Fundada hace más de tres décadas como un proyecto familiar, Central de Envasados ha recorrido un camino de crecimiento constante y reinversión tecnológica. Lo que comenzó como una visión local se ha transformado hoy en un referente europeo del co-packing de alta capacidad.
+            - generic [ref=e75]: "Hoy, esa misma esencia familiar —atención al detalle, trato personalizado— convive con el rigor industrial que exigen las firmas cosméticas y farmacéuticas más prestigiosas del mundo, somos el socio invisible que garantiza que su calidad llegue intacta al cliente final. Esa es nuestra historia: crecer sin olvidar que, al final, cada envase lleva el nombre de alguien que confía en nosotros."
+          - generic [ref=e76]:
+            - link "Conoce a nuestro equipo" [ref=e78] [cursor=pointer]:
+              - /url: /nosotros
+              - text: Conoce a nuestro equipo
+              - img [ref=e79]
+            - generic [ref=e81]:
+              - generic [ref=e82]:
+                - img [ref=e83]
+                - generic [ref=e85]: 35+ Años
+                - generic [ref=e86]: Crecimiento Sostenido
+              - generic [ref=e87]:
+                - img [ref=e88]
+                - generic [ref=e93]: +250 Prof.
+                - generic [ref=e94]: Talento Especializado
+              - generic [ref=e95]:
+                - img [ref=e96]
+                - generic [ref=e99]: 30+ Salas
+                - generic [ref=e100]: Inversión en Tecnología
+        - img "Factory Central de Envasados" [ref=e103]
+    - generic [ref=e104]:
+      - generic [ref=e107]:
+        - generic [ref=e108]: Especialización por tipo de industria
+        - heading "Sectores" [level=2] [ref=e109]
+      - generic [ref=e111]:
+        - generic [ref=e112] [cursor=pointer]:
+          - img "Cosmética, Higiene y Perfumería" [ref=e114]
+          - generic [ref=e117]:
+            - heading "Cosmética, Higiene y Perfumería" [level=3] [ref=e118]
+            - paragraph [ref=e119]: Socio estratégico de las firmas más prestigiosas del sector. Especialistas en el envasado de fragancias de lujo y cosmética de alta gama para marcas líderes a nivel mundial.
+            - generic [ref=e120]:
+              - generic [ref=e121]:
+                - generic [ref=e122]: Líneas dedicadas de alta precisión
+                - generic [ref=e123]: Control de calidad y control de proceso continuo
+                - generic [ref=e124]: Gestión de componentes de lujo
+              - link "sectores.viewMore" [ref=e125]:
+                - /url: /sectores#cosmetic
+                - text: sectores.viewMore
+                - img [ref=e126]
+        - generic [ref=e128] [cursor=pointer]:
+          - img "Productos Sanitarios" [ref=e130]
+          - generic [ref=e133]:
+            - heading "Productos Sanitarios" [level=3] [ref=e134]
+            - paragraph [ref=e135]: Infraestructura especializada para el sector salud. Cumplimiento estricto de normativas internacionales para productos sanitarios. Área de fabricación y de envasado estéril.
+            - generic [ref=e136]:
+              - generic [ref=e137]:
+                - generic [ref=e138]: 6 Salas blancas certificadas + 1 Sala Envasado Estéril
+                - generic [ref=e139]: Planta de agua purificada propia con capacidad de 700 L/h
+                - generic [ref=e140]: Control microbiológico continuo
+              - link "sectores.viewMore" [ref=e141]:
+                - /url: /sectores#sanitary
+                - text: sectores.viewMore
+                - img [ref=e142]
+        - generic [ref=e144] [cursor=pointer]:
+          - img "Alimentación" [ref=e146]
+          - generic [ref=e149]:
+            - heading "Alimentación" [level=3] [ref=e150]
+            - paragraph [ref=e151]: Soluciones avanzadas para la industria alimentaria, con salas específicas para productos sensibles que requieren control ambiental riguroso.
+            - generic [ref=e152]:
+              - generic [ref=e153]:
+                - generic [ref=e154]: Salas climatizadas y con control de humedad activo
+                - generic [ref=e155]: Trazabilidad completa
+                - generic [ref=e156]: Certificaciones alimentarias internacionales
+              - link "sectores.viewMore" [ref=e157]:
+                - /url: /sectores#food
+                - text: sectores.viewMore
+                - img [ref=e158]
+      - generic [ref=e160]:
+        - button "Ir al sector 1" [ref=e161]
+        - button "Ir al sector 2" [ref=e164]
+        - button "Ir al sector 3" [ref=e166]
+    - generic [ref=e169]:
+      - generic [ref=e170]:
+        - generic [ref=e171]: CO-PACKER - FULL SERVICE
+        - heading "Packaging a su Medida - Proyectos 360º" [level=2] [ref=e172]
+        - paragraph [ref=e173]: En Central de Envasados no somos solo un co-packer; somos su socio integral en la materialización de proyectos, eliminando riesgos y gestionando cada fase.
+      - generic [ref=e174]:
+        - img "Co-packing background" [ref=e176]
+        - generic [ref=e179]:
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - generic [ref=e182]:
+                - img [ref=e184]
+                - generic [ref=e187]: 01. Infraestructura Industrial
+              - paragraph [ref=e188]: "Capacidad productiva escalable: Operamos entre las mayores capacidades de envasado a terceros de Europa, con 30 líneas dedicadas funcionando simultáneamente. Esta escala nos permite absorber picos de demanda estacional y mantener tiempos de respuesta competitivos sin comprometer la calidad."
+            - generic [ref=e189]:
+              - generic [ref=e190]:
+                - img [ref=e192]
+                - generic [ref=e195]: 02. Versatilidad Tecnológica
+              - paragraph [ref=e196]: "Multi-formato, multi-sector: Disponemos de 30 tecnologías de envasado diferenciadas (líneas rotativas, lineales, flow-pack, etiquetado, etc.) que nos permiten pivotar entre formatos cosméticos, sanitarios y alimentarios sin transición crítica. Una misma infraestructura, infinitas configuraciones."
+            - generic [ref=e197]:
+              - generic [ref=e198]:
+                - img [ref=e200]
+                - generic [ref=e203]: 03. Entorno Controlado
+              - paragraph [ref=e204]: "Certificación y trazabilidad total: Fabricación en área sanitaria y envasado en 6 Salas Blancas certificadas y una Sala de Envasado Estéril, con planta de generación de agua purificada propia (700 L/h). Eliminamos riesgos de contaminación cruzada y garantizamos la trazabilidad batch desde la materia prima hasta el producto final."
+          - generic [ref=e205]:
+            - generic [ref=e206]:
+              - generic [ref=e207]:
+                - img [ref=e209]
+                - generic [ref=e212]: 04. Control de Calidad Integrado
+              - paragraph [ref=e213]: "Cero defectos en línea: Sistema de inspección y control de proceso continuo, complementado con etiquetado de alta precisión y acondicionamiento secundario. Cada envase es verificado antes de abandonar la línea."
+            - generic [ref=e214]:
+              - generic [ref=e215]:
+                - img [ref=e217]
+                - generic [ref=e220]: 05. Gestión Integral de Packaging
+              - paragraph [ref=e221]: "Full Service real: Diseño técnico y sourcing de envases, impresión gráfica industrial y gestión de packaging exterior con red de colaboradores auditados y certificados. Tú aportas la fórmula; nosotros gestionamos todo lo demás."
+            - generic [ref=e222]:
+              - generic [ref=e223]:
+                - img [ref=e225]
+                - generic [ref=e228]: 06. Partnership Operativo
+              - paragraph [ref=e229]: "Tu proyecto, nuestro equipo: Asignación de equipos multidisciplinares dedicados por proyecto (IQ, Producción, Calidad) que trabajan en modalidad de extensión de tu departamento de operaciones, no como proveedor externo."
+    - generic [ref=e238]:
+      - generic [ref=e239]:
+        - generic [ref=e240]:
+          - generic [ref=e241]: Soluciones de packaging para cada necesidad
+          - heading "Productos" [level=2] [ref=e242]
+          - paragraph [ref=e243]: Desarrollamos ecosistemas de envasado a medida. Desde el diseño estructural hasta la entrega final, garantizamos que cada producto mantenga su integridad y valor en manos de sus clientes.
+        - generic [ref=e244]:
+          - generic [ref=e245]:
+            - generic [ref=e246]: 100M
+            - generic [ref=e247]: Unidades / Año
+          - generic [ref=e249]:
+            - generic [ref=e250]: "+30"
+            - generic [ref=e251]: Líneas Activas
+      - generic [ref=e253]:
+        - generic [ref=e254] [cursor=pointer]:
+          - generic [ref=e257]:
+            - heading "Sachets & Toallitas" [level=3] [ref=e258]
+            - paragraph [ref=e259]: Formato ideal para retail y sampling. Económico, versátil, personalizable y eco-friendly.
+          - generic [ref=e260]:
+            - generic [ref=e261]: 0,1 ML - 100 ML
+            - button [ref=e262]:
+              - img [ref=e263]
+        - generic [ref=e264] [cursor=pointer]:
+          - generic [ref=e267]:
+            - heading "Frascos" [level=3] [ref=e268]
+            - paragraph [ref=e269]: El envase estándar más versátil. Sin limitaciones de formato, capacidad o cierre.
+          - generic [ref=e270]:
+            - generic [ref=e271]: 0,5 ML - 1 LITRO
+            - button [ref=e272]:
+              - img [ref=e273]
+        - generic [ref=e274] [cursor=pointer]:
+          - generic [ref=e277]:
+            - heading "Tarros y Tarrinas" [level=3] [ref=e278]
+            - paragraph [ref=e279]: Versatilidad máxima para cosmética y alimentación. Amplia gama de capacidades y acabados.
+          - generic [ref=e280]:
+            - generic [ref=e281]: 5 ML - 500 ML
+            - button [ref=e282]:
+              - img [ref=e283]
+        - generic [ref=e284] [cursor=pointer]:
+          - generic [ref=e287]:
+            - heading "Viales" [level=3] [ref=e288]
+            - paragraph [ref=e289]: Formato premium para cosmética y farmacia. Gran variedad de cierres especializados.
+          - generic [ref=e290]:
+            - generic [ref=e291]: 1 ML - 30 ML
+            - button [ref=e292]:
+              - img [ref=e293]
+    - generic [ref=e295]:
+      - generic [ref=e297]:
+        - generic [ref=e298]: Garantía de Confianza para Marcas Líderes
+        - heading "Rigor Normativo y Certificaciones 'Full Spectrum'" [level=2] [ref=e299]
+        - generic [ref=e300]:
+          - paragraph [ref=e301]: Nuestros procedimientos y buenas prácticas de trabajo están acreditadas por los organismos internacionales más exigentes.
+          - paragraph [ref=e302]: Mantenemos un ecosistema de certificaciones que actúa como un escudo de seguridad y confianza para marcas líderes a nivel mundial.
+      - generic [ref=e303]:
+        - img "Control de Calidad" [ref=e305]
+        - generic [ref=e308]:
+          - generic [ref=e310]:
+            - heading "Control de Calidad de Alta Precisión" [level=3] [ref=e311]
+            - paragraph [ref=e312]: Implementamos trazabilidad digital completa y validación clínica en cada fase, asegurando que cada unidad cumpla con los estándares de calidad requeridos.
+            - list [ref=e313]:
+              - listitem [ref=e314]: Validación microbiológica en laboratorio propio
+              - listitem [ref=e316]: Inspección visual del 100% de productos acabados
+              - listitem [ref=e318]: Trazabilidad digital completa de cada lote
+              - listitem [ref=e320]: Control estricto de estabilidad y hermeticidad
+          - generic [ref=e322]:
+            - generic [ref=e323]:
+              - generic [ref=e324]:
+                - img "Sistema de Gestión de la Calidad"
+              - heading "Sistema de Gestión de la Calidad" [level=3] [ref=e325]
+              - paragraph [ref=e326]: en base a la norma ISO9001
+            - generic [ref=e327]:
+              - generic [ref=e328]:
+                - img "Guía d. B. P. de Fabricación"
+              - heading "Guía d. B. P. de Fabricación" [level=3] [ref=e329]
+              - paragraph [ref=e330]: por la AEMPS y en base a la norma ISO22716
+            - generic [ref=e331]:
+              - generic [ref=e332]:
+                - img "Norma de Calidad y Seguridad Alimentaria"
+              - heading "Norma de Calidad y Seguridad Alimentaria" [level=3] [ref=e333]
+              - paragraph [ref=e334]: Certificación IFS Food
+            - generic [ref=e335]:
+              - generic [ref=e336]:
+                - img "Gestión Calidad Productos Sanitarios"
+              - heading "Gestión Calidad Productos Sanitarios" [level=3] [ref=e337]
+              - paragraph [ref=e338]: en base a la norma ISO13485
+            - generic [ref=e339]:
+              - generic [ref=e340]:
+                - img "Sistema Gestión del Medioambiente"
+              - heading "Sistema Gestión del Medioambiente" [level=3] [ref=e341]
+              - paragraph [ref=e342]: en base a la norma ISO14001
+            - generic [ref=e343]:
+              - generic [ref=e344]:
+                - img "Certificación de Sostenibilidad"
+              - heading "Certificación de Sostenibilidad" [level=3] [ref=e345]
+              - paragraph [ref=e346]: EcoVadis
+    - generic [ref=e348]:
+      - img "Instalaciones Central de Envasados" [ref=e350]
+      - generic [ref=e353]:
+        - generic [ref=e354]:
+          - generic [ref=e355]: Capacidad Industrial Certificada
+          - heading "Instalaciones de Vanguardia" [level=2] [ref=e356]
+        - generic [ref=e357]:
+          - generic [ref=e358]:
+            - generic [ref=e359]: "30"
+            - generic [ref=e360]: Líneas de Producción
+          - generic [ref=e361]:
+            - generic [ref=e362]: "6"
+            - generic [ref=e363]: Salas Blancas
+          - generic [ref=e364]:
+            - generic [ref=e365]: "700"
+            - generic [ref=e366]: L/h Agua Purificada
+          - generic [ref=e367]:
+            - generic [ref=e368]: "3000"
+            - generic [ref=e369]: m² Almacén
+        - generic [ref=e370]:
+          - generic [ref=e371]:
+            - img [ref=e372]
+            - heading "Fabricación de Grado Sanitario" [level=3] [ref=e374]
+            - paragraph [ref=e375]: Desarrollo de fórmulas críticas bajo protocolos asépticos y control digital total.
+          - generic [ref=e376]:
+            - img [ref=e377]
+            - heading "6 Salas Blancas Certificadas" [level=3] [ref=e380]
+            - paragraph [ref=e381]: Instalaciones cualificadas para productos sanitarios con control continuo de partículas y carga microbiológica.
+          - generic [ref=e382]:
+            - img [ref=e383]
+            - heading "Sala de Envasado Estéril" [level=3] [ref=e385]
+            - paragraph [ref=e386]: Área dedicada exclusivamente al envasado en condiciones asépticas estrictas (Sector Pharma).
+          - generic [ref=e387]:
+            - img [ref=e388]
+            - heading "Planta de Agua Purificada (700 L/h)" [level=3] [ref=e391]
+            - paragraph [ref=e392]: Garantía de calidad desde el origen. Suministro autónomo para fabricación y limpieza crítica.
+          - generic [ref=e393]:
+            - img [ref=e394]
+            - heading "6 Food Rooms Especializadas" [level=3] [ref=e396]
+            - paragraph [ref=e397]: Específicas para alimentación gourmet y nutraceúticos, con control de humedad activo.
+          - generic [ref=e398]:
+            - img [ref=e399]
+            - heading "Logística con Trazabilidad Total" [level=3] [ref=e402]
+            - paragraph [ref=e403]: Gestión integral de componentes con sistemas de validación de cada lote.
+    - generic [ref=e406]:
+      - generic [ref=e407]:
+        - generic [ref=e408]: HABLEMOS DE TU PRÓXIMO PROYECTO
+        - heading "Contacto" [level=2] [ref=e409]
+      - generic [ref=e410]:
+        - generic [ref=e412]:
+          - generic [ref=e413]:
+            - generic [ref=e414]:
+              - generic [ref=e415]: NOMBRE *
+              - textbox "NOMBRE *" [ref=e416]
+            - generic [ref=e417]:
+              - generic [ref=e418]: EMAIL *
+              - textbox "EMAIL *" [ref=e419]
+          - generic [ref=e420]:
+            - generic [ref=e421]:
+              - generic [ref=e422]: EMPRESA
+              - textbox "EMPRESA" [ref=e423]
+            - generic [ref=e424]:
+              - generic [ref=e425]: TELÉFONO
+              - textbox "TELÉFONO" [ref=e426]
+          - generic [ref=e427]:
+            - generic [ref=e428]: MENSAJE *
+            - textbox "MENSAJE *" [ref=e429]
+          - paragraph [ref=e430]: "Responsable: Central de Envasados, S.A. Finalidad: gestionar tu consulta. Legitimación: tu consentimiento. Puedes ejercer tus derechos escribiendo a contacto@centralenvasados.com."
+          - generic [ref=e431] [cursor=pointer]:
+            - checkbox "He leído y acepto la Política de Privacidad" [ref=e432]
+            - generic [ref=e433]:
+              - text: He leído y acepto la
+              - link "Política de Privacidad" [ref=e434]:
+                - /url: /politica-privacidad
+          - generic [ref=e435] [cursor=pointer]:
+            - checkbox "Acepto recibir comunicaciones comerciales." [ref=e436]
+            - generic [ref=e437]: Acepto recibir comunicaciones comerciales.
+          - button "ENVIAR MENSAJE" [ref=e438]:
+            - img [ref=e439]
+            - text: ENVIAR MENSAJE
+        - generic [ref=e442]:
+          - generic [ref=e443]:
+            - img [ref=e445]
+            - generic [ref=e448]:
+              - paragraph [ref=e449]: DIRECCIÓN
+              - link "Polígono Industrial La Garena Sur, Miguel Servet, 10, 28806 Alcalá de Henares (Madrid) ESPAÑA" [ref=e450] [cursor=pointer]:
+                - /url: https://www.google.com/maps/search/?api=1&query=Pol%C3%ADgono+Industrial+La+Garena+Sur%2C+Miguel+Servet%2C+10%2C+28806+Alcal%C3%A1+de+Henares+%28Madrid%29
+          - generic [ref=e451]:
+            - img [ref=e453]
+            - generic [ref=e455]:
+              - paragraph [ref=e456]: TELÉFONO
+              - link "+34 918 811 415" [ref=e457] [cursor=pointer]:
+                - /url: tel:+34918811415
+          - generic [ref=e458]:
+            - img [ref=e460]
+            - generic [ref=e463]:
+              - paragraph [ref=e464]: EMAIL
+              - link "contacto@centralenvasados.com" [ref=e465] [cursor=pointer]:
+                - /url: mailto:contacto@centralenvasados.com
+          - generic [ref=e466]:
+            - img [ref=e468]
+            - generic [ref=e471]:
+              - paragraph [ref=e472]: HORARIO
+              - paragraph [ref=e473]: "Lunes a Viernes: 8:00 - 17:00"
+  - contentinfo [ref=e474]:
+    - generic [ref=e475]:
+      - generic [ref=e476]:
+        - generic [ref=e477]:
+          - link "Central de Envasados" [ref=e478] [cursor=pointer]:
+            - /url: /
+            - img "Central de Envasados" [ref=e479]
+          - paragraph [ref=e480]: Partner estratégico de las principales marcas de cosmética, perfumería y cuidado personal. Más de 35 años de experiencia en fabricación y envasado de precisión.
+        - generic [ref=e481]:
+          - heading "ENLACES" [level=3] [ref=e482]
+          - list [ref=e483]:
+            - listitem [ref=e484]:
+              - link "Inicio" [ref=e485] [cursor=pointer]:
+                - /url: /#hero
+                - text: Inicio
+            - listitem [ref=e486]:
+              - link "Sectores" [ref=e487] [cursor=pointer]:
+                - /url: /sectores
+                - text: Sectores
+            - listitem [ref=e488]:
+              - link "Productos" [ref=e489] [cursor=pointer]:
+                - /url: /productos
+                - text: Productos
+            - listitem [ref=e490]:
+              - link "Instalaciones" [ref=e491] [cursor=pointer]:
+                - /url: /instalaciones
+                - text: Instalaciones
+            - listitem [ref=e492]:
+              - link "Calidad" [ref=e493] [cursor=pointer]:
+                - /url: /calidad
+                - text: Calidad
+            - listitem [ref=e494]:
+              - link "Contacto" [ref=e495] [cursor=pointer]:
+                - /url: /contacto
+                - text: Contacto
+        - generic [ref=e496]:
+          - heading "LEGAL" [level=3] [ref=e497]
+          - list [ref=e498]:
+            - listitem [ref=e499]:
+              - link "Aviso Legal" [ref=e500] [cursor=pointer]:
+                - /url: /aviso-legal
+                - text: Aviso Legal
+            - listitem [ref=e501]:
+              - link "Política de Privacidad" [ref=e502] [cursor=pointer]:
+                - /url: /politica-privacidad
+                - text: Política de Privacidad
+            - listitem [ref=e503]:
+              - link "Cookies" [ref=e504] [cursor=pointer]:
+                - /url: /cookies
+                - text: Cookies
+            - listitem [ref=e505]:
+              - link "Canal Ético" [ref=e506] [cursor=pointer]:
+                - /url: /canal-etico
+                - text: Canal Ético
+            - listitem [ref=e507]:
+              - link "Política de Gestión" [ref=e508] [cursor=pointer]:
+                - /url: /politica-gestion
+                - text: Política de Gestión
+      - paragraph [ref=e510]: Para ejercer tus derechos de protección de datos o consultar información detallada, accede a nuestra Política de Privacidad.
+      - paragraph [ref=e512]: © 2026 CENTRAL DE ENVASADOS, S.A. TODOS LOS DERECHOS RESERVADOS
