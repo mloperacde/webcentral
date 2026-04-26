@@ -283,7 +283,7 @@ export const SectoresPage = () => {
       <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white">
       {/* Wide Hero Subpage with Video Background */}
-      <section className="relative min-h-[95vh] flex flex-col justify-end md:justify-center lg:justify-end items-center pb-16 sm:pb-20 overflow-hidden">
+      <section className="relative min-h-[95vh] flex flex-col justify-center lg:justify-end items-center pb-16 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video 
             ref={videoRef}
@@ -308,7 +308,7 @@ export const SectoresPage = () => {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight leading-tight">
               {copy.title} <span className="text-accent italic">{copy.titleAccent}</span>
             </h1>
-            <p className="max-w-4xl mx-auto text-white/50 text-2xl lg:text-3xl font-light leading-relaxed mb-28 px-4 text-balance">
+            <p className="max-w-4xl mx-auto text-white/50 text-2xl lg:text-3xl font-light leading-relaxed mb-12 lg:mb-28 px-4 text-balance">
               {copy.subtitle}
             </p>
             
@@ -330,7 +330,7 @@ export const SectoresPage = () => {
           <motion.div 
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="mt-8 flex flex-col items-center gap-4 pointer-events-none"
+            className="mt-16 flex flex-col items-center gap-4 pointer-events-none"
           >
             <span className="text-[9px] text-white/20 uppercase tracking-[0.4em] [writing-mode:vertical-lr]">{copy.explore}</span>
             <div className="w-px h-16 bg-gradient-to-b from-white/20 to-transparent" />
