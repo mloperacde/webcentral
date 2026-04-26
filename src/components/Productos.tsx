@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Plus, X } from 'lucide-react';
+import { motion } from 'motion/react';
+import { Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Productos = () => {
   const { t, language } = useLanguage();
-  const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -146,10 +146,10 @@ export const Productos = () => {
                     delay: index * 0.1,
                     ease: [0.21, 0.47, 0.32, 0.98]
                   }}
-                  onClick={() => setSelectedProduct(product)}
                   className="group cursor-pointer aspect-video"
                 >
-                  <div className="relative w-full h-full [perspective:1000px]">
+                  <Link to="/productos" className="block w-full h-full">
+                    <div className="relative w-full h-full [perspective:1000px]">
                     <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] [will-change:transform] group-hover:[transform:rotateY(180deg)]">
                       {/* Front face */}
                       <div className="absolute inset-0 [backface-visibility:hidden] [transform:translateZ(1px)] rounded-3xl p-6 backdrop-blur-3xl border bg-white/[0.03] border-white/10 flex flex-col justify-between z-[2]">
@@ -165,15 +165,11 @@ export const Productos = () => {
                           <span className="text-accent text-[10px] tracking-[0.2em] uppercase font-bold">
                             {t(product.capacity)}
                           </span>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setSelectedProduct(product);
-                            }}
+                          <div
                             className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all duration-300 hover:scale-110"
                           >
                             <Plus className="w-4 h-4" />
-                          </button>
+                          </div>
                         </div>
                       </div>
 
@@ -187,7 +183,8 @@ export const Productos = () => {
                         />
                       </div>
                     </div>
-                  </div>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -195,56 +192,7 @@ export const Productos = () => {
         </div>
       </div>
 
-      {/* Image Modal */}
-      <AnimatePresence>
-        {selectedProduct && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-black/90 backdrop-blur-sm"
-            onClick={() => setSelectedProduct(null)}
-          >
-            <motion.div 
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="relative max-w-5xl w-full aspect-video bg-[#0a0a0a] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button 
-                onClick={() => setSelectedProduct(null)}
-                className="absolute top-6 right-6 z-10 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
-              >
-                <X className="w-5 h-5" />
-              </button>
 
-              <div className="absolute inset-0">
-                <img loading="lazy" 
-                  src={selectedProduct.image} 
-                  alt={t(selectedProduct.title)}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-              </div>
-
-              <div className="absolute bottom-0 left-0 right-0 p-8 sm:p-12">
-                <span className="text-accent text-[10px] tracking-[0.3em] uppercase font-bold mb-2 block">
-                  {t(selectedProduct.capacity)}
-                </span>
-                <h3 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
-                  {t(selectedProduct.title)}
-                </h3>
-                <p className="text-white/70 text-lg font-light max-w-2xl leading-relaxed">
-                  {t(selectedProduct.description)}
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 };
