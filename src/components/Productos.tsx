@@ -146,13 +146,49 @@ export const Productos = () => {
                     delay: index * 0.1,
                     ease: [0.21, 0.47, 0.32, 0.98]
                   }}
-                  className="group cursor-pointer aspect-video"
+                  className="group cursor-pointer sm:aspect-video"
                 >
                   <Link to="/productos" className="block w-full h-full">
-                    <div className="relative w-full h-full [perspective:1000px]">
-                    <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] [will-change:transform] group-hover:[transform:rotateY(180deg)]">
-                      {/* Front face */}
-                      <div className="absolute inset-0 [backface-visibility:hidden] [transform:translateZ(1px)] rounded-3xl p-6 backdrop-blur-3xl border bg-white/[0.03] border-white/10 flex flex-col justify-between z-[2]">
+                    {/* Desktop: 3D flip effect */}
+                    <div className="hidden sm:block relative w-full h-full [perspective:1000px]">
+                      <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] [will-change:transform] group-hover:[transform:rotateY(180deg)]">
+                        {/* Front face */}
+                        <div className="absolute inset-0 [backface-visibility:hidden] [transform:translateZ(1px)] rounded-3xl p-6 backdrop-blur-3xl border bg-white/[0.03] border-white/10 flex flex-col justify-between z-[2]">
+                          <div>
+                            <h3 className="text-xl font-bold text-white mb-3 tracking-tight uppercase">
+                              {t(product.title)}
+                            </h3>
+                            <p className="text-white/50 text-[13px] leading-relaxed line-clamp-2 font-light">
+                              {t(product.description)}
+                            </p>
+                          </div>
+                          <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
+                            <span className="text-accent text-[10px] tracking-[0.2em] uppercase font-bold">
+                              {t(product.capacity)}
+                            </span>
+                            <div
+                              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent hover:text-white transition-all duration-300 hover:scale-110"
+                            >
+                              <Plus className="w-4 h-4" />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Back face */}
+                        <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-3xl overflow-hidden z-[1]">
+                          <img
+                            src={product.image}
+                            alt={t(product.title)}
+                            className="w-full h-full object-cover"
+                            referrerPolicy="no-referrer"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Mobile: stacked card + image */}
+                    <div className="sm:hidden flex flex-col gap-4">
+                      <div className="rounded-3xl p-6 backdrop-blur-3xl border bg-white/[0.03] border-white/10 flex flex-col justify-between">
                         <div>
                           <h3 className="text-xl font-bold text-white mb-3 tracking-tight uppercase">
                             {t(product.title)}
@@ -172,9 +208,7 @@ export const Productos = () => {
                           </div>
                         </div>
                       </div>
-
-                      {/* Back face */}
-                      <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-3xl overflow-hidden z-[1]">
+                      <div className="rounded-3xl overflow-hidden aspect-video">
                         <img
                           src={product.image}
                           alt={t(product.title)}
@@ -182,7 +216,6 @@ export const Productos = () => {
                           referrerPolicy="no-referrer"
                         />
                       </div>
-                    </div>
                     </div>
                   </Link>
                 </motion.div>
