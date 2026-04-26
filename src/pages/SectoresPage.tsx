@@ -283,7 +283,7 @@ export const SectoresPage = () => {
       <PageMeta title={metaTitle} description={metaDesc} />
     <div className="bg-black min-h-screen text-white">
       {/* Wide Hero Subpage with Video Background */}
-      <section className="relative min-h-[95vh] flex flex-col justify-end md:justify-center lg:justify-end items-center pb-16 sm:pb-20 overflow-hidden">
+      <section className="relative min-h-[95vh] flex flex-col justify-center lg:justify-end items-center pt-20 lg:pt-0 pb-16 sm:pb-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video 
             ref={videoRef}
@@ -305,10 +305,10 @@ export const SectoresPage = () => {
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
 
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-4 sm:mb-8 tracking-tight leading-tight">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-2 sm:mb-8 tracking-tight leading-tight">
               {copy.title} <span className="text-accent italic">{copy.titleAccent}</span>
             </h1>
-            <p className="max-w-4xl mx-auto text-white/50 text-base sm:text-2xl lg:text-3xl font-light leading-relaxed mb-6 md:mb-12 lg:mb-28 px-4 text-balance">
+            <p className="max-w-4xl mx-auto text-white/50 text-base sm:text-2xl lg:text-3xl font-light leading-relaxed mb-4 md:mb-12 lg:mb-28 px-4 text-balance">
               {copy.subtitle}
             </p>
             
