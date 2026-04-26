@@ -79,7 +79,7 @@ export const NosotrosPage = () => {
           </motion.h1>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[clamp(240px,28vh,360px)] gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-min md:auto-rows-[minmax(180px,auto)] lg:auto-rows-[clamp(240px,28vh,360px)] gap-4">
           {gridItems.map((item, idx) => (
             <motion.div
               key={idx}
@@ -87,7 +87,7 @@ export const NosotrosPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-              className={`${item.span} relative overflow-hidden rounded-xl border border-white/5 group`}
+              className={`${item.span} relative ${item.type === 'text' ? 'overflow-visible' : 'overflow-hidden'} rounded-xl border border-white/5 group`}
             >
               {item.type === 'image' ? (
                 <img 
