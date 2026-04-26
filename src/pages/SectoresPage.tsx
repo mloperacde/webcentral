@@ -325,17 +325,17 @@ export const SectoresPage = () => {
               ))}
             </div>
           </motion.div>
-        </div>
 
-        {/* Scroll indicator */}
-        <motion.div 
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20 pointer-events-none"
-        >
-          <span className="text-[9px] text-white/20 uppercase tracking-[0.4em] [writing-mode:vertical-lr]">{copy.explore}</span>
-          <div className="w-px h-16 bg-gradient-to-b from-white/20 to-transparent" />
-        </motion.div>
+          {/* Scroll indicator */}
+          <motion.div 
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="mt-8 flex flex-col items-center gap-4 pointer-events-none"
+          >
+            <span className="text-[9px] text-white/20 uppercase tracking-[0.4em] [writing-mode:vertical-lr]">{copy.explore}</span>
+            <div className="w-px h-16 bg-gradient-to-b from-white/20 to-transparent" />
+          </motion.div>
+        </div>
       </section>
 
       {/* Details Sections */}
