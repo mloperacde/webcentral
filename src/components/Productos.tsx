@@ -146,11 +146,11 @@ export const Productos = () => {
                     delay: index * 0.1,
                     ease: [0.21, 0.47, 0.32, 0.98]
                   }}
-                  className="group cursor-pointer sm:aspect-video"
+                  className="group cursor-pointer lg:aspect-video"
                 >
                   <Link to="/productos" className="block w-full h-full">
                     {/* Desktop: 3D flip effect */}
-                    <div className="hidden sm:block relative w-full h-full [perspective:1000px]">
+                    <div className="hidden lg:block relative w-full h-full [perspective:1000px]">
                       <div className="relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] [will-change:transform] group-hover:[transform:rotateY(180deg)]">
                         {/* Front face */}
                         <div className="absolute inset-0 [backface-visibility:hidden] [transform:translateZ(1px)] rounded-3xl p-6 backdrop-blur-3xl border bg-white/[0.03] border-white/10 flex flex-col justify-between z-[2]">
@@ -186,8 +186,8 @@ export const Productos = () => {
                       </div>
                     </div>
 
-                    {/* Mobile: stacked card + image */}
-                    <div className="sm:hidden flex flex-col gap-4">
+                    {/* Mobile & Tablet: stacked card + image */}
+                    <div className="lg:hidden flex flex-col gap-4">
                       <div className="rounded-3xl p-6 backdrop-blur-3xl border bg-white/[0.03] border-white/10 flex flex-col justify-between">
                         <div>
                           <h3 className="text-xl font-bold text-white mb-3 tracking-tight uppercase">
