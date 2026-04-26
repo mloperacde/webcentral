@@ -305,14 +305,14 @@ export const InstalacionesPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-                className="group relative h-[400px] md:h-[500px] overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900/50"
+                className="group relative h-[400px] md:h-[500px] overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-900/20"
               >
                 <img 
                   src={fac.image} 
                   alt={fac.title} 
-                  className="w-full h-full object-cover opacity-40 transition-all duration-1000 group-hover:scale-110 group-hover:opacity-60"
+                  className="w-full h-full object-cover opacity-70 transition-all duration-1000 group-hover:scale-110 group-hover:opacity-90"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent z-10" />
                 <div className="absolute bottom-10 left-10 right-10 z-20">
                   <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center mb-6 border border-white/10">
                     <fac.icon className="w-5 h-5 text-accent" />

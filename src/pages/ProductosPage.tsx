@@ -498,10 +498,10 @@ export const ProductosPage = () => {
                 <img 
                   src={p.image} 
                   alt={p.title} 
-                  className="w-full h-full object-cover opacity-40 brightness-75 transition-all duration-700 hover:scale-105" 
+                  className="w-full h-full object-cover opacity-70 brightness-90 transition-all duration-700 hover:scale-105" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent" />
               </div>
 
               <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
