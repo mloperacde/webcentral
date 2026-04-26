@@ -38,9 +38,9 @@ const SectorDetail = ({ id, icon: Icon, title, description, features, image, con
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-x-16 gap-y-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12">
           {/* LEFT COLUMN: Content + Details */}
-          <div className="flex flex-col gap-12">
+          <div className="flex flex-col gap-12 order-1 lg:order-none">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -84,7 +84,7 @@ const SectorDetail = ({ id, icon: Icon, title, description, features, image, con
           </div>
 
           {/* RIGHT COLUMN: Image + Content Card (Bottom Aligned) */}
-          <div className="hidden lg:flex flex-col justify-end h-full">
+          <div className="flex flex-col justify-end order-2 lg:order-none lg:h-full">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
