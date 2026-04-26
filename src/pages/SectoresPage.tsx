@@ -308,18 +308,18 @@ export const SectoresPage = () => {
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white mb-4 sm:mb-8 tracking-tight leading-tight">
               {copy.title} <span className="text-accent italic">{copy.titleAccent}</span>
             </h1>
-            <p className="max-w-4xl mx-auto text-white/50 text-2xl lg:text-3xl font-light leading-relaxed mb-6 md:mb-12 lg:mb-28 px-4 text-balance">
+            <p className="max-w-4xl mx-auto text-white/50 text-base sm:text-2xl lg:text-3xl font-light leading-relaxed mb-6 md:mb-12 lg:mb-28 px-4 text-balance">
               {copy.subtitle}
             </p>
             
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
               {sectorData.map(s => (
                 <a 
                   key={s.id} 
                   href={`#${s.id}`}
-                  className="px-7 py-4 border border-white/10 bg-white/5 hover:border-white/30 transition-all text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.2em] flex items-center gap-3 group"
+                  className="px-4 py-2 sm:px-7 sm:py-4 border border-white/10 bg-white/5 hover:border-white/30 transition-all text-[10px] sm:text-[12px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 sm:gap-3 group"
                 >
-                  <s.icon className="w-5 h-5 text-accent/40 group-hover:text-accent transition-colors" />
+                  <s.icon className="w-4 h-4 sm:w-5 sm:h-5 text-accent/40 group-hover:text-accent transition-colors" />
                   {s.title}
                 </a>
               ))}
