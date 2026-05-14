@@ -5,7 +5,9 @@ import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 
-dotenv.config();
+// Load .env.local first, fallback to .env
+dotenv.config({ path: '.env.local' });
+dotenv.config({ path: '.env' });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,13 +32,21 @@ async function startServer() {
     }
 
     try {
+      const smtpUser = process.env.SMTP_USER;
+      const smtpPass = process.env.SMTP_PASS;
+
+      if (!smtpUser || !smtpPass) {
+        console.error("SMTP credentials are missing. Please set SMTP_USER and SMTP_PASS in .env.local");
+        return res.status(500).json({ error: "Server email configuration is incomplete. Please contact the administrator." });
+      }
+
       const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST || "smtp.gmail.com",
         port: parseInt(process.env.SMTP_PORT || "587"),
         secure: process.env.SMTP_SECURE === "true",
         auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+          user: smtpUser,
+          pass: smtpPass,
         },
       });
 
